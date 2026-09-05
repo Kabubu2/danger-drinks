@@ -1,0 +1,14 @@
+{
+  "Title": "Dangerous Drinks",
+  "Type": "game",
+  "Org": "local",
+  "Ident": "dangerous_drinks",
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Mounts": null,
+  "IsStandaloneOnly": false,
+  "Metadata": {}
+}

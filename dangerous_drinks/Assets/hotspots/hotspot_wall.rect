@@ -1,0 +1,260 @@
+{
+  "RectangleSets": [
+    {
+      "Name": null,
+      "Rectangles": [
+        {
+          "Min": [
+            0,
+            16384
+          ],
+          "Max": [
+            5461,
+            21845
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            0,
+            21845
+          ],
+          "Max": [
+            5461,
+            24576
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            0,
+            24576
+          ],
+          "Max": [
+            5461,
+            27306
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            0,
+            27306
+          ],
+          "Max": [
+            32768,
+            30037
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": true
+          }
+        },
+        {
+          "Min": [
+            0,
+            30037
+          ],
+          "Max": [
+            5461,
+            31402
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            5461,
+            30037
+          ],
+          "Max": [
+            16384,
+            31402
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            16384,
+            30037
+          ],
+          "Max": [
+            32768,
+            31402
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            0,
+            31402
+          ],
+          "Max": [
+            32768,
+            32768
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            16384,
+            0
+          ],
+          "Max": [
+            32768,
+            16384
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            0,
+            0
+          ],
+          "Max": [
+            16384,
+            5461
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            0,
+            5461
+          ],
+          "Max": [
+            16384,
+            16384
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            5461,
+            21845
+          ],
+          "Max": [
+            16384,
+            24576
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            5461,
+            16384
+          ],
+          "Max": [
+            16384,
+            21845
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            16384,
+            21845
+          ],
+          "Max": [
+            32768,
+            24576
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            16384,
+            16384
+          ],
+          "Max": [
+            32768,
+            21845
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        },
+        {
+          "Min": [
+            5461,
+            24576
+          ],
+          "Max": [
+            32768,
+            27306
+          ],
+          "Properties": {
+            "AllowRotation": true,
+            "AllowTiling": false
+          }
+        }
+      ]
+    }
+  ],
+  "Settings": {
+    "ReferenceMaterial": "materials/hs_wood_1.vmat",
+    "ShowNormalizedValues": false,
+    "GridSize": 34,
+    "IsFastTextureTool": false,
+    "FastTextureSettings": {
+      "Mapping": "UnwrapSquare",
+      "ShowRects": false,
+      "IsTileView": false,
+      "Alignment": "UAxis",
+      "IsFlippedHorizontal": false,
+      "IsFlippedVertical": false,
+      "ScaleMode": "Fit",
+      "TileMode": "MaintainAspect",
+      "Repeat": 1,
+      "DebugMode": "Default",
+      "InsetX": 0,
+      "InsetY": 0,
+      "SavedRectMin": "0,0",
+      "SavedRectMax": "1,1",
+      "GridSize": 16,
+      "IsPickingEdge": false,
+      "EditVertices": false,
+      "OnMappingChanged": null,
+      "OnSettingsChanged": null
+    }
+  }
+}
