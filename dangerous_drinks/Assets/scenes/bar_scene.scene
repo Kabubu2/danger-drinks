@@ -1334,14 +1334,13 @@
             "_type": "gameobject",
             "prefab": "prefab/bottle.prefab"
           },
-          "Direction": "1,0,0",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Spacing": 7
+          "spawnOffset": "7,0,0"
         }
       ],
       "Children": []
