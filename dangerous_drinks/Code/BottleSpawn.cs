@@ -9,7 +9,9 @@ public sealed class BottleSpawn : Component
 	[Property]
 	private GameObject bottlePrefab;
 	[Property]
-	private GameObject bottleFolder;	
+	private GameObject bottleFolder;
+	[Property]
+	private Vector3 spawnOffset = new Vector3(0,0,0);	
 	protected override void OnUpdate()
 	{
 		
@@ -19,7 +21,8 @@ public sealed class BottleSpawn : Component
 
 			for (int i = 0; i < loopCount; i++)
 			{
-				bottlePrefab.Clone( bottleFolder.WorldPosition);
+				GameObject bottle = bottlePrefab.Clone();
+				bottle.LocalPosition = (Vector3.Zero + (spawnOffset*i));
 			}
 			
 		}
