@@ -1,9 +1,9 @@
 {
   "RootObject": {
-    "__guid": "5f56e2ff-c2fe-4306-86c3-e5cb405832a4",
+    "__guid": "9b879729-f673-4492-862b-527ada5f9883",
     "__version": 2,
     "Flags": 0,
-    "Name": "Bottle",
+    "Name": "bottle",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -17,7 +17,7 @@
     "Components": [],
     "Children": [
       {
-        "__guid": "36c30f1c-cd29-4371-974d-b358e26155cd",
+        "__guid": "ccf9442c-7625-4444-aa58-f2190259b838",
         "__version": 2,
         "Flags": 0,
         "Name": "bottle_a",
@@ -34,7 +34,7 @@
         "Components": [
           {
             "__type": "Sandbox.Prop",
-            "__guid": "344af6e4-244b-4d92-8043-5de4090b6e6d",
+            "__guid": "67d3728e-face-4ef9-b1fa-63ffba862954",
             "__enabled": true,
             "Flags": 0,
             "BodyGroups": 18446744073709551615,
@@ -56,7 +56,7 @@
           },
           {
             "__type": "Sandbox.ModelRenderer",
-            "__guid": "33d291c6-a5d0-4720-b3b7-980864d56239",
+            "__guid": "25bd3013-6b75-49c1-b7b3-1dce48410642",
             "__enabled": true,
             "Flags": 0,
             "BodyGroups": 18446744073709551615,
@@ -83,7 +83,7 @@
           },
           {
             "__type": "Sandbox.ModelCollider",
-            "__guid": "4cda649c-8755-43b5-a801-4ef2d0a6045b",
+            "__guid": "765c0104-d30a-4a30-96c0-d9033a5a6e32",
             "__enabled": true,
             "Flags": 0,
             "ColliderFlags": 0,
@@ -108,8 +108,8 @@
           },
           {
             "__type": "Sandbox.Rigidbody",
-            "__guid": "745c6e0a-3dd4-41ba-b48d-8dc1f6c5e9ce",
-            "__enabled": true,
+            "__guid": "96cf8a10-66c0-4971-983c-9b224a429071",
+            "__enabled": false,
             "Flags": 0,
             "AngularDamping": 0,
             "EnableImpactDamage": true,
@@ -143,8 +143,47 @@
           }
         ],
         "Children": []
+      },
+      {
+        "__guid": "79e63102-945b-49fd-9897-60c4048e5712",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "IK Target",
+        "Position": "0,0,15",
+        "Rotation": "0.683012664,-0.683012664,0.183012724,0.183012724",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [],
+        "Children": []
       }
-    ]
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
   },
   "ResourceVersion": 2,
   "ShowInMenu": false,
