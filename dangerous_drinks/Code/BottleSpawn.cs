@@ -2,12 +2,15 @@ using Sandbox;
 
 public sealed class BottleSpawn : Component
 {
-	
+	[Property]
+	private GameObject bottlePrefab;
+	[Property]
+	private GameObject spawnOrigin;
 	protected override void OnUpdate()
 	{
 		if (Input.Pressed("Attack1"))
 		{
-			GameObject.GetPrefab("Bottle").Clone(Vector3.Random * 100);
+			bottlePrefab.Clone(spawnOrigin.WorldPosition);
 		}
 	}
 }
