@@ -626,7 +626,16 @@
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
-        "PropertyOverrides": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "96cf8a10-66c0-4971-983c-9b224a429071"
+            },
+            "Property": "__enabled",
+            "Value": true
+          }
+        ],
         "MovedObjects": []
       },
       "__PrefabIdToInstanceId": {
