@@ -22,7 +22,9 @@ public sealed class BottleSpawn : Component
 			for (int i = 0; i < loopCount; i++)
 			{
 				GameObject bottle = bottlePrefab.Clone();
-				bottle.LocalPosition = (Vector3.Zero + (spawnOffset*i));
+				bottle.Parent = bottleFolder;
+				bottle.LocalPosition = Vector3.Zero + (spawnOffset*i);
+				
 			}
 			
 		}

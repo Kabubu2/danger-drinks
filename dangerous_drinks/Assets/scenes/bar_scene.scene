@@ -418,14 +418,15 @@
           "__guid": "adcf000c-643e-4e20-bda3-cfdbc2092284",
           "__enabled": true,
           "Flags": 0,
+          "bottleFolder": null,
           "bottlePrefab": null,
-          "bottlespawn": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "spawnOffset": "0,0,0"
         },
         {
           "__type": "PlayerBottleSelector",
@@ -458,7 +459,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Bottles",
-      "Position": "62.5483017,174.188095,19.2248535",
+      "Position": "0,0,27.8367634",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -468,7 +469,29 @@
       "NetworkOrphaned": 0,
       "NetworkTransmit": true,
       "OwnerTransfer": 1,
-      "Components": [],
+      "Components": [
+        {
+          "__type": "BottleSpawn",
+          "__guid": "666cfefa-ea83-472c-b9ed-4be371c80234",
+          "__enabled": true,
+          "Flags": 0,
+          "bottleFolder": {
+            "_type": "gameobject",
+            "go": "2dd03c60-1244-40b5-81d0-861cc340b873"
+          },
+          "bottlePrefab": {
+            "_type": "gameobject",
+            "prefab": "prefab/bottle.prefab"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "spawnOffset": "0,0,0"
+        }
+      ],
       "Children": []
     },
     {
