@@ -1,5 +1,6 @@
 using System;
 using Sandbox;
+using Sandbox.Diagnostics;
 
 
 public sealed class BottleSpawn : Component
@@ -7,7 +8,7 @@ public sealed class BottleSpawn : Component
 
 
 	[Property]
-	private GameObject bottlePrefab;
+	private GameObject bottlePrefab {get; set;}
 	[Property]
 	private GameObject bottleFolder;
 	[Property]
@@ -17,16 +18,18 @@ public sealed class BottleSpawn : Component
 		
 		if (Input.Pressed("Attack1"))
 		{
-			int loopCount = new Random().Next(1, 7);
+			var a = new Random().Next(3,6);
 
-			for (int i = 0; i < loopCount; i++)
+			for (int i = 0; i <= a; i++)
 			{
-				GameObject bottle = bottlePrefab.Clone();
+
+				GameObject bottle = bottlePrefab.Clone(bottleFolder, Vector3.Zero, Rotation.Identity, Vector3.One);
 				bottle.Parent = bottleFolder;
 				bottle.LocalPosition = Vector3.Zero + (spawnOffset*i);
 				
 			}
 			
 		}
+		
 	}
 }

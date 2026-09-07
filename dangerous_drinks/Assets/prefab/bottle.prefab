@@ -161,6 +161,46 @@
         "OwnerTransfer": 1,
         "Components": [],
         "Children": []
+      },
+      {
+        "__guid": "5095c133-7b5c-432f-93cd-0ebb30251aab",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "Point Light",
+        "Position": "0,0,4.796875",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "light_point,light",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.PointLight",
+            "__guid": "6d8d8197-01ea-4002-9e21-ff8722bdf63e",
+            "__enabled": true,
+            "Flags": 0,
+            "Attenuation": 5.1012144,
+            "Contribution": "Diffuse, Specular, Transmissive",
+            "FogMode": "Disabled",
+            "FogStrength": 0,
+            "LightColor": "0.16471,0.72549,0.73333,1",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Radius": 35,
+            "ShadowBias": 0,
+            "ShadowHardness": 0,
+            "Shadows": false
+          }
+        ],
+        "Children": []
       }
     ],
     "__properties": {
