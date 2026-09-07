@@ -57,11 +57,11 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Main Camera (1)",
-      "Position": "140.140106,158.066788,71.8827362",
-      "Rotation": "0,0,-0.866025329,0.500000358",
+      "Position": "-3.66863203,-47.7850723,53.4429169",
+      "Rotation": "0,0,-0.707107186,-0.70710659",
       "Scale": "1,1,1",
       "Tags": "",
-      "Enabled": true,
+      "Enabled": false,
       "NetworkMode": 2,
       "NetworkFlags": 0,
       "NetworkOrphaned": 0,
@@ -380,275 +380,6 @@
       "Children": []
     },
     {
-      "__guid": "19f61658-ab98-4795-bdbe-d47324d755ab",
-      "__version": 2,
-      "Flags": 0,
-      "Name": "citizen_human_male",
-      "Position": "181.011353,2.93743134,0.0334691927",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkFlags": 0,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.Prop",
-          "__guid": "e4f2b9c1-c4c6-4940-a98c-1e3dcc82ce50",
-          "__enabled": true,
-          "Flags": 0,
-          "BodyGroups": 5441,
-          "Health": 0,
-          "IsStatic": false,
-          "MaterialGroup": null,
-          "Model": "models/citizen_human/citizen_human_male.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnGibsCreated": null,
-          "OnPropBreak": null,
-          "OnPropTakeDamage": null,
-          "StartAsleep": false,
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "bed093f9-bc52-4454-a313-676c61bbe5db",
-          "__enabled": true,
-          "Flags": 0,
-          "AnimationGraph": null,
-          "BodyGroups": 5441,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/citizen_human/citizen_human_male.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
-          },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": true
-        },
-        {
-          "__type": "Sandbox.ModelPhysics",
-          "__guid": "a1ed08e3-0197-43a9-93a5-991fa904f113",
-          "__enabled": true,
-          "Flags": 0,
-          "Bodies": [],
-          "IgnoreRoot": false,
-          "Joints": [],
-          "Locking": {
-            "X": false,
-            "Y": false,
-            "Z": false,
-            "Pitch": false,
-            "Yaw": false,
-            "Roll": false
-          },
-          "Model": "models/citizen_human/citizen_human_male.vmdl",
-          "MotionEnabled": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "PhysicsWereCreated": false,
-          "Renderer": {
-            "_type": "component",
-            "component_id": "bed093f9-bc52-4454-a313-676c61bbe5db",
-            "go": "19f61658-ab98-4795-bdbe-d47324d755ab",
-            "component_type": "SkinnedModelRenderer"
-          },
-          "RigidbodyFlags": 0,
-          "StartAsleep": false
-        }
-      ],
-      "Children": []
-    },
-    {
-      "__guid": "8a2a5d7f-547f-4f2c-a3ec-62b5e62ece7d",
-      "__version": 2,
-      "Flags": 0,
-      "Name": "citizen_human_male (1)",
-      "Position": "-0.764296293,41.5136566,3.97627592",
-      "Rotation": "0,0,-0.707106471,0.707107127",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkFlags": 0,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.Prop",
-          "__guid": "71a78ca1-6ddd-426a-b6c1-76e4f8637518",
-          "__enabled": true,
-          "Flags": 0,
-          "BodyGroups": 5441,
-          "Health": 0,
-          "IsStatic": false,
-          "MaterialGroup": null,
-          "Model": "models/citizen_human/citizen_human_male.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnGibsCreated": null,
-          "OnPropBreak": null,
-          "OnPropTakeDamage": null,
-          "StartAsleep": false,
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "a4856080-eda6-4b6f-b082-c2f4ff79343c",
-          "__enabled": true,
-          "Flags": 0,
-          "AnimationGraph": null,
-          "BodyGroups": 5441,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/citizen_human/citizen_human_male.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
-          },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": true
-        },
-        {
-          "__type": "Sandbox.ModelPhysics",
-          "__guid": "ff6c5e83-441c-4a38-8f84-f86912ddb98e",
-          "__enabled": true,
-          "Flags": 0,
-          "Bodies": [],
-          "IgnoreRoot": false,
-          "Joints": [],
-          "Locking": {
-            "X": false,
-            "Y": false,
-            "Z": false,
-            "Pitch": false,
-            "Yaw": false,
-            "Roll": false
-          },
-          "Model": "models/citizen_human/citizen_human_male.vmdl",
-          "MotionEnabled": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "PhysicsWereCreated": false,
-          "Renderer": {
-            "_type": "component",
-            "component_id": "a4856080-eda6-4b6f-b082-c2f4ff79343c",
-            "go": "8a2a5d7f-547f-4f2c-a3ec-62b5e62ece7d",
-            "component_type": "SkinnedModelRenderer"
-          },
-          "RigidbodyFlags": 0,
-          "StartAsleep": false
-        }
-      ],
-      "Children": []
-    },
-    {
-      "__guid": "3e71cb4a-9916-8dcc-aeb2-bf55a5643f0c",
-      "__version": 2,
-      "__Prefab": "prefab/bottle.prefab",
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "96cf8a10-66c0-4971-983c-9b224a429071"
-            },
-            "Property": "__enabled",
-            "Value": true
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "765c0104-d30a-4a30-96c0-d9033a5a6e32": "4385f31d-0178-8bf1-8f55-b2a693c7ca5a",
-        "25bd3013-6b75-49c1-b7b3-1dce48410642": "1f441b89-b0bb-8163-bd20-ed5e3e6b1436",
-        "67d3728e-face-4ef9-b1fa-63ffba862954": "ef23f1c9-f7a2-84ce-a5c4-3afada05ae3c",
-        "79e63102-945b-49fd-9897-60c4048e5712": "a54d128a-af45-80e5-828d-eed6d05d52bc",
-        "ccf9442c-7625-4444-aa58-f2190259b838": "60c0863f-c8f5-86b6-8b4c-73a2da5a88a1",
-        "9b879729-f673-4492-862b-527ada5f9883": "3e71cb4a-9916-8dcc-aeb2-bf55a5643f0c",
-        "96cf8a10-66c0-4971-983c-9b224a429071": "0f91af80-98e9-8a94-85fa-efc38efcb62a"
-      }
-    },
-    {
       "__guid": "a1106948-0b6c-42b4-b533-27bae60099bf",
       "__version": 2,
       "Flags": 0,
@@ -657,7 +388,7 @@
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
-      "Enabled": true,
+      "Enabled": false,
       "NetworkMode": 2,
       "NetworkFlags": 0,
       "NetworkOrphaned": 0,
@@ -671,7 +402,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Game Logic",
-      "Position": "7.80681801,233.321609,-38.3921585",
+      "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -685,12 +416,9 @@
         {
           "__type": "BottleSpawn",
           "__guid": "adcf000c-643e-4e20-bda3-cfdbc2092284",
-          "__enabled": true,
+          "__enabled": false,
           "Flags": 0,
-          "bottlePrefab": {
-            "_type": "gameobject",
-            "go": "3e71cb4a-9916-8dcc-aeb2-bf55a5643f0c"
-          },
+          "bottlePrefab": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -701,6 +429,406 @@
             "_type": "gameobject",
             "go": "a1106948-0b6c-42b4-b533-27bae60099bf"
           }
+        },
+        {
+          "__type": "PlayerBottleSelector",
+          "__guid": "599fa0ed-3e99-4774-86d3-5acca1b7b6aa",
+          "__enabled": true,
+          "Flags": 0,
+          "bottleContainer": {
+            "_type": "gameobject",
+            "go": "2dd03c60-1244-40b5-81d0-861cc340b873"
+          },
+          "bottles": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PlayerHandCon": {
+            "_type": "component",
+            "component_id": "5c416ac0-397b-4b7a-a60d-cfcbeeadb44c",
+            "go": "03309ef1-4726-4240-a4ac-5f56461c0ccd",
+            "component_type": "PlayerHand2Target"
+          }
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "2dd03c60-1244-40b5-81d0-861cc340b873",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Bottles",
+      "Position": "62.5483017,174.188095,19.2248535",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [],
+      "Children": [
+        {
+          "__guid": "9d7747b3-98ad-48e5-b74c-4c1061e62031",
+          "__version": 2,
+          "__Prefab": "prefab/bottle.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "9b879729-f673-4492-862b-527ada5f9883"
+                },
+                "Property": "Position",
+                "Value": "-81.4742279,-174.188095,8.1603775"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "96cf8a10-66c0-4971-983c-9b224a429071"
+                },
+                "Property": "__enabled",
+                "Value": true
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "765c0104-d30a-4a30-96c0-d9033a5a6e32": "66e0a917-a596-442d-b2f5-5c12a78e4804",
+            "25bd3013-6b75-49c1-b7b3-1dce48410642": "b2ebb97b-fb70-4977-ba04-142ca6e18d85",
+            "67d3728e-face-4ef9-b1fa-63ffba862954": "e0b924f9-4f6e-49a1-9cb2-eaefc77e59d0",
+            "79e63102-945b-49fd-9897-60c4048e5712": "bee72b0c-ef59-4428-9add-320ffcfcbac8",
+            "ccf9442c-7625-4444-aa58-f2190259b838": "beec6150-4de7-40a3-9598-d6105612600c",
+            "9b879729-f673-4492-862b-527ada5f9883": "9d7747b3-98ad-48e5-b74c-4c1061e62031",
+            "96cf8a10-66c0-4971-983c-9b224a429071": "8e86be0e-6b17-4967-babb-f5a3284e4334"
+          }
+        },
+        {
+          "__guid": "cddc79b6-9eff-417d-9b46-8e591db49c97",
+          "__version": 2,
+          "__Prefab": "prefab/bottle.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "9b879729-f673-4492-862b-527ada5f9883"
+                },
+                "Property": "Position",
+                "Value": "-74.4824982,-174.188095,8.1603775"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "96cf8a10-66c0-4971-983c-9b224a429071"
+                },
+                "Property": "__enabled",
+                "Value": true
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "765c0104-d30a-4a30-96c0-d9033a5a6e32": "b37d76aa-91ef-46d8-b380-58184981c53b",
+            "25bd3013-6b75-49c1-b7b3-1dce48410642": "3137f5f0-f167-4d9e-9057-7e5c0f83853e",
+            "67d3728e-face-4ef9-b1fa-63ffba862954": "a34ea3c0-021e-421d-b035-5f95bb26e6c4",
+            "79e63102-945b-49fd-9897-60c4048e5712": "89de1b60-8c6a-4960-9d8d-592a2e88132f",
+            "ccf9442c-7625-4444-aa58-f2190259b838": "4750baf5-2c2c-43e6-bd4f-94bf013af340",
+            "9b879729-f673-4492-862b-527ada5f9883": "cddc79b6-9eff-417d-9b46-8e591db49c97",
+            "96cf8a10-66c0-4971-983c-9b224a429071": "0cf50ce1-9a95-4d3b-b4db-d10f45c3e7b6"
+          }
+        },
+        {
+          "__guid": "9071fead-b176-4e5f-8302-6e6b95646415",
+          "__version": 2,
+          "__Prefab": "prefab/bottle.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "9b879729-f673-4492-862b-527ada5f9883"
+                },
+                "Property": "Position",
+                "Value": "-67.2032318,-174.188095,8.1603775"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "96cf8a10-66c0-4971-983c-9b224a429071"
+                },
+                "Property": "__enabled",
+                "Value": true
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "765c0104-d30a-4a30-96c0-d9033a5a6e32": "e1742819-84d7-4492-9232-dad3254d3829",
+            "25bd3013-6b75-49c1-b7b3-1dce48410642": "02bf11af-0864-4d66-bb1c-9163c3074186",
+            "67d3728e-face-4ef9-b1fa-63ffba862954": "3be111aa-a1f1-4afe-a54d-7ca29d549960",
+            "79e63102-945b-49fd-9897-60c4048e5712": "4c29c60d-3781-41d2-b09a-e7678023f3a7",
+            "ccf9442c-7625-4444-aa58-f2190259b838": "b124b4a3-c242-4771-87b7-7354c608e7ba",
+            "9b879729-f673-4492-862b-527ada5f9883": "9071fead-b176-4e5f-8302-6e6b95646415",
+            "96cf8a10-66c0-4971-983c-9b224a429071": "ad278ace-c9c6-4ee6-ac76-85f8259df5d7"
+          }
+        },
+        {
+          "__guid": "3321323a-4395-44ff-b4f8-67914846ad84",
+          "__version": 2,
+          "__Prefab": "prefab/bottle.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "9b879729-f673-4492-862b-527ada5f9883"
+                },
+                "Property": "Position",
+                "Value": "-59.9729042,-174.188095,8.1603775"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "96cf8a10-66c0-4971-983c-9b224a429071"
+                },
+                "Property": "__enabled",
+                "Value": true
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "765c0104-d30a-4a30-96c0-d9033a5a6e32": "a84604af-8de6-4a29-ad88-e72479318125",
+            "25bd3013-6b75-49c1-b7b3-1dce48410642": "1072e7c3-03c8-48ba-8ad7-81bc2f5ba212",
+            "67d3728e-face-4ef9-b1fa-63ffba862954": "546a215e-4be9-4e99-bef7-a0d266bd8970",
+            "79e63102-945b-49fd-9897-60c4048e5712": "380b0a7f-9c94-46e8-b890-e7a0eab8f992",
+            "ccf9442c-7625-4444-aa58-f2190259b838": "e504bd60-b82e-4a0e-9de0-a2160617f7c4",
+            "9b879729-f673-4492-862b-527ada5f9883": "3321323a-4395-44ff-b4f8-67914846ad84",
+            "96cf8a10-66c0-4971-983c-9b224a429071": "9ab4dcf2-823e-4c9b-bfc1-c456461307fb"
+          }
+        },
+        {
+          "__guid": "99164796-70f1-4198-ba57-427f885edb3c",
+          "__version": 2,
+          "__Prefab": "prefab/bottle.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "9b879729-f673-4492-862b-527ada5f9883"
+                },
+                "Property": "Position",
+                "Value": "-53.075058,-174.188095,8.1603775"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "96cf8a10-66c0-4971-983c-9b224a429071"
+                },
+                "Property": "__enabled",
+                "Value": true
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "765c0104-d30a-4a30-96c0-d9033a5a6e32": "25fce783-03cf-4a20-8b23-c252703a4a41",
+            "25bd3013-6b75-49c1-b7b3-1dce48410642": "078d2e5d-1995-4793-acd6-2be8e39daf1d",
+            "67d3728e-face-4ef9-b1fa-63ffba862954": "3c54ab8b-ec09-4765-bf40-653d571a4333",
+            "79e63102-945b-49fd-9897-60c4048e5712": "d7c449db-2945-48a7-991f-e0680c975113",
+            "ccf9442c-7625-4444-aa58-f2190259b838": "18af8cf7-5b5e-442f-a245-3d96b48fb904",
+            "9b879729-f673-4492-862b-527ada5f9883": "99164796-70f1-4198-ba57-427f885edb3c",
+            "96cf8a10-66c0-4971-983c-9b224a429071": "09ddcdaf-c0ce-4d13-b219-bd10f8aaca08"
+          }
+        },
+        {
+          "__guid": "60f28141-f81e-46ad-b4eb-fa82e8ac6205",
+          "__version": 2,
+          "__Prefab": "prefab/bottle.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "9b879729-f673-4492-862b-527ada5f9883"
+                },
+                "Property": "Position",
+                "Value": "-46.377449,-174.188095,8.1603775"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "96cf8a10-66c0-4971-983c-9b224a429071"
+                },
+                "Property": "__enabled",
+                "Value": true
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "765c0104-d30a-4a30-96c0-d9033a5a6e32": "fe209f11-20a3-4afb-b62c-d94beded1b67",
+            "25bd3013-6b75-49c1-b7b3-1dce48410642": "513aa828-b068-4bc8-a38d-f61a4474aaba",
+            "67d3728e-face-4ef9-b1fa-63ffba862954": "62cad1c7-04eb-48f3-b671-9bd323ec7bc0",
+            "79e63102-945b-49fd-9897-60c4048e5712": "02521d3e-9ea9-49f8-a5cc-02aa96aae701",
+            "ccf9442c-7625-4444-aa58-f2190259b838": "aba0f8af-bae2-468d-854f-790c984ae47a",
+            "9b879729-f673-4492-862b-527ada5f9883": "60f28141-f81e-46ad-b4eb-fa82e8ac6205",
+            "96cf8a10-66c0-4971-983c-9b224a429071": "466fc8c1-6428-41e0-8e74-8ed191fe3b3b"
+          }
+        }
+      ]
+    },
+    {
+      "__guid": "03309ef1-4726-4240-a4ac-5f56461c0ccd",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "FalsePlayer",
+      "Position": "0,33.2247009,0",
+      "Rotation": "0,0,-0.707106769,0.707106769",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "289a95bf-b54b-4174-8a5e-d9cb627fc948",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 5441,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/citizen/citizen_male.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnGibsCreated": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "fd2faa81-4741-4e71-95c5-e845545ba61e",
+          "__enabled": true,
+          "Flags": 0,
+          "AnimationGraph": "animgraphs/citizen_human_m.vanmgrph",
+          "BodyGroups": 5441,
+          "BoneMergeTarget": null,
+          "CreateAttachments": false,
+          "CreateBoneObjects": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/citizen/citizen_male.vmdl",
+          "Morphs": {},
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parameters": {
+            "bools": {},
+            "ints": {},
+            "floats": {},
+            "vectors": {},
+            "rotations": {}
+          },
+          "PlaybackRate": 1,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Sequence": {
+            "Name": null,
+            "Looping": true,
+            "Blending": false
+          },
+          "Tint": "1,1,1,1",
+          "UseAnimGraph": true
+        },
+        {
+          "__type": "Sandbox.ModelPhysics",
+          "__guid": "1dbbf9df-7b8b-4b94-854e-ee07234a04f8",
+          "__enabled": false,
+          "Flags": 0,
+          "Bodies": [],
+          "IgnoreRoot": false,
+          "Joints": [],
+          "Locking": {
+            "X": false,
+            "Y": false,
+            "Z": false,
+            "Pitch": false,
+            "Yaw": false,
+            "Roll": false
+          },
+          "Model": "models/citizen/citizen_male.vmdl",
+          "MotionEnabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PhysicsWereCreated": false,
+          "Renderer": {
+            "_type": "component",
+            "component_id": "fd2faa81-4741-4e71-95c5-e845545ba61e",
+            "go": "03309ef1-4726-4240-a4ac-5f56461c0ccd",
+            "component_type": "SkinnedModelRenderer"
+          },
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "PlayerHand2Target",
+          "__guid": "5c416ac0-397b-4b7a-a60d-cfcbeeadb44c",
+          "__enabled": true,
+          "Flags": 0,
+          "EnableIKHand": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "targetPos": "0,0,0",
+          "targetPref": null,
+          "targetRot": "0,0,0,0"
         }
       ],
       "Children": []
