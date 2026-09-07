@@ -1,6 +1,5 @@
 using System;
 using Sandbox;
-using Sandbox.Diagnostics;
 
 
 public sealed class BottleSpawn : Component
@@ -8,29 +7,39 @@ public sealed class BottleSpawn : Component
 
 
 	[Property]
-	private GameObject bottlePrefab {get; set;}
+	private GameObject bottlePrefab;
 	[Property]
-	private GameObject bottleFolder {get; set;}
+	private GameObject bottleFolder;
 	[Property]
-	private Vector3 spawnOffset = new Vector3(0,0,0);	
+	public float Spacing {get; set;} = 200f;
+	[Property]
+	private Vector3 Direction {get; set;} = Vector3.Forward;
 	protected override void OnUpdate()
 	{
-		Spawn();
-	}
-	private void Spawn()
-	{
 		
-		if (Input.Pressed("Attack1") && bottlePrefab != null)
+		if (Input.Pressed("Attack1"))
 		{
-			var a = new Random().Next(3,6);
+			int loopCount = new Random().Next(3, 7);
 
-			for (int i = 0; i <= a; i++)
+			for (int i = 0; i < loopCount; i++)
 			{
-				GameObject bottle = bottlePrefab.Clone();
-				bottle.Parent = bottleFolder;
-				bottle.LocalPosition = Vector3.Zero + (spawnOffset*i);
-			}
-		}
 
+				Vector3 localOffset = Direction.Normal * (i * Spacing);
+			Transform spawnTransform = Transform.World.ToWorld( new Transform( localOffset ) );
+
+			// Instantiate the prefab into the active scene
+			GameObject instance = bottlePrefab.Clone( spawnTransform );
+			
+			
+			instance.Parent = GameObject;
+
+
+				//GameObject bottle = bottlePrefab.Clone();
+				//bottle.Parent = bottleFolder;
+				//bottle.LocalPosition = Vector3.Zero + (spawnOffset*i);
+				
+			}
+			
+		}
 	}
 }

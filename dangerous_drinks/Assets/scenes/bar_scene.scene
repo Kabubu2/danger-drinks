@@ -302,21 +302,6 @@
       "OwnerTransfer": 1,
       "Components": [
         {
-          "__type": "BottleSpawn",
-          "__guid": "adcf000c-643e-4e20-bda3-cfdbc2092284",
-          "__enabled": true,
-          "Flags": 0,
-          "bottleFolder": null,
-          "bottlePrefab": null,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "spawnOffset": "0,0,0"
-        },
-        {
           "__type": "PlayerBottleSelector",
           "__guid": "599fa0ed-3e99-4774-86d3-5acca1b7b6aa",
           "__enabled": true,
@@ -371,13 +356,14 @@
             "_type": "gameobject",
             "prefab": "prefab/bottle.prefab"
           },
+          "Direction": "1,0,0",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "spawnOffset": "13,0,0"
+          "Spacing": 7
         }
       ],
       "Children": []
