@@ -15,7 +15,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 4880.0, -416.0 ]
+					m_vecPosition = [ 4624.0, 32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 37010674
@@ -99,7 +99,7 @@
 				{
 					_class = "CBoneMaskAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 5584.0, -416.0 ]
+					m_vecPosition = [ 5328.0, 32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 477210368
@@ -152,7 +152,7 @@
 				{
 					_class = "CSolveIKChainAnimNode"
 					m_sName = "Solve IK arms"
-					m_vecPosition = [ 5088.0, -208.0 ]
+					m_vecPosition = [ 4832.0, 240.0 ]
 					m_nNodeID = 
 					{
 						m_id = 674615398
@@ -203,13 +203,33 @@
 			{
 				key = 
 				{
+					m_id = 1011052910
+				}
+				value = 
+				{
+					_class = "CCommentAnimNode"
+					m_sName = "Drink Select"
+					m_vecPosition = [ 4544.0, 0.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1011052910
+					}
+					m_sNote = ""
+					m_commentText = ""
+					m_size = [ 960.0, 320.0 ]
+					m_color = [ 49, 139, 146, 255 ]
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1124467323
 				}
 				value = 
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 4480.0, -416.0 ]
+					m_vecPosition = [ 4560.0, -128.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1124467323
@@ -219,6 +239,138 @@
 					m_sequenceName = "drank_idle"
 					m_playbackSpeed = 1.0
 					m_bLoop = true
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1333736602
+				}
+				value = 
+				{
+					_class = "CStateMachineAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 4752.0, -160.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1333736602
+					}
+					m_sNote = ""
+					m_states = 
+					[
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1617457726
+									}
+									m_bReset = false
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_bBlendCycle = false
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+									m_bRandomTimeBetween = false
+									m_flRandomTimeStart = 0.0
+									m_flRandomTimeEnd = 0.0
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Start"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1701609022
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1179884668
+							}
+							m_position = [ -208.0, -112.0 ]
+							m_bIsStartState = true
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = [  ]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Idle"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1124467323
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1617457726
+							}
+							m_position = [ -48.0, -112.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+					]
+					m_bBlockWaningTags = false
+					m_bLockStateWhenWaning = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1701609022
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 4560.0, -192.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1701609022
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_sit"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
 				}
 			},
 			{
@@ -266,13 +418,33 @@
 			{
 				key = 
 				{
+					m_id = 1857454332
+				}
+				value = 
+				{
+					_class = "CCommentAnimNode"
+					m_sName = "Base Idle"
+					m_vecPosition = [ 4544.0, -240.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1857454332
+					}
+					m_sNote = ""
+					m_commentText = ""
+					m_size = [ 375.0, 225.0 ]
+					m_color = [ 255, 127, 80, 255 ]
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1913739998
 				}
 				value = 
 				{
 					_class = "CGroupAnimNode"
 					m_sName = "\'Manual\' / code-side IK"
-					m_vecPosition = [ 5360.0, -304.0 ]
+					m_vecPosition = [ 5104.0, 144.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1913739998
@@ -644,7 +816,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 477210368
+							m_id = 1333736602
 						}
 						m_outputID = 
 						{
