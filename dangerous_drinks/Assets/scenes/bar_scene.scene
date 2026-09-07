@@ -2,61 +2,10 @@
   "__guid": "96e5a0d3-9339-407c-b951-b3e69d022e81",
   "GameObjects": [
     {
-      "__guid": "cc1cf053-576a-4d1b-82ed-0538e8a05d79",
-      "__version": 2,
-      "Flags": 0,
-      "Name": "Main Camera",
-      "Position": "-1.02786255,65.2146149,71.165802",
-      "Rotation": "0,0,-0.707106769,0.707106769",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Enabled": false,
-      "NetworkMode": 2,
-      "NetworkFlags": 0,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.CameraComponent",
-          "__guid": "e263b22f-6157-4a35-8764-b6d9a18a8db7",
-          "__enabled": true,
-          "Flags": 0,
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
-          "ClearFlags": "All",
-          "EnablePostProcessing": true,
-          "FieldOfView": 90,
-          "FovAxis": "Horizontal",
-          "IsMainCamera": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Orthographic": false,
-          "OrthographicHeight": 1204,
-          "PostProcessAnchor": {
-            "_type": "gameobject",
-            "go": "d8b0c54d-522b-4ec8-86fc-9f424ab185be"
-          },
-          "Priority": 1,
-          "RenderExcludeTags": "",
-          "RenderTags": "",
-          "RenderTexture": null,
-          "TargetEye": "None",
-          "Viewport": "0,0,1,1",
-          "ZFar": 10000,
-          "ZNear": 10
-        }
-      ],
-      "Children": []
-    },
-    {
       "__guid": "83cd4a65-03ba-4b6a-b596-89921ee8e4ae",
       "__version": 2,
       "Flags": 0,
-      "Name": "Main Camera (1)",
+      "Name": "Fake Player View",
       "Position": "-3.66863203,-47.7850723,53.4429169",
       "Rotation": "0,0,-0.707107186,-0.70710659",
       "Scale": "1,1,1",
@@ -99,49 +48,6 @@
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
           "ZNear": 10
-        }
-      ],
-      "Children": []
-    },
-    {
-      "__guid": "b3a7ac60-f118-4391-beae-a51a6dfd531c",
-      "__version": 2,
-      "Flags": 0,
-      "Name": "Directional Light",
-      "Position": "0,0,200",
-      "Rotation": "-0.245984167,0.593858242,0.293152541,0.707732737",
-      "Scale": "1,1,1",
-      "Tags": "light_directional,light",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkFlags": 0,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.DirectionalLight",
-          "__guid": "63e2229f-28d4-48c2-a958-cf7f87c19d23",
-          "__enabled": true,
-          "Flags": 0,
-          "ContactShadows": true,
-          "Contribution": "Diffuse, Specular, Transmissive",
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "ShadowBias": 0,
-          "ShadowCascadeCount": 4,
-          "ShadowCascadeSplitRatio": 0.91,
-          "ShadowHardness": 0,
-          "Shadows": true,
-          "SkyColor": "0,0,0,0",
-          "Visualizer": {}
         }
       ],
       "Children": []
@@ -380,24 +286,6 @@
       "Children": []
     },
     {
-      "__guid": "a1106948-0b6c-42b4-b533-27bae60099bf",
-      "__version": 2,
-      "Flags": 0,
-      "Name": "bottlespawn",
-      "Position": "1.16455793,-0.0450000763,28.3535213",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkFlags": 0,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [],
-      "Children": []
-    },
-    {
       "__guid": "4cb3f10e-0d69-46ff-bf72-2a510277b448",
       "__version": 2,
       "Flags": 0,
@@ -489,7 +377,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "spawnOffset": "0,0,0"
+          "spawnOffset": "13,0,0"
         }
       ],
       "Children": []
