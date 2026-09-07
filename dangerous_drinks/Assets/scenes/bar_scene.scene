@@ -618,6 +618,80 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "c8134a57-7894-4214-af85-6c0be6bf3cc9",
+      "__version": 2,
+      "__Prefab": "prefab/bottle.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ee1fcccd-22a7-4ee4-bed4-42a4667f3ea7"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "36c30f1c-cd29-4371-974d-b358e26155cd"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "745c6e0a-3dd4-41ba-b48d-8dc1f6c5e9ce"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Bottle",
+              "__guid": "ee1fcccd-22a7-4ee4-bed4-42a4667f3ea7",
+              "__enabled": true,
+              "Flags": 0,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "poisoned": false
+            }
+          }
+        ],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "5f56e2ff-c2fe-4306-86c3-e5cb405832a4"
+            },
+            "Property": "Name",
+            "Value": "Bottle"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "5f56e2ff-c2fe-4306-86c3-e5cb405832a4"
+            },
+            "Property": "Position",
+            "Value": "-164.715775,-131.565887,0"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "36c30f1c-cd29-4371-974d-b358e26155cd"
+            },
+            "Property": "Position",
+            "Value": "117.2379,32.2537613,23.0178909"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "5f56e2ff-c2fe-4306-86c3-e5cb405832a4": "c8134a57-7894-4214-af85-6c0be6bf3cc9",
+        "36c30f1c-cd29-4371-974d-b358e26155cd": "0de0244c-45e6-46e1-8ee6-d89d72770202",
+        "344af6e4-244b-4d92-8043-5de4090b6e6d": "7a3d2ee9-1c9d-42eb-8928-d90007e61597",
+        "33d291c6-a5d0-4720-b3b7-980864d56239": "951576b7-8c90-46e1-a6f6-910dc445d315",
+        "4cda649c-8755-43b5-a801-4ef2d0a6045b": "0028f3b9-b4a4-44c3-9586-40848ef77376",
+        "745c6e0a-3dd4-41ba-b48d-8dc1f6c5e9ce": "cc66b04e-3f0d-48e6-8690-9e19f75941ce"
+      }
     }
   ],
   "SceneProperties": {
