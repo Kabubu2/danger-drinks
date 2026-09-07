@@ -1,0 +1,1152 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:animgraph2:version{0f7898b8-5471-45c4-9867-cd9c46bcfdb5} -->
+{
+	_class = "CAnimationGraph"
+	m_nodeManager = 
+	{
+		_class = "CAnimNodeManager"
+		m_nodes = 
+		[
+			{
+				key = 
+				{
+					m_id = 37010674
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 4880.0, -416.0 ]
+					m_nNodeID = 
+					{
+						m_id = 37010674
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_selectidle"
+					m_playbackSpeed = 1.0
+					m_bLoop = true
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 224959040
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 5056.0, -576.0 ]
+					m_nNodeID = 
+					{
+						m_id = 224959040
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_select2drink"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 285143333
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 5264.0, -576.0 ]
+					m_nNodeID = 
+					{
+						m_id = 285143333
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_drink"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 306965543
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 5488.0, -640.0 ]
+					m_nNodeID = 
+					{
+						m_id = 306965543
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_poison"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 477210368
+				}
+				value = 
+				{
+					_class = "CBoneMaskAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 5584.0, -416.0 ]
+					m_nNodeID = 
+					{
+						m_id = 477210368
+					}
+					m_sNote = ""
+					m_weightListName = "Only_LeftArm"
+					m_inputConnection1 = 
+					{
+						m_nodeID = 
+						{
+							m_id = 37010674
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_inputConnection2 = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1913739998
+						}
+						m_outputID = 
+						{
+							m_id = 176530900
+						}
+					}
+					m_blendSpace = "BlendSpace_Parent"
+					m_bUseBlendScale = false
+					m_blendValueSource = "Parameter"
+					m_blendParameter = 
+					{
+						m_id = 4294967295
+					}
+					m_timingBehavior = "UseChild2"
+					m_flTimingBlend = 0.5
+					m_flRootMotionBlend = 0.0
+					m_footMotionTiming = "Child1"
+					m_bResetChild1 = true
+					m_bResetChild2 = true
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 674615398
+				}
+				value = 
+				{
+					_class = "CSolveIKChainAnimNode"
+					m_sName = "Solve IK arms"
+					m_vecPosition = [ 5088.0, -208.0 ]
+					m_nNodeID = 
+					{
+						m_id = 674615398
+					}
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 37010674
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_IkChains = 
+					[
+						{
+							_class = "CSolveIKChainAnimNodeChainData"
+							m_IkChain = "left_arm_IK"
+							m_SolverSettingSource = "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default"
+							m_OverrideSolverSettings = 
+							{
+								m_SolverType = "IKSOLVER_TwoBone"
+							}
+							m_TargetSettingSource = "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default"
+							m_OverrideTargetSettings = 
+							{
+								m_TargetSource = "Bone"
+								m_Bone = 
+								{
+									m_Name = "hand_target_location"
+								}
+								m_AnimgraphParameterNamePosition = 
+								{
+									m_id = 4294967295
+								}
+								m_TargetCoordSystem = "World Space"
+							}
+							m_DebugSetting = "SOLVEIKCHAINANIMNODEDEBUGSETTING_None"
+							m_flDebugNormalizedLength = 1.0
+							m_vDebugOffset = [ 0.0, 0.0, 0.0 ]
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1124467323
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 4480.0, -416.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1124467323
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_idle"
+					m_playbackSpeed = 1.0
+					m_bLoop = true
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1748773242
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 4672.0, -576.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1748773242
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_idle2select"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1775861076
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 5504.0, -560.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1775861076
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_dud"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1913739998
+				}
+				value = 
+				{
+					_class = "CGroupAnimNode"
+					m_sName = "\'Manual\' / code-side IK"
+					m_vecPosition = [ 5360.0, -304.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1913739998
+					}
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1590672954
+					}
+					m_outputNodeID = 
+					{
+						m_id = 1956108287
+					}
+					m_inputConnectionMap = 
+					[
+						{
+							key = 
+							{
+								m_id = 268268952
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 37010674
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+					]
+					m_nodeManager = 
+					{
+						_class = "CAnimNodeManager"
+						m_nodes = 
+						[
+							{
+								key = 
+								{
+									m_id = 124645655
+								}
+								value = 
+								{
+									_class = "CTwoBoneIKAnimNode"
+									m_sName = "Manual IK left hand"
+									m_vecPosition = [ -448.0, 96.0 ]
+									m_nNodeID = 
+									{
+										m_id = 124645655
+									}
+									m_sNote = ""
+									m_inputConnection = 
+									{
+										m_nodeID = 
+										{
+											m_id = 1590672954
+										}
+										m_outputID = 
+										{
+											m_id = 268268952
+										}
+									}
+									m_ikChainName = "left_arm_IK"
+									m_endEffectorType = "IkEndEffector_Bone"
+									m_endEffectorAttachmentName = ""
+									m_targetType = "IkTarget_Parameter_WorldSpace"
+									m_attachmentName = ""
+									m_targetBoneName = "hand_L_IK_target"
+									m_targetParam = 
+									{
+										m_id = 937870857
+									}
+									m_bMatchTargetOrientation = true
+									m_rotationParam = 
+									{
+										m_id = 227489733
+									}
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 832347544
+								}
+								value = 
+								{
+									_class = "CSelectorAnimNode"
+									m_sName = ""
+									m_vecPosition = [ 240.0, -64.0 ]
+									m_nNodeID = 
+									{
+										m_id = 832347544
+									}
+									m_sNote = ""
+									m_children = 
+									[
+										{
+											m_nodeID = 
+											{
+												m_id = 1432957441
+											}
+											m_outputID = 
+											{
+												m_id = 4294967295
+											}
+										},
+										{
+											m_nodeID = 
+											{
+												m_id = 1582858677
+											}
+											m_outputID = 
+											{
+												m_id = 4294967295
+											}
+										},
+									]
+									m_tags = 
+									[
+										{
+											m_id = 4294967295
+										},
+										{
+											m_id = 4294967295
+										},
+									]
+									m_selectionSource = "SelectionSource_Bool"
+									m_boolParamID = 
+									{
+										m_id = 2309985
+									}
+									m_enumParamID = 
+									{
+										m_id = 4294967295
+									}
+									m_intParamID = 
+									{
+										m_id = 4294967295
+									}
+									m_intParamMinValue = 0
+									m_intParamMaxValue = 2
+									m_blendDuration = 0.35
+									m_tagBehavior = "SelectorTagBehavior_OffWhenFinished"
+									m_bResetOnChange = false
+									m_bSyncCyclesOnChange = false
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.388889, 0.0 ]
+										m_vControlPoint2 = [ 0.148148, 1.0 ]
+									}
+									m_intParamNames = [  ]
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1432957441
+								}
+								value = 
+								{
+									_class = "CSelectorAnimNode"
+									m_sName = ""
+									m_vecPosition = [ -208.0, -64.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1432957441
+									}
+									m_sNote = ""
+									m_children = 
+									[
+										{
+											m_nodeID = 
+											{
+												m_id = 1590672954
+											}
+											m_outputID = 
+											{
+												m_id = 268268952
+											}
+										},
+										{
+											m_nodeID = 
+											{
+												m_id = 124645655
+											}
+											m_outputID = 
+											{
+												m_id = 4294967295
+											}
+										},
+									]
+									m_tags = 
+									[
+										{
+											m_id = 4294967295
+										},
+										{
+											m_id = 4294967295
+										},
+									]
+									m_selectionSource = "SelectionSource_Bool"
+									m_boolParamID = 
+									{
+										m_id = 1598349679
+									}
+									m_enumParamID = 
+									{
+										m_id = 4294967295
+									}
+									m_intParamID = 
+									{
+										m_id = 4294967295
+									}
+									m_intParamMinValue = 0
+									m_intParamMaxValue = 2
+									m_blendDuration = 0.35
+									m_tagBehavior = "SelectorTagBehavior_OffWhenFinished"
+									m_bResetOnChange = false
+									m_bSyncCyclesOnChange = false
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.388889, 0.0 ]
+										m_vControlPoint2 = [ 0.148148, 1.0 ]
+									}
+									m_intParamNames = [  ]
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1582858677
+								}
+								value = 
+								{
+									_class = "CTwoBoneIKAnimNode"
+									m_sName = "Manual IK right hand"
+									m_vecPosition = [ 48.0, 96.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1582858677
+									}
+									m_sNote = ""
+									m_inputConnection = 
+									{
+										m_nodeID = 
+										{
+											m_id = 1432957441
+										}
+										m_outputID = 
+										{
+											m_id = 4294967295
+										}
+									}
+									m_ikChainName = "right_arm_IK"
+									m_endEffectorType = "IkEndEffector_Bone"
+									m_endEffectorAttachmentName = ""
+									m_targetType = "IkTarget_Parameter_ModelSpace"
+									m_attachmentName = ""
+									m_targetBoneName = "hand_R_IK_target"
+									m_targetParam = 
+									{
+										m_id = 1651085716
+									}
+									m_bMatchTargetOrientation = true
+									m_rotationParam = 
+									{
+										m_id = 1600416393
+									}
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1590672954
+								}
+								value = 
+								{
+									_class = "CGroupInputAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ -672.0, -64.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1590672954
+									}
+									m_sNote = ""
+									m_proxyItems = 
+									[
+										{
+											m_name = "Out"
+											m_outputID = 
+											{
+												m_id = 268268952
+											}
+											m_inputConnection = 
+											{
+												m_nodeID = 
+												{
+													m_id = 4294967295
+												}
+												m_outputID = 
+												{
+													m_id = 4294967295
+												}
+											}
+										},
+									]
+								}
+							},
+							{
+								key = 
+								{
+									m_id = 1956108287
+								}
+								value = 
+								{
+									_class = "CGroupOutputAnimNode"
+									m_sName = "Unnamed"
+									m_vecPosition = [ 544.0, -64.0 ]
+									m_nNodeID = 
+									{
+										m_id = 1956108287
+									}
+									m_sNote = ""
+									m_proxyItems = 
+									[
+										{
+											m_name = "In"
+											m_outputID = 
+											{
+												m_id = 176530900
+											}
+											m_inputConnection = 
+											{
+												m_nodeID = 
+												{
+													m_id = 832347544
+												}
+												m_outputID = 
+												{
+													m_id = 4294967295
+												}
+											}
+										},
+									]
+								}
+							},
+						]
+					}
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 2113332534
+				}
+				value = 
+				{
+					_class = "CRootAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 5888.0, -400.0 ]
+					m_nNodeID = 
+					{
+						m_id = 2113332534
+					}
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 477210368
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+				}
+			},
+		]
+	}
+	m_pParameterList = 
+	{
+		_class = "CAnimParameterList"
+		m_Parameters = 
+		[
+			{
+				_class = "CVectorAnimParameter"
+				m_name = "aim_head"
+				m_id = 
+				{
+					m_id = 1205941383
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_defaultValue = [ 100.0, 0.0, 0.0 ]
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "aim_head_weight"
+				m_id = 
+				{
+					m_id = 1414089017
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_fDefaultValue = 1.0
+				m_fMinValue = 0.0
+				m_fMaxValue = 1.0
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "aim_body_weight"
+				m_id = 
+				{
+					m_id = 1874579477
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_fDefaultValue = 1.0
+				m_fMinValue = 0.0
+				m_fMaxValue = 1.0
+			},
+			{
+				_class = "CVectorAnimParameter"
+				m_name = "aim_body"
+				m_id = 
+				{
+					m_id = 1442178442
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_defaultValue = [ 100.0, 0.0, 0.0 ]
+			},
+			{
+				_class = "CVectorAnimParameter"
+				m_name = "aim_eyes"
+				m_id = 
+				{
+					m_id = 1722198213
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_defaultValue = [ 100.0, 0.0, 0.0 ]
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "aim_body_pitch"
+				m_id = 
+				{
+					m_id = 995117350
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_fDefaultValue = 0.0
+				m_fMinValue = -90.0
+				m_fMaxValue = 90.0
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "aim_body_yaw"
+				m_id = 
+				{
+					m_id = 940486770
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_fDefaultValue = 0.0
+				m_fMinValue = -90.0
+				m_fMaxValue = 90.0
+			},
+			{
+				_class = "CQuaternionAnimParameter"
+				m_name = "ik.hand_left.rotation"
+				m_id = 
+				{
+					m_id = 227489733
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_defaultValue = [ 0.0, 0.0, 0.0, 1.0 ]
+			},
+			{
+				_class = "CQuaternionAnimParameter"
+				m_name = "ik.hand_right.rotation"
+				m_id = 
+				{
+					m_id = 1600416393
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_defaultValue = [ 0.0, 0.0, 0.0, 1.0 ]
+			},
+			{
+				_class = "CVectorAnimParameter"
+				m_name = "ik.hand_left.position"
+				m_id = 
+				{
+					m_id = 937870857
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_defaultValue = [ 0.0, 0.0, 0.0 ]
+			},
+			{
+				_class = "CVectorAnimParameter"
+				m_name = "ik.hand_right.position"
+				m_id = 
+				{
+					m_id = 1651085716
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_defaultValue = [ 0.0, 0.0, 0.0 ]
+			},
+			{
+				_class = "CBoolAnimParameter"
+				m_name = "ik.hand_left.enabled"
+				m_id = 
+				{
+					m_id = 1598349679
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bDefaultValue = false
+			},
+			{
+				_class = "CBoolAnimParameter"
+				m_name = "ik.hand_right.enabled"
+				m_id = 
+				{
+					m_id = 2309985
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bDefaultValue = false
+			},
+			{
+				_class = "CEnumAnimParameter"
+				m_name = "face_override"
+				m_id = 
+				{
+					m_id = 1522890659
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_defaultValue = 0
+				m_enumOptions = 
+				[
+					"NO_OVERRIDE",
+					"smile",
+					"frown",
+					"surprise",
+					"sad",
+					"angry",
+					"eyes_closed",
+				]
+			},
+		]
+	}
+	m_pTagManager = 
+	{
+		_class = "CAnimTagManager"
+		m_tags = 
+		[
+			{
+				_class = "CStringAnimTag"
+				m_name = "Idle (not moving)"
+				m_tagID = 
+				{
+					m_id = 314804499
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Walking"
+				m_tagID = 
+				{
+					m_id = 360622775
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Running"
+				m_tagID = 
+				{
+					m_id = 573079082
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Reloading"
+				m_tagID = 
+				{
+					m_id = 1826470211
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Crouching"
+				m_tagID = 
+				{
+					m_id = 40023065
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Sitting"
+				m_tagID = 
+				{
+					m_id = 756568257
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Jumping"
+				m_tagID = 
+				{
+					m_id = 345054731
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Falling"
+				m_tagID = 
+				{
+					m_id = 2135576891
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Swimming"
+				m_tagID = 
+				{
+					m_id = 106245667
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Attacking"
+				m_tagID = 
+				{
+					m_id = 1069433738
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Weapon branch is idle (at pre-composite)"
+				m_tagID = 
+				{
+					m_id = 315072805
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Weapon branch can do long idle pose"
+				m_tagID = 
+				{
+					m_id = 564997034
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Handedness is two-handed"
+				m_tagID = 
+				{
+					m_id = 1487868526
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Handedness is right-handed"
+				m_tagID = 
+				{
+					m_id = 81905938
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Handedness is left-handed"
+				m_tagID = 
+				{
+					m_id = 1584013562
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Fidget is playing"
+				m_tagID = 
+				{
+					m_id = 1763373061
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Disable eye look chains"
+				m_tagID = 
+				{
+					m_id = 1866644473
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Pose has right foot forward"
+				m_tagID = 
+				{
+					m_id = 1536236653
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Pose has left foot forward"
+				m_tagID = 
+				{
+					m_id = 1917451310
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "To weapon branch: disable aim"
+				m_tagID = 
+				{
+					m_id = 2128448084
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "To weapon branch: disable/enable IK"
+				m_tagID = 
+				{
+					m_id = 1159356952
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Handedness has changed in the last 500ms"
+				m_tagID = 
+				{
+					m_id = 1686344274
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Holdtype has changed in the last 250ms"
+				m_tagID = 
+				{
+					m_id = 562499854
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Disable global feet IK (done over 200ms)"
+				m_tagID = 
+				{
+					m_id = 2097192094
+				}
+			},
+			{
+				_class = "CStringAnimTag"
+				m_name = "Disable scale_height main pelvis offset (done over 350ms)"
+				m_tagID = 
+				{
+					m_id = 169420729
+				}
+			},
+		]
+	}
+	m_pMovementManager = 
+	{
+		_class = "CAnimMovementManager"
+		m_MotorList = 
+		{
+			_class = "CAnimMotorList"
+			m_motors = 
+			[
+				{
+					_class = "CPlayerInputAnimMotor"
+					m_name = "Player Input"
+					m_bDefault = true
+					m_sampleTimes = [ 1.0, 2.0 ]
+					m_bUseAcceleraion = true
+					m_flSpringConstant = 0.0
+					m_flAnticipationDistance = 0.0
+					m_anticipationPosParam = 
+					{
+						m_id = 4294967295
+					}
+					m_anticipationHeadingParam = 
+					{
+						m_id = 4294967295
+					}
+				},
+			]
+		}
+		m_MovementSettings = 
+		{
+			_class = "CAnimMovementSettings"
+			m_bShouldCalculateSlope = false
+		}
+	}
+	m_pSettingsManager = 
+	{
+		_class = "CAnimGraphSettingsManager"
+		m_settingsGroups = 
+		[
+			{
+				_class = "CAnimGraphGeneralSettings"
+				m_iGridSnap = 16
+			},
+			{
+				_class = "CAnimGraphNetworkSettings"
+			},
+		]
+	}
+	m_pActivityValuesList = 
+	{
+		_class = "CActivityValueList"
+		m_activities = [  ]
+	}
+	m_previewModels = 
+	[
+		"models/citizen/citizen_male.vmdl",
+	]
+	m_boneMergeModels = 
+	[
+		{
+			m_name = "models/citizen_clothes/shorts/boxing_shorts/models/boxing_shorts.vmdl"
+			m_bEnabled = false
+		},
+		{
+			m_name = "models/citizen_clothes/hair/hair_shortscruffy/models/hair_shortscruffy.vmdl"
+			m_bEnabled = false
+		},
+		{
+			m_name = "models/citizen_clothes/shoes/flatshoes/models/flat_shoes.vmdl"
+			m_bEnabled = false
+		},
+		{
+			m_name = "models/citizen_clothes/shirt/tanktop/models/tanktop.vmdl"
+			m_bEnabled = false
+		},
+		{
+			m_name = "models/citizen_clothes/hair/eyebrows/models/eyebrows.vmdl"
+			m_bEnabled = false
+		},
+		{
+			m_name = "models/citizen_clothes/shirt/jumpsuit/models/jumpsuit.vmdl"
+			m_bEnabled = false
+		},
+		{
+			m_name = "models/weapons/sbox_physgun/w_physgun.vmdl"
+			m_bEnabled = false
+		},
+	]
+	m_cameraSettings = 
+	{
+		m_flFov = 60.0
+		m_sLockBoneName = "root_IK"
+		m_bLockCamera = false
+		m_bViewModelCamera = false
+	}
+}
