@@ -40,6 +40,32 @@
         "targetPos": "0,0,0",
         "targetPref": null,
         "targetRot": "0,0,0,0"
+      },
+      {
+        "__type": "PlayerRelay",
+        "__guid": "f7f3fd46-850d-4ca2-a012-7782f8045f77",
+        "__enabled": true,
+        "Flags": 0,
+        "EyeSlot": {
+          "_type": "gameobject",
+          "go": "d8ddf05b-d21d-4c43-b13f-1f2c6bd51281"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "PlayerCore": {
+          "_type": "gameobject",
+          "go": "a9cd0ac0-0f0a-40f0-ab86-daba43acafed"
+        },
+        "Renderer": {
+          "_type": "component",
+          "component_id": "3feb698d-fb2f-471d-8117-108035c13580",
+          "go": "20727b6a-613a-477e-b90a-ad8b499799bb",
+          "component_type": "SkinnedModelRenderer"
+        }
       }
     ],
     "Children": [
@@ -512,6 +538,24 @@
                                     "Name": "eye_R",
                                     "Position": "0,0,0",
                                     "Rotation": "0,0,0,1",
+                                    "Scale": "1,1,1",
+                                    "Tags": "",
+                                    "Enabled": true,
+                                    "NetworkMode": 2,
+                                    "NetworkFlags": 0,
+                                    "NetworkOrphaned": 0,
+                                    "NetworkTransmit": true,
+                                    "OwnerTransfer": 1,
+                                    "Components": [],
+                                    "Children": []
+                                  },
+                                  {
+                                    "__guid": "d8ddf05b-d21d-4c43-b13f-1f2c6bd51281",
+                                    "__version": 2,
+                                    "Flags": 0,
+                                    "Name": "Camera Target",
+                                    "Position": "3.8650713,0.693185568,-0.365915895",
+                                    "Rotation": "-0.500000358,-0.499999583,-0.500000358,-0.500000298",
                                     "Scale": "1,1,1",
                                     "Tags": "",
                                     "Enabled": true,
