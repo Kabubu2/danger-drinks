@@ -3,10 +3,9 @@ using Sandbox;
 public sealed class PlayerRelay : Component
 {
 	[Property]
-	public GameObject EyeSlot{get; set;}
+	public GameObject PlayerCore{ get; set; }
 	[Property]
-	public GameObject PlayerCore{get; set;}
-	
+	public SkinnedModelRenderer Renderer { get; set; }
 	[Property]
-	public SkinnedModelRenderer Renderer {get; set;}
+	public GameObject EyeSlot { get; set; }
 }

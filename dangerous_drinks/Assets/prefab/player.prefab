@@ -16,32 +16,6 @@
     "OwnerTransfer": 1,
     "Components": [
       {
-        "__type": "PlayerHand2Target",
-        "__guid": "df1327eb-6819-45b2-ae3e-eff429fa045f",
-        "__enabled": true,
-        "Flags": 0,
-        "EnableIKHand": false,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "PlayerCore": {
-          "_type": "gameobject",
-          "go": "a9cd0ac0-0f0a-40f0-ab86-daba43acafed"
-        },
-        "Renderer": {
-          "_type": "component",
-          "component_id": "3feb698d-fb2f-471d-8117-108035c13580",
-          "go": "20727b6a-613a-477e-b90a-ad8b499799bb",
-          "component_type": "SkinnedModelRenderer"
-        },
-        "targetPos": "0,0,0",
-        "targetPref": null,
-        "targetRot": "0,0,0,0"
-      },
-      {
         "__type": "PlayerRelay",
         "__guid": "f7f3fd46-850d-4ca2-a012-7782f8045f77",
         "__enabled": true,
@@ -65,6 +39,24 @@
           "component_id": "3feb698d-fb2f-471d-8117-108035c13580",
           "go": "20727b6a-613a-477e-b90a-ad8b499799bb",
           "component_type": "SkinnedModelRenderer"
+        }
+      },
+      {
+        "__type": "AnimManager",
+        "__guid": "751d7fe8-998c-4a8f-a02a-dc984341ddc0",
+        "__enabled": true,
+        "Flags": 0,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "PlayerRenderer": {
+          "_type": "component",
+          "component_id": "f7f3fd46-850d-4ca2-a012-7782f8045f77",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "PlayerRelay"
         }
       }
     ],
