@@ -39,7 +39,7 @@ public sealed class GameManager : Component
 		}
 	}
 	[Property]
-	private GameState CurrentGameState = GameState.PreGame;
+	private GameState CurrentGameState{get; set;}
 
 	/// ----------------------------------------
 	/// ROUND LOGIC
