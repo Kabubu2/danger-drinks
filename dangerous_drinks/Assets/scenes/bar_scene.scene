@@ -1376,6 +1376,22 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "spawnOffset": "7,0,0"
+        },
+        {
+          "__type": "PoisonLogic",
+          "__guid": "51e43b24-b59c-4477-8444-8681d4158851",
+          "__enabled": true,
+          "Flags": 0,
+          "bottleContainer": {
+            "_type": "gameobject",
+            "go": "2dd03c60-1244-40b5-81d0-861cc340b873"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ],
       "Children": []
