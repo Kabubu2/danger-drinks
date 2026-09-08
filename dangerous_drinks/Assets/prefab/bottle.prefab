@@ -14,7 +14,21 @@
     "NetworkOrphaned": 0,
     "NetworkTransmit": true,
     "OwnerTransfer": 1,
-    "Components": [],
+    "Components": [
+      {
+        "__type": "Bottle",
+        "__guid": "4c50a48f-fc50-4649-b2f8-f5ffe48d2374",
+        "__enabled": true,
+        "Flags": 0,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "poisoned": false
+      }
+    ],
     "Children": [
       {
         "__guid": "ccf9442c-7625-4444-aa58-f2190259b838",

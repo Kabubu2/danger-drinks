@@ -3,7 +3,7 @@ using Sandbox;
 public sealed class Bottle : Component
 {
 
-[Property] private bool poisoned { get; set; } = false;
+[Property] public bool poisoned { get; set;}
 
 	protected override void OnUpdate()
 	{
