@@ -1301,6 +1301,19 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "PlayerHandCon": null
+        },
+        {
+          "__type": "GameManager",
+          "__guid": "247e95f6-41cd-4ab4-b33f-9e946baea7ae",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PlayerRef": null
         }
       ],
       "Children": []
