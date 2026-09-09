@@ -1,0 +1,6 @@
+
+Layer0
+{
+	shader "shaders/postprocess/fade.shader_c"
+
+}

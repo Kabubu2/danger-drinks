@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Sandbox;
 
-public enum GameState {PreGame, GameStart, RoundStart, RoundEnd, GameEnd, Error}
+public enum GameState {PreGame, GameStart, TurnSelect, RoundStart, RoundEnd, GameEnd, Error}
 public sealed class GameManager : Component
 {
 	/// <summary>
@@ -13,8 +13,9 @@ public sealed class GameManager : Component
 	private GameObject WaitPoint;
 	[Property]
 	private GameObject Camera;
-	
-	private TimeUntil stateTimer = 2f;
+	[Property]
+	public PostProcessController PPC;
+	private TimeUntil stateTimer = 4f;
 	protected override void OnUpdate()
 	{
 		switch (CurrentGameState)
@@ -25,16 +26,23 @@ public sealed class GameManager : Component
 			case GameState.GameStart:
 			OnGameStart();
 			break;
+			case GameState.TurnSelect:
+			OnTurnSelect();
+			break;
 			case GameState.RoundStart:
 			OnRoundStart();
 			break;
 			case GameState.RoundEnd:
+			OnRoundEnd();
 			break;
 			case GameState.GameEnd:
+			OnGameEnd();
 			break;
 			case GameState.Error:
+			Log.Error("Someway... somehow.. the game state slipped off the rails. If this happens we need to figure out how.");
 			break;
 			default:
+			Log.Error("Someway... somehow.. the game state slipped off the rails. If this happens we need to figure out how.");
 			break;
 		}
 	}
@@ -48,7 +56,7 @@ public sealed class GameManager : Component
 	{
 		//Preloading
 		AssignJoinID();
-
+		PPC.Trigger(true);
 		//Before Setting Camera
 		if(stateTimer > 0) return;
 			
@@ -63,17 +71,38 @@ public sealed class GameManager : Component
 		{
 			Player.GetComponent<AnimManager>().anim_Sit();
 		}
+		PPC.Trigger(false);
 		//Transition to RoundStart
+		CurrentGameState = GameState.TurnSelect;
+	}
+	private int CurrentPlayer{ get; set; } = 2;
+	private void OnTurnSelect()
+	{
+		stateTimer = 4f;
+		if(CurrentPlayer > 1) CurrentPlayer = 0;
+		if(CurrentPlayer == 0) CurrentPlayer = 1;
+		if(CurrentPlayer == 1) CurrentPlayer = 0;
 		CurrentGameState = GameState.RoundStart;
+
 	}
 	private void OnRoundStart() //FIRES WHEN GAMESTART IS OVER AND ROUND HAS BEGUN.
 	{
-		
-		//Player 1 - Host
-		//Player 2 - Opponent
+		//Player must choose bottle and drink
+
+
 	}
-
-
+	private void OnRoundEnd()
+	{
+		//Check if current player has selected a bottle.
+		//Make player drink.
+		//Check if potions have poison.
+		//Check if either player doesn't have lives, if so send to end game.
+	}
+	private void OnGameEnd()
+	{
+		//kill player with 0 lives.
+		//maybe a stat screen?
+	}
 	/// ----------------------------------------
 	/// PLAYER SYSTEMS
 	/// ----------------------------------------
