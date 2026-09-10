@@ -8,8 +8,10 @@ public sealed class BottleSpawn : Component
 
 	[Property]
 	private GameObject bottlePrefab;
+	
 	[Property]
 	private GameObject bottleFolder;
+
 	[Property]
 	private Vector3 spawnOffset { get; set; }
 
