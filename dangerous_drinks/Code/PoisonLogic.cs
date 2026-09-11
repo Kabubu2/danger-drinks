@@ -14,7 +14,7 @@ private GameObject bottleContainer{get; set;}
 
 		
 		
-if (Input.Pressed("Attack2"))
+		if (Input.Pressed("Attack2"))
 		{
 			//Logic to randomly select 1-2 bottles from the bottleContainer and set their poisoned property to true
 
@@ -22,11 +22,11 @@ if (Input.Pressed("Attack2"))
 			var availableBottles = bottleContainer.Children.ToList();
 			var randomBottles = availableBottles.OrderBy(x => Guid.NewGuid()).Take(poisonCount);
 
-			foreach (var filePath in randomBottles)
+			foreach (var bottle in randomBottles)
 			{
 				
-				var bottle = filePath.Components.Get<Bottle>();
-				bottle.poisoned = true;
+				var _bottle = bottle.Components.Get<Bottle>();
+				_bottle.poisoned = true;
 			}
 			
 			

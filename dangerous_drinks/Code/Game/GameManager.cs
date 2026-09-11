@@ -9,8 +9,12 @@ public sealed class GameManager : Component
 	/// <summary>
 	/// GAME LOGIC AND VARIABLES
 	/// </summary>
+	
+
 	[Property]
-	private GameObject WaitPoint;
+	public GameObject Bottles;
+	[Property]
+	public GameObject WaitPoint;
 	[Property]
 	private GameObject Camera;
 	[Property]
@@ -72,6 +76,7 @@ public sealed class GameManager : Component
 			Player.GetComponent<AnimManager>().anim_Sit();
 		}
 		PPC.Trigger(false);
+		GetComponent<BottleLogic>().SpawnBottles();
 		//Transition to RoundStart
 		CurrentGameState = GameState.TurnSelect;
 	}
@@ -88,7 +93,6 @@ public sealed class GameManager : Component
 	private void OnRoundStart() //FIRES WHEN GAMESTART IS OVER AND ROUND HAS BEGUN.
 	{
 		//Player must choose bottle and drink
-
 
 	}
 	private void OnRoundEnd()
