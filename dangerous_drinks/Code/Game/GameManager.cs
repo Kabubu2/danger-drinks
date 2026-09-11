@@ -3,13 +3,12 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Sandbox;
 
-public enum GameState {PreGame, GameStart, TurnSelect, RoundStart, RoundEnd, GameEnd, Error}
+public enum GameState {PreGame, GameStart, TurnSelect, NewRound, RoundStart, RoundEnd, GameEnd, Error}
 public sealed class GameManager : Component
 {
 	/// <summary>
 	/// GAME LOGIC AND VARIABLES
 	/// </summary>
-	
 
 	[Property]
 	public GameObject Bottles;
@@ -31,6 +30,9 @@ public sealed class GameManager : Component
 			case GameState.TurnSelect:
 			OnTurnSelect();
 			break;
+			case GameState.NewRound:
+			OnNewRound();
+			break;
 			case GameState.RoundStart:
 			OnRoundStart();
 			break;
@@ -49,7 +51,54 @@ public sealed class GameManager : Component
 		}
 	}
 	[Property]
+	private int CurrentPlayer{ get; set; } = 2;
 	private GameState CurrentGameState{get; set;}
+
+	public bool CanAct(GameObject player)
+	{
+		for (int i = 0; i < Players.Length; i++)
+		{
+			if (Players[i].PlayerInst == player && CurrentPlayer == i && CurrentGameState == GameState.RoundStart)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	private bool DrankPoison = false;
+	public void PlayerInteract(GameObject player, GameObject item)
+	{
+		if(CanAct(player))
+		{
+			bool isPotion = item.GetComponent<Bottle>().IsValid;
+			bool isPoison = false;
+			if(isPotion) isPoison = item.GetComponent<Bottle>().poisoned;
+
+			for (int i = 0; i < Players.Length; i++)
+			{
+				if (Players[i].PlayerInst == player && CurrentPlayer == i)
+				{
+					if(isPotion)
+					{
+						if(isPoison) 
+						{
+							DrankPoison = true;
+							Players[i].Lives--;
+							Players[i].PoisonsDrank += 1;
+						}
+						if(!isPoison)
+						{
+							Players[i].DudsDrank++;
+						}
+						item.Destroy();
+						CurrentGameState = GameState.RoundEnd;
+					}
+					//Do something else: like ability or nothing
+				}
+			}
+		}
+	}
+
 
 	/// ----------------------------------------
 	/// ROUND LOGIC
@@ -61,12 +110,9 @@ public sealed class GameManager : Component
 		PPC.Trigger(true);
 		//Before Setting Camera
 		if(stateTimer > 0) return;
-			
 		AttachCamera(0);
 		CurrentGameState = GameState.GameStart;
-
-		
-		}
+	}
 	private void OnGameStart() //FIRES WHEN PREGAME IS DONE AND THE PLAYERS ARE SUCCESSFULLY PLACED.
 	{
 		foreach (GameObject Player in PlayerAsset)
@@ -74,35 +120,81 @@ public sealed class GameManager : Component
 			Player.GetComponent<AnimManager>().anim_Sit();
 		}
 		PPC.Trigger(false);
-		GetComponent<BottleLogic>().SpawnBottles();
-		Mouse.Visibility = MouseVisibility.Visible;
-		//Transition to RoundStart
-		CurrentGameState = GameState.TurnSelect;
+		Mouse.Visibility = MouseVisibility.Visible; //Display Mouse
+
+		CurrentGameState = GameState.NewRound; //Transition to RoundStart
 	}
-	private int CurrentPlayer{ get; set; } = 2;
+	private void OnNewRound() //FIRES WHEN A NEW ROUND BEGINS.
+	{
+		var a = GetComponent<BottleLogic>();
+		if(a.hasBottles)a.KillBottles();
+		a.SpawnBottles();
+		Log.Info("NEW ROUND STARTED");
+		CurrentGameState = GameState.TurnSelect;
+
+	}
 	private void OnTurnSelect()
 	{
 		stateTimer = 4f;
 		if(CurrentPlayer > 1) CurrentPlayer = 0;
-		if(CurrentPlayer == 0) CurrentPlayer = 1;
-		if(CurrentPlayer == 1) CurrentPlayer = 0;
+		else if(CurrentPlayer == 0) CurrentPlayer = 1;
+		else if(CurrentPlayer == 1) CurrentPlayer = 0;
 		CurrentGameState = GameState.RoundStart;
 
 	}
 	private void OnRoundStart() //FIRES WHEN GAMESTART IS OVER AND ROUND HAS BEGUN.
 	{
+		Log.Info("Round Started for Player: " + CurrentPlayer);
 		//Player must choose bottle and drink
 
 	}
 	private void OnRoundEnd()
 	{
-		//Check if current player has selected a bottle.
-		//Make player drink.
-		//Check if potions have poison.
-		//Check if either player doesn't have lives, if so send to end game.
+		Log.Info("Round Ended for Player: " + CurrentPlayer);
+		var poison = (!GetComponent<BottleLogic>().HasPoison || DrankPoison);
+		var bottle = (GetComponent<BottleLogic>().hasBottles);
+		var dead = false;
+
+		for (int i = 0; i < Players.Length; i++) //End Game if lives are gone.
+		{
+			if( Players[i].Lives <= 0)
+			{
+				dead = true;
+				break;
+			}
+		}
+
+		if (dead)
+		{
+			Log.Info("Player has died.");
+			CurrentGameState = GameState.GameEnd;
+		}
+		else if (poison)
+		{
+			Log.Info("Player " + CurrentPlayer + " drank poison.");
+			CurrentGameState = GameState.NewRound;
+		}
+		else if (!bottle)
+		{
+			Log.Info("Bottles Finished.");
+			CurrentGameState = GameState.NewRound;
+		}
+		else
+		CurrentGameState = GameState.TurnSelect;
+		
 	}
 	private void OnGameEnd()
 	{
+		int deadman = 2;
+		for (int i = 0; i < Players.Length; i++)
+		{
+			if(Players[i].Lives <= 0) 
+			{
+				deadman = i;
+				break;
+			}
+		}
+		Log.Info("Game Over! Player " + deadman + " has lost the game.");
 		//kill player with 0 lives.
 		//maybe a stat screen?
 	}
@@ -134,6 +226,7 @@ public sealed class GameManager : Component
 		PlayerAsset[PlayerInt].Parent = PlayerSpawnPoints[PlayerInt];
 		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
 		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
+		Players[PlayerInt].PlayerInst = PlayerAsset[PlayerInt];
 		
 	}
 	private void AttachCamera(int Player)

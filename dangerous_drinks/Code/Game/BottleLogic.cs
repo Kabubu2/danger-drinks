@@ -42,10 +42,12 @@ public sealed class BottleLogic : Component
 	}
 	public void KillBottles()
 	{
-		var hasBottles = bottleFolder.Children.Count > 0;
-		foreach (GameObject bottle in bottleFolder.Children)
+		if(hasBottles)
 		{
-			bottle.Destroy();
+			foreach (GameObject bottle in bottleFolder.Children)
+			{
+				bottle.Destroy();
+			}
 		}
 	}
 
@@ -66,11 +68,21 @@ public sealed class BottleLogic : Component
 			}
 
 	}
-	private bool hasBottles
+	public bool hasBottles
 	{
 		get
 		{
-			return bottleFolder.Children.Count > 0;
+			if (!bottleFolder.IsValid)
+			{
+				Log.Error("Bottle Folder not found.");
+				return false;
+			}
+			else
+			{
+				var a = (bottleFolder.Children.Count > 0);
+				return a;
+			}
+			
 		}
 	}
 	private void AssignPoison()

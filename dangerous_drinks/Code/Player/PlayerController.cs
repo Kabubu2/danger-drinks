@@ -1,15 +1,36 @@
+using System.Threading.Tasks;
 using Sandbox;
 
 public sealed class DD_PlayerController : Component
 {
-
+	private GameManager gameManager;
+	private void CheckUp()
+	{
+		if ( !gameManager.IsValid )
+		{
+			gameManager = Scene.GetAll<GameManager>().FirstOrDefault();
+			Log.Info("Game Manager being searched for...");
+		}
+	}
 	protected override void OnUpdate()
 	{
-		//if(	Input.Pressed("Attack 1") ) ClickZone("selectable").Destroy();
-		if(	Input.Pressed("Attack1") ) Log.Info(ClickZone().Name);
+		CheckUp();
+		if(gameManager.IsValid)
+		{
+			if(Input.Pressed("Attack1")) SendChoice(this.GameObject, ClickZone("selectable"));
+		}
 	}
 
-		private GameObject ClickZone()
+	protected override void OnAwake()
+	{
+		gameManager = Scene.GetAll<GameManager>().FirstOrDefault();
+	}
+
+	private void SendChoice(GameObject player, GameObject item)
+	{
+		gameManager.PlayerInteract(player, item);
+	}
+	private GameObject ClickZone()
 	{
 		Log.Info("ClickZone");
 		var camera = Scene.Camera;

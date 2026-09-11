@@ -1,0 +1,90 @@
+{
+  "RootObject": {
+    "__guid": "21c89d08-599f-4406-808b-8deddf5a9cde",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "Game Logic",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "GameManager",
+        "__guid": "701df980-3eae-4961-951c-a584d1c8d0b5",
+        "__enabled": true,
+        "Flags": 0,
+        "Bottles": {
+          "_type": "gameobject",
+          "go": "2dd03c60-1244-40b5-81d0-861cc340b873"
+        },
+        "CurrentGameState": "PreGame",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "PlayerRef": {
+          "_type": "gameobject",
+          "prefab": "prefab/player.prefab"
+        },
+        "PlayerSpawnPoints": [
+          {
+            "_type": "gameobject",
+            "go": "8316265a-05dd-48fb-b80d-c62037b8fb6b"
+          },
+          {
+            "_type": "gameobject",
+            "go": "3c2f4b77-0d26-46a7-a581-3aa9ee0f60db"
+          }
+        ],
+        "PPC": {
+          "_type": "component",
+          "component_id": "ec09cc5f-bcb2-419f-9e37-09fd656756b1",
+          "go": "d8b0c54d-522b-4ec8-86fc-9f424ab185be",
+          "component_type": "PostProcessController"
+        },
+        "WaitPoint": {
+          "_type": "gameobject",
+          "go": "0e1c1c2c-3b99-4355-bc7f-69d277389b3b"
+        }
+      },
+      {
+        "__type": "BottleLogic",
+        "__guid": "ab173092-9cb1-4416-b5a8-a38744430f30",
+        "__enabled": true,
+        "Flags": 0,
+        "bottleFolder": {
+          "_type": "gameobject",
+          "go": "2dd03c60-1244-40b5-81d0-861cc340b873"
+        },
+        "bottlePrefab": {
+          "_type": "gameobject",
+          "prefab": "prefab/bottle.prefab"
+        },
+        "offset": "7,0,0",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
+    "Children": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}
