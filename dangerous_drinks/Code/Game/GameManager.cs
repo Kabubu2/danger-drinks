@@ -16,8 +16,6 @@ public sealed class GameManager : Component
 	[Property]
 	public GameObject WaitPoint;
 	[Property]
-	private GameObject Camera;
-	[Property]
 	public PostProcessController PPC;
 	private TimeUntil stateTimer = 4f;
 	protected override void OnUpdate()
@@ -77,6 +75,7 @@ public sealed class GameManager : Component
 		}
 		PPC.Trigger(false);
 		GetComponent<BottleLogic>().SpawnBottles();
+		Mouse.Visibility = MouseVisibility.Visible;
 		//Transition to RoundStart
 		CurrentGameState = GameState.TurnSelect;
 	}
@@ -140,9 +139,10 @@ public sealed class GameManager : Component
 	private void AttachCamera(int Player)
 	{
 		var playerRelay = PlayerAsset[Player].GetComponent<PlayerRelay>();
-		Camera.Parent = playerRelay.EyeSlot;
-		Camera.LocalPosition = Vector3.Zero;
-		Camera.LocalRotation = Rotation.Identity;
+		var camera = Scene.Camera;
+		camera.GameObject.Parent = playerRelay.EyeSlot;
+		camera.GameObject.LocalPosition = Vector3.Zero;
+		camera.GameObject.LocalRotation = Rotation.Identity;
 	}
 }
 

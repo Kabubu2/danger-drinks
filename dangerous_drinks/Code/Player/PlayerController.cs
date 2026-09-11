@@ -5,9 +5,24 @@ public sealed class DD_PlayerController : Component
 
 	protected override void OnUpdate()
 	{
-		if(	Input.Pressed("Attack 1") ) ClickZone("selectable").Destroy();
+		//if(	Input.Pressed("Attack 1") ) ClickZone("selectable").Destroy();
+		if(	Input.Pressed("Attack1") ) Log.Info(ClickZone().Name);
 	}
 
+		private GameObject ClickZone()
+	{
+		Log.Info("ClickZone");
+		var camera = Scene.Camera;
+		if(!camera.IsValid) return null;
+		
+		var ray = camera.ScreenPixelToRay(Mouse.Position);
+		var trace = Scene.Trace.Ray( ray.Position, ray.Position + ray.Forward * 999999f).Run();
+
+		if(trace.GameObject.IsValid) return trace.GameObject;
+		Log.Info("Trace");
+			
+		return null;
+	}
 	private GameObject ClickZone(string tag)
 	{
 

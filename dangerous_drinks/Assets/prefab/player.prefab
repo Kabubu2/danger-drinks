@@ -62,7 +62,7 @@
       {
         "__type": "DD_PlayerController",
         "__guid": "a84a371a-f8b8-44c3-beeb-56e7a3769888",
-        "__enabled": false,
+        "__enabled": true,
         "Flags": 0,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,

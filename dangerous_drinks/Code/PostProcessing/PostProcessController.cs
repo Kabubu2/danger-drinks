@@ -3,15 +3,13 @@ using Sandbox;
 
 public sealed class PostProcessController : Component
 {
-	[Property]
-	public PostProcessingDarkFade Fade;
 	public float wait = 4f;
 	private float blend = 0f;
 	private bool state = false;
 
 	protected override void OnUpdate()
 	{
-		
+		var Fade = GetComponent<PostProcessingDarkFade>();
 		if(StateTimer >= 0f)
 		{
 			if(state)

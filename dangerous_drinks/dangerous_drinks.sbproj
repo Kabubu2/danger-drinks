@@ -1,7 +1,7 @@
 {
   "Title": "Dangerous Drinks",
   "Type": "game",
-  "Org": "local",
+  "Org": "gok",
   "Ident": "dangerous_drinks",
   "Schema": 1,
   "IncludeSourceFiles": false,
@@ -10,5 +10,11 @@
   "EditorReferences": null,
   "Mounts": null,
   "IsStandaloneOnly": false,
-  "Metadata": {}
+  "Metadata": {
+    "ControlModes": {
+      "Keyboard": true,
+      "VR": false,
+      "Gamepad": false
+    }
+  }
 }

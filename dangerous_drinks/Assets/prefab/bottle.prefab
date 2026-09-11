@@ -27,6 +27,32 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "poisoned": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "d48a2bf8-f202-49c7-a325-3e17eceaf4b4",
+        "__enabled": true,
+        "Flags": 0,
+        "Center": "0,0,7",
+        "ColliderFlags": 0,
+        "Elasticity": null,
+        "Friction": null,
+        "IsTrigger": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnObjectTriggerEnter": null,
+        "OnObjectTriggerExit": null,
+        "OnTriggerEnter": null,
+        "OnTriggerExit": null,
+        "RollingResistance": null,
+        "Scale": "5,5,14",
+        "Static": false,
+        "Surface": null,
+        "SurfaceVelocity": "0,0,0"
       }
     ],
     "Children": [
@@ -98,7 +124,7 @@
           {
             "__type": "Sandbox.ModelCollider",
             "__guid": "765c0104-d30a-4a30-96c0-d9033a5a6e32",
-            "__enabled": true,
+            "__enabled": false,
             "Flags": 0,
             "ColliderFlags": 0,
             "Elasticity": null,
