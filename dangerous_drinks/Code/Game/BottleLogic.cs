@@ -15,46 +15,44 @@ public sealed class BottleLogic : Component
 	
 	public void SpawnBottles()
 	{
-		if(!hasBottles)
+		if(hasBottles()) 
 		{
-			Bottles();
-			AssignPoison();
+			Log.Warning("Bottles Detected: Attempting Purge");
+			KillBottles();
 		}
+		Bottles();
+		AssignPoison();
 		
-		else Log.Warning("Oops! All bottles.");
 	}
-	public bool HasPoison //Does the container have poison?
+	public bool HasPoison() //Does the container have poison?
 	{
-		get
+			if(hasBottles())
 		{
-			if(hasBottles)
+			var _folder = bottleFolder.Children;
+			for (int i = 0; i < _folder.Count; i++)
 			{
-				var _folder = bottleFolder.Children;
-				for (int i = 0; i < _folder.Count; i++)
-				{
-					var a = _folder[i].GetComponent<Bottle>();
-					if( a.IsValid && a.poisoned ) return true;
-					else continue;
-				}
+				var a = _folder[i].GetComponent<Bottle>();
+				if( a.IsValid && a.poisoned ) return true;
+				else continue;
 			}
-			return false;
 		}
+		return false;
 	}
 	public void KillBottles()
 	{
-		if(hasBottles)
+		if(hasBottles())
 		{
 			foreach (GameObject bottle in bottleFolder.Children)
 			{
-				bottle.Destroy();
+				if (bottle.IsValid) bottle.Destroy();
 			}
 		}
+		 
 	}
 
 	private void Bottles()
 	{
 		int loopCount = new Random().Next(3, 6);
-
 			for (int i = 0; i <= loopCount; i++)
 			{
 				//Bottle Offset relative to origin.
@@ -68,10 +66,8 @@ public sealed class BottleLogic : Component
 			}
 
 	}
-	public bool hasBottles
+	public bool hasBottles()
 	{
-		get
-		{
 			if (!bottleFolder.IsValid)
 			{
 				Log.Error("Bottle Folder not found.");
@@ -79,23 +75,58 @@ public sealed class BottleLogic : Component
 			}
 			else
 			{
-				var a = (bottleFolder.Children.Count > 0);
+				var a = bottleFolder.Children.Count() > 0 || bottleFolder.Children != null;
 				return a;
 			}
-			
+	}
+	public string[] DebugInfo()
+	{
+		string[] debug = new string[2];
+
+		debug[0] = "##ERR## Bottle Count";
+		debug[1] = "##ERR## Poison Bottles";
+
+		var a = bottleFolder.Children.Count();
+		var b = 0;
+		if(bottleFolder.Children != null && bottleFolder.Children.Count > 0)
+		{
+			for (int i = 0; i < bottleFolder.Children.Count; i++)
+			{
+				if(bottleFolder.Children[i].GetComponent<Bottle>() != null)
+				{
+					if(bottleFolder.Children[i].GetComponent<Bottle>().poisoned) b++;
+				}
+			}
+			debug[0] = a.ToString() + " Bottle Count";
+			debug[1] = b.ToString() + " Poison Bottles";
 		}
+		return debug;
 	}
 	private void AssignPoison()
 	{
-			//Randomly select 1-2 bottles from the bottleContainer and set their poisoned property to true
-			int poisonCount = new Random().Next(1, 3);
+		int poisonCount = new Random().Next(1, 3); //Randomly select 1-2 bottles from the bottleContainer and set their poisoned property to true
+		if(bottleFolder.IsValid & hasBottles())
+		{
 			var availableBottles = bottleFolder.Children.ToList();
-			var randomBottles = availableBottles.OrderBy(x => Guid.NewGuid()).Take(poisonCount);
-
-			foreach (var bottle in randomBottles)
+			if(availableBottles != null)
 			{
-				var _bottle = bottle.Components.Get<Bottle>();
-				_bottle.poisoned = true;
+				var randomBottles = availableBottles.OrderBy(x => Guid.NewGuid()).Take(poisonCount);
+				if(randomBottles.Count() > 0)
+				{
+					foreach (var bottle in randomBottles)
+					{
+						if(bottle.IsValid)
+						{
+							if(bottle.GetComponent<Bottle>() != null)
+							{
+								var _bottle = bottle.GetComponent<Bottle>();
+								_bottle.poisoned = true;
+							}
+						}	
+					}
+				}
 			}
+			
+		}
 	}
 }

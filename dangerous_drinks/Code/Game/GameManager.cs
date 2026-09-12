@@ -4,11 +4,12 @@ using System.Threading.Tasks;
 using Sandbox;
 
 public enum GameState {PreGame, GameStart, TurnSelect, NewRound, RoundStart, RoundEnd, GameEnd, Error}
+public enum CourseState {None, Empty, Clear, Poison, Death, Error}
 public sealed class GameManager : Component
 {
-	/// <summary>
+	/// ----------------------------------------
 	/// GAME LOGIC AND VARIABLES
-	/// </summary>
+	/// ----------------------------------------
 
 	[Property]
 	public GameObject Bottles;
@@ -101,6 +102,25 @@ public sealed class GameManager : Component
 
 
 	/// ----------------------------------------
+	/// COURSE LOGIC
+	/// ----------------------------------------
+
+
+
+	private CourseState Course()
+	{
+
+			if(isDead()) return CourseState.Death;
+			else if(!GetComponent<BottleLogic>().HasPoison()) return CourseState.Clear;
+			else if(DrankPoison) return CourseState.Poison;
+			else if(!GetComponent<BottleLogic>().hasBottles()) return CourseState.Empty;
+			else return CourseState.None;
+			//return CourseState.Error;
+		}
+
+
+
+	/// ----------------------------------------
 	/// ROUND LOGIC
 	/// ----------------------------------------
 	private void OnPreGame() //FIRES BEFORE ANYONE CAN SEE ANYTHING OR DO ANYTHING.
@@ -127,7 +147,6 @@ public sealed class GameManager : Component
 	private void OnNewRound() //FIRES WHEN A NEW ROUND BEGINS.
 	{
 		var a = GetComponent<BottleLogic>();
-		if(a.hasBottles)a.KillBottles();
 		a.SpawnBottles();
 		Log.Info("NEW ROUND STARTED");
 		CurrentGameState = GameState.TurnSelect;
@@ -136,9 +155,19 @@ public sealed class GameManager : Component
 	private void OnTurnSelect()
 	{
 		stateTimer = 4f;
-		if(CurrentPlayer > 1) CurrentPlayer = 0;
-		else if(CurrentPlayer == 0) CurrentPlayer = 1;
-		else if(CurrentPlayer == 1) CurrentPlayer = 0;
+		switch(CurrentPlayer)
+		{
+			case 0:
+			CurrentPlayer = 1;
+			break;
+			case 1:
+			CurrentPlayer = 0;
+			break;
+			default:
+			CurrentPlayer = 0;
+			break;
+		}
+
 		CurrentGameState = GameState.RoundStart;
 
 	}
@@ -151,36 +180,35 @@ public sealed class GameManager : Component
 	private void OnRoundEnd()
 	{
 		Log.Info("Round Ended for Player: " + CurrentPlayer);
-		var poison = (!GetComponent<BottleLogic>().HasPoison || DrankPoison);
-		var bottle = (GetComponent<BottleLogic>().hasBottles);
-		var dead = false;
 
-		for (int i = 0; i < Players.Length; i++) //End Game if lives are gone.
+		switch (Course())
 		{
-			if( Players[i].Lives <= 0)
-			{
-				dead = true;
-				break;
-			}
-		}
-
-		if (dead)
-		{
-			Log.Info("Player has died.");
+			case CourseState.Clear:
+			Log.Info("Course: No More Poison");
+			CurrentGameState = GameState.NewRound;
+			break;
+			case CourseState.Death:
+			Log.Info("Course: Death");
 			CurrentGameState = GameState.GameEnd;
-		}
-		else if (poison)
-		{
-			Log.Info("Player " + CurrentPlayer + " drank poison.");
+			break;
+			case CourseState.Empty:
+			Log.Info("Course: No More Bottles");
 			CurrentGameState = GameState.NewRound;
-		}
-		else if (!bottle)
-		{
-			Log.Info("Bottles Finished.");
+			break;
+			case CourseState.Poison:
+			Log.Info("Course: Poison Drank");
 			CurrentGameState = GameState.NewRound;
+			break;
+			case CourseState.None:
+			CurrentGameState = GameState.TurnSelect;
+			break;
+			case CourseState.Error:
+			Log.Warning("Course: State Slipped through the rails. Track the error.");
+			CurrentGameState = GameState.NewRound;
+			break;
+			default:
+			break;
 		}
-		else
-		CurrentGameState = GameState.TurnSelect;
 		
 	}
 	private void OnGameEnd()
@@ -229,6 +257,27 @@ public sealed class GameManager : Component
 		Players[PlayerInt].PlayerInst = PlayerAsset[PlayerInt];
 		
 	}
+	private bool isDead(out GameObject player)
+	{
+		for (int i = 0; i < Players.Length; i++) //End Game if lives are gone.
+		{
+			if( Players[i].Lives <= 0)
+			{
+				player = PlayerAsset[i];
+				return true;
+			}
+		}
+		player = null;
+		return false;
+	}
+	private bool isDead()
+	{
+		for (int i = 0; i < Players.Length; i++) //End Game if lives are gone.
+		{
+			if( Players[i].Lives <= 0) return true;
+		}
+		return false;
+	}
 	private void AttachCamera(int Player)
 	{
 		var playerRelay = PlayerAsset[Player].GetComponent<PlayerRelay>();
@@ -239,9 +288,9 @@ public sealed class GameManager : Component
 	}
 }
 
-/// <summary>
+/// ----------------------------------------
 /// PLAYER UNIVERSAL DATA AND VARIABLES
-/// </summary>
+/// ----------------------------------------
 
 public enum Team { Player, Opponant, Neither }
 public class UserData

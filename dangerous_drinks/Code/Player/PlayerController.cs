@@ -15,9 +15,20 @@ public sealed class DD_PlayerController : Component
 	protected override void OnUpdate()
 	{
 		CheckUp();
+		SelectFilter();
+	}
+	private void SelectFilter()
+	{
 		if(gameManager.IsValid)
 		{
-			if(Input.Pressed("Attack1")) SendChoice(this.GameObject, ClickZone("selectable"));
+			if(Input.Pressed("Attack1")) 
+			{
+				var a = ClickZone("selectable");
+				if (a != null)
+				{
+					SendChoice(this.GameObject, a);
+				}
+			}
 		}
 	}
 

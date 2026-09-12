@@ -1,0 +1,34 @@
+UidebugPanel
+{
+	background-color: #00000000;
+
+	.box
+	{
+		width: 25%;
+		height: 80%;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.header
+	{
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-size: 25px;
+		font-family: Poppins;
+		color: #ffc170;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	.line
+	{
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-size: 25px;
+		font-family: Poppins;
+		color: #fff;
+		
+	}
+}

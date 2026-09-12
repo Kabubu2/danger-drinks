@@ -1646,14 +1646,6 @@
               "Type": "Component",
               "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
             },
-            "Property": "CurrentPlayer",
-            "Value": 2
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
-            },
             "Property": "PlayerSpawnPoints",
             "Value": [
               {
@@ -1794,6 +1786,68 @@
           "Children": []
         }
       ]
+    },
+    {
+      "__guid": "e2075350-d3ea-49ac-a26b-dc58749fed8e",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Debug Screen",
+      "Position": "-7.83703423,253.199127,-2.46025467",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "851edeae-61ea-4e11-9ff9-d1078201a38b",
+          "__enabled": true,
+          "Flags": 0,
+          "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": {
+            "_type": "component",
+            "component_id": "cfe67344-dfc8-4125-b96f-75a489d7a44c",
+            "go": "d847c4c5-cd23-4faf-9e9d-2eae66c84e26",
+            "component_type": "CameraComponent"
+          },
+          "Timing": "AfterPostProcess",
+          "ZIndex": 100
+        },
+        {
+          "__type": "Sandbox.UidebugPanel",
+          "__guid": "c5e4f710-ad0d-4cb5-914d-9d364a23a342",
+          "__enabled": true,
+          "Flags": 0,
+          "bottleLogic": {
+            "_type": "component",
+            "component_id": "5aab75ff-959d-46d8-8082-536cbbbe0949",
+            "go": "4cb3f10e-0d69-46ff-bf72-2a510277b448",
+            "component_type": "BottleLogic"
+          },
+          "Debug": [],
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
