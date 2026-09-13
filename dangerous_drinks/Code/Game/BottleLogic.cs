@@ -15,39 +15,36 @@ public sealed class BottleLogic : Component
 	
 	public void SpawnBottles()
 	{
-		if(hasBottles()) 
+		if(!hasBottles()) 
 		{
-			Log.Warning("Bottles Detected: Attempting Purge");
-			KillBottles();
+			Bottles();
+			AssignPoison();
 		}
-		Bottles();
-		AssignPoison();
-		
 	}
 	public bool HasPoison() //Does the container have poison?
 	{
 			if(hasBottles())
-		{
-			var _folder = bottleFolder.Children;
-			for (int i = 0; i < _folder.Count; i++)
 			{
-				var a = _folder[i].GetComponent<Bottle>();
-				if( a.IsValid && a.poisoned ) return true;
-				else continue;
+				var _folder = bottleFolder.Children;
+				for (int i = 0; i < _folder.Count; i++)
+				{
+					var a = _folder[i].GetComponent<Bottle>();
+					if( a.IsValid && a.poisoned ) return true;
+					else continue;
+				}
 			}
-		}
 		return false;
 	}
 	public void KillBottles()
 	{
+		var bottles = bottleFolder.Children;
 		if(hasBottles())
 		{
-			foreach (GameObject bottle in bottleFolder.Children)
+			for (int i = 0; i < bottles.Count(); i++)
 			{
-				if (bottle.IsValid) bottle.Destroy();
+				if(bottles[i].IsValid) bottles[i].Destroy();
 			}
-		}
-		 
+		} 
 	}
 
 	private void Bottles()
@@ -75,7 +72,7 @@ public sealed class BottleLogic : Component
 			}
 			else
 			{
-				var a = bottleFolder.Children.Count() > 0 || bottleFolder.Children != null;
+				var a = bottleFolder.Children.Count() > 0 && bottleFolder.Children != null;
 				return a;
 			}
 	}

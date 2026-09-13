@@ -3,8 +3,8 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Sandbox;
 
-public enum GameState {PreGame, GameStart, TurnSelect, NewRound, RoundStart, RoundEnd, GameEnd, Error}
-public enum CourseState {None, Empty, Clear, Poison, Death, Error}
+public enum GameState {None, PreGame, GameStart, PreRound, RoundStart, PreTurn, TurnStart, TurnHold, TurnEnd, PostTurn, RoundEnd, PostRound, GameEnd, PostGame}
+public enum CourseState {None, NoBottles, NoPoisons, DrankPoison, DrankNormal}
 public sealed class GameManager : Component
 {
 	/// ----------------------------------------
@@ -12,13 +12,20 @@ public sealed class GameManager : Component
 	/// ----------------------------------------
 
 	[Property]
-	public GameObject Bottles;
+	public GameObject BottlesContainer;
 	[Property]
 	public GameObject WaitPoint;
 	[Property]
-	public PostProcessController PPC;
-	private TimeUntil stateTimer = 4f;
+	public PostProcessController PostProcessCon{ get; set; }
+
+
 	protected override void OnUpdate()
+	{
+		if(Input.Pressed("Use"))CurrentGameState = GameState.PreGame; //Temporary Start Method
+		Logic();
+	}
+
+	private void Logic()
 	{
 		switch (CurrentGameState)
 		{
@@ -28,257 +35,289 @@ public sealed class GameManager : Component
 			case GameState.GameStart:
 			OnGameStart();
 			break;
-			case GameState.TurnSelect:
-			OnTurnSelect();
-			break;
-			case GameState.NewRound:
-			OnNewRound();
+
+			case GameState.PreRound:
+			OnPreRound();
 			break;
 			case GameState.RoundStart:
 			OnRoundStart();
 			break;
+
+			case GameState.PreTurn:
+			OnPreTurn();
+			break;
+			case GameState.TurnStart:
+			OnTurnStart();
+			break;
+			case GameState.TurnHold:
+			OnTurnHold();
+			break;
+			case GameState.TurnEnd:
+			OnTurnEnd();
+			break;
+			case GameState.PostTurn:
+			OnPostTurn();
+			break;
+
 			case GameState.RoundEnd:
 			OnRoundEnd();
 			break;
+			case GameState.PostRound:
+			OnPostRound();
+			break;
+
 			case GameState.GameEnd:
 			OnGameEnd();
 			break;
-			case GameState.Error:
-			Log.Error("Someway... somehow.. the game state slipped off the rails. If this happens we need to figure out how.");
+			case GameState.PostGame:
+			OnPostGame();
+			break;
+
+			case GameState.None:
 			break;
 			default:
-			Log.Error("Someway... somehow.. the game state slipped off the rails. If this happens we need to figure out how.");
 			break;
 		}
 	}
+
 	[Property]
-	private int CurrentPlayer{ get; set; } = 2;
-	private GameState CurrentGameState{get; set;}
-
-	public bool CanAct(GameObject player)
-	{
-		for (int i = 0; i < Players.Length; i++)
-		{
-			if (Players[i].PlayerInst == player && CurrentPlayer == i && CurrentGameState == GameState.RoundStart)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	private bool DrankPoison = false;
-	public void PlayerInteract(GameObject player, GameObject item)
-	{
-		if(CanAct(player))
-		{
-			bool isPotion = item.GetComponent<Bottle>().IsValid;
-			bool isPoison = false;
-			if(isPotion) isPoison = item.GetComponent<Bottle>().poisoned;
-
-			for (int i = 0; i < Players.Length; i++)
-			{
-				if (Players[i].PlayerInst == player && CurrentPlayer == i)
-				{
-					if(isPotion)
-					{
-						if(isPoison) 
-						{
-							DrankPoison = true;
-							Players[i].Lives--;
-							Players[i].PoisonsDrank += 1;
-						}
-						if(!isPoison)
-						{
-							Players[i].DudsDrank++;
-						}
-						item.Destroy();
-						CurrentGameState = GameState.RoundEnd;
-					}
-					//Do something else: like ability or nothing
-				}
-			}
-		}
-	}
-
+	private GameState CurrentGameState{ get; set; } //The current state of the game.
 
 	/// ----------------------------------------
 	/// COURSE LOGIC
 	/// ----------------------------------------
 
-
-
-	private CourseState Course()
+	private bool DrankPoison;
+	private void Course(CourseState course)
 	{
-
-			if(isDead()) return CourseState.Death;
-			else if(!GetComponent<BottleLogic>().HasPoison()) return CourseState.Clear;
-			else if(DrankPoison) return CourseState.Poison;
-			else if(!GetComponent<BottleLogic>().hasBottles()) return CourseState.Empty;
-			else return CourseState.None;
-			//return CourseState.Error;
+		switch (course)
+		{
+			case CourseState.NoBottles:
+			Course_NoBottles();
+			break;
+			case CourseState.NoPoisons:
+			Course_NoPoisons();
+			break;
+			case CourseState.DrankNormal:
+			Course_DrankNormal();
+			break;
+			case CourseState.DrankPoison:
+			Course_DrankPoison();
+			break;
+			case CourseState.None:
+			break;
+			default:
+			break;
 		}
-
-
-
+	}
+	private void Course_NoBottles()
+	{
+		CurrentGameState = GameState.RoundEnd;
+	}
+	private void Course_NoPoisons()
+	{
+		CurrentGameState = GameState.RoundEnd;
+	}
+	private void Course_DrankNormal()
+	{
+		CurrentGameState = GameState.PreTurn;
+	}
+	private void Course_DrankPoison()
+	{
+		CurrentGameState = GameState.RoundEnd;
+	}
+	private CourseState CheckBottles()
+	{
+		var bottleLogic = GetComponent<BottleLogic>();
+		CourseState targetState = CourseState.DrankNormal;
+		if(DrankPoison) targetState = CourseState.DrankPoison;
+		if(!bottleLogic.HasPoison()) targetState = CourseState.NoPoisons;
+		if(bottleLogic.hasBottles()) targetState = CourseState.NoBottles;
+		DrankPoison = false;
+		return targetState;
+	}
 	/// ----------------------------------------
 	/// ROUND LOGIC
 	/// ----------------------------------------
-	private void OnPreGame() //FIRES BEFORE ANYONE CAN SEE ANYTHING OR DO ANYTHING.
+	
+	private TimeSince StateTimer;
+	private void OnPreGame()
 	{
-		//Preloading
-		AssignJoinID();
-		PPC.Trigger(true);
-		//Before Setting Camera
-		if(stateTimer > 0) return;
-		AttachCamera(0);
-		CurrentGameState = GameState.GameStart;
-	}
-	private void OnGameStart() //FIRES WHEN PREGAME IS DONE AND THE PLAYERS ARE SUCCESSFULLY PLACED.
-	{
-		foreach (GameObject Player in PlayerAsset)
+		
+		//Disable Mouse Input
+		AssignPlayerID();
+		PostProcessCon.Trigger(true);
+		AttachPlayerCamera(0);
+
+		if(StateTimer > 3) //Forced Delay
 		{
-			Player.GetComponent<AnimManager>().anim_Sit();
+			CurrentGameState = GameState.GameStart;
+			StateTimer = 0;
 		}
-		PPC.Trigger(false);
-		Mouse.Visibility = MouseVisibility.Visible; //Display Mouse
-
-		CurrentGameState = GameState.NewRound; //Transition to RoundStart
+		
 	}
-	private void OnNewRound() //FIRES WHEN A NEW ROUND BEGINS.
+	private void OnGameStart()
 	{
-		var a = GetComponent<BottleLogic>();
-		a.SpawnBottles();
-		Log.Info("NEW ROUND STARTED");
-		CurrentGameState = GameState.TurnSelect;
-
-	}
-	private void OnTurnSelect()
-	{
-		stateTimer = 4f;
-		switch(CurrentPlayer)
+		foreach (GameObject player in PlayerAsset) player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
+		PostProcessCon.Trigger(false);
+		
+		if(StateTimer > 3) //Forced Delay
 		{
-			case 0:
-			CurrentPlayer = 1;
-			break;
-			case 1:
-			CurrentPlayer = 0;
-			break;
-			default:
-			CurrentPlayer = 0;
-			break;
+			CurrentGameState = GameState.PreRound;
+			StateTimer = 0;
 		}
-
-		CurrentGameState = GameState.RoundStart;
-
+		
 	}
-	private void OnRoundStart() //FIRES WHEN GAMESTART IS OVER AND ROUND HAS BEGUN.
+	private void OnPreRound()
 	{
-		Log.Info("Round Started for Player: " + CurrentPlayer);
-		//Player must choose bottle and drink
-
+		if(StateTimer > 3) //Forced Delay
+		{
+			CurrentGameState = GameState.RoundStart;
+			StateTimer = 0;
+		}
+		
+	}
+	private void OnRoundStart()
+	{
+		var bottleLogic = GetComponent<BottleLogic>();
+		bottleLogic.SpawnBottles();
+		if(StateTimer > 3) //Forced Delay
+		{
+			CurrentGameState = GameState.PreTurn;
+			StateTimer = 0;
+		}
+		
+	}
+	private void OnPreTurn()
+	{
+		CycleTurn();
+		if(StateTimer > 3) //Forced Delay
+		{
+			CurrentGameState = GameState.TurnStart;
+			StateTimer = 0;
+		}
+		
+	}
+	private void OnTurnStart()
+	{
+		//Enable Mouse Input
+		Mouse.Visibility = MouseVisibility.Visible;
+	}
+	private void OnTurnHold()
+	{
+		//Don't do anything; To give room for player interaction.
+		//We can add a turn timer here.
+	}
+	private void OnTurnEnd()
+	{
+		//Disable Mouse Input
+		Mouse.Visibility = MouseVisibility.Hidden;
+	}
+	private void OnPostTurn()
+	{
+		if(StateTimer > 3) //Forced Delay
+		{
+			Course(CheckBottles());
+			StateTimer = 0;
+		}
+		//Will go through each of the ending mechanics.
 	}
 	private void OnRoundEnd()
 	{
-		Log.Info("Round Ended for Player: " + CurrentPlayer);
-
-		switch (Course())
+		var bottleLogic = GetComponent<BottleLogic>();
+		bottleLogic.KillBottles();
+		if(StateTimer > 1) //Forced Delay
 		{
-			case CourseState.Clear:
-			Log.Info("Course: No More Poison");
-			CurrentGameState = GameState.NewRound;
-			break;
-			case CourseState.Death:
-			Log.Info("Course: Death");
-			CurrentGameState = GameState.GameEnd;
-			break;
-			case CourseState.Empty:
-			Log.Info("Course: No More Bottles");
-			CurrentGameState = GameState.NewRound;
-			break;
-			case CourseState.Poison:
-			Log.Info("Course: Poison Drank");
-			CurrentGameState = GameState.NewRound;
-			break;
-			case CourseState.None:
-			CurrentGameState = GameState.TurnSelect;
-			break;
-			case CourseState.Error:
-			Log.Warning("Course: State Slipped through the rails. Track the error.");
-			CurrentGameState = GameState.NewRound;
-			break;
-			default:
-			break;
+			CurrentGameState = GameState.PostRound;
+			StateTimer = 0;
+		}
+		
+	}
+	private void OnPostRound()
+	{
+		int deadman;
+		if(isDead(out deadman)) 
+		{
+			if(StateTimer > 1) //Forced Delay
+			{
+				StateTimer = 0;
+				CurrentGameState = GameState.GameEnd;
+			}
+			Log.Info("Player " + deadman + " has died. Game Over!"); //Temporary Callout to death.
+		}
+		else
+		{
+			if(StateTimer > 1) //Forced Delay
+			{
+				StateTimer = 0;
+				CurrentGameState = GameState.RoundStart;
+			}
 		}
 		
 	}
 	private void OnGameEnd()
 	{
-		int deadman = 2;
-		for (int i = 0; i < Players.Length; i++)
-		{
-			if(Players[i].Lives <= 0) 
-			{
-				deadman = i;
-				break;
-			}
-		}
-		Log.Info("Game Over! Player " + deadman + " has lost the game.");
-		//kill player with 0 lives.
-		//maybe a stat screen?
+		CurrentGameState = GameState.PostGame;
 	}
+	private void OnPostGame()
+	{
+
+	}
+
+	/// ----------------------------------------
+	/// LOGIC SUBSYSTEMS
+	/// ----------------------------------------
+	
+	
+	
 	/// ----------------------------------------
 	/// PLAYER SYSTEMS
 	/// ----------------------------------------
-
+	
 	[Property]
-	public GameObject PlayerRef{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
+	public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
 	[Property]
  	public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
 	private PlayerData[] Players = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
 	private GameObject[] PlayerAsset = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
-
-	private void AssignJoinID() //CHECKS EACH AVAILABLE SLOT FOR PLAYERS TO FILL. MUST ADD FALLBACK FOR FULL LOBBY.
+	private int CurrentPlayer{get; set;} = 2;
+	private int CycleTurn()
 	{
-		if(PlayerAsset[0] == null) InstancePlayerAsset(0);
-		if(PlayerAsset[1] == null) InstancePlayerAsset(1);
+		switch (CurrentPlayer)
+		{
+			case 0:
+			return 1;
+			case 1:
+			return 2;
+			case 2:
+			return 0;
+			default:
+			return 0;
+		}
 	}
+
 	private void InstancePlayerAsset(int PlayerInt) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
+		PlayerAsset[PlayerInt] = PlayerReference.Clone();
+		PlayerAsset[PlayerInt].Parent = PlayerSpawnPoints[PlayerInt];
+		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
+		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
 		Players[PlayerInt] = new PlayerData(); 
 		Players[PlayerInt].TeamState = Team.Player;
 		Players[PlayerInt].Lives = 3;
 		Players[PlayerInt].LivesMax = 3;
 		Players[PlayerInt].DudsDrank = 0;
 		Players[PlayerInt].PoisonsDrank = 0;
-		PlayerAsset[PlayerInt] = PlayerRef.Clone();
-		PlayerAsset[PlayerInt].Parent = PlayerSpawnPoints[PlayerInt];
-		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
-		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
 		Players[PlayerInt].PlayerInst = PlayerAsset[PlayerInt];
 		
 	}
-	private bool isDead(out GameObject player)
+	private void AssignPlayerID() //CHECKS EACH AVAILABLE SLOT FOR PLAYERS TO FILL. MUST ADD FALLBACK FOR FULL LOBBY.
 	{
-		for (int i = 0; i < Players.Length; i++) //End Game if lives are gone.
-		{
-			if( Players[i].Lives <= 0)
-			{
-				player = PlayerAsset[i];
-				return true;
-			}
-		}
-		player = null;
-		return false;
+		if(PlayerAsset[0] == null) InstancePlayerAsset(0);
+		if(PlayerAsset[1] == null) InstancePlayerAsset(1);
 	}
-	private bool isDead()
-	{
-		for (int i = 0; i < Players.Length; i++) //End Game if lives are gone.
-		{
-			if( Players[i].Lives <= 0) return true;
-		}
-		return false;
-	}
-	private void AttachCamera(int Player)
+
+	private void AttachPlayerCamera(int Player)
 	{
 		var playerRelay = PlayerAsset[Player].GetComponent<PlayerRelay>();
 		var camera = Scene.Camera;
@@ -286,6 +325,74 @@ public sealed class GameManager : Component
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
 	}
+	public void PlayerDrink(bool isPoison, GameObject player, GameObject bottle) //WHEN A PLAYER DRINKS
+	{
+		PlayerData playerData = PlayerFind(player);
+		Bottle _bottle = bottle.GetComponent<Bottle>();
+		if( CanAct( player ) && _bottle.IsValid && !_bottle.empty )
+		{
+			if ( isPoison )
+			{
+				playerData.Lives--;
+				playerData.PoisonsDrank++;
+				DrankPoison = true;
+			}
+			else
+			{
+				playerData.DudsDrank++;
+				DrankPoison = false;
+			}
+			_bottle.empty = true;
+		}
+		
+	}
+
+	private PlayerData PlayerFind(GameObject player)
+	{
+		PlayerData playerData = null;
+		for (int i = 0; i < Players.Count(); i++)
+		{
+			if(Players[i].PlayerInst == player)
+			{
+				playerData = Players[i];
+			}
+		}
+		return playerData;
+	}
+
+	public bool CanAct(GameObject player)
+	{
+		for (int i = 0; i < Players.Length; i++)
+		{	if (Players[i].PlayerInst == player && CurrentPlayer == i)
+			{ return true; }
+		}
+		return false;
+	}
+
+	private bool isDead(out int player)
+	{
+		for (int i = 0; i < Players.Count(); i++)
+		{
+			if(Players[i].Lives <= 0)
+			{
+				player = i;
+				return true;
+			}
+		}
+		player = 2;
+		return false;	
+	}
+	private bool isDead()
+	{
+		int player; //Throwaway
+		return isDead(out player);
+	}
+
+	/// ----------------------------------------
+	/// DEBUG SYSTEMS
+	/// ----------------------------------------
+	
+
 }
 
 /// ----------------------------------------
@@ -306,6 +413,7 @@ public class PlayerData
 	public int Lives{ get; set; }
 	public int LivesMax{ get; set; }
 	public int DudsDrank{ get; set; }
+	public int DrinksDrank{ get; set; }
 	public int PoisonsDrank{ get; set; }
 	public GameObject PlayerInst{ get; set; }
 }

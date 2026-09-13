@@ -1635,10 +1635,21 @@
               "Type": "Component",
               "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
             },
-            "Property": "Bottles",
+            "Property": "BottlesContainer",
             "Value": {
               "_type": "gameobject",
               "go": "2dd03c60-1244-40b5-81d0-861cc340b873"
+            }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
+            },
+            "Property": "PlayerReference",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "prefab/player.prefab"
             }
           },
           {
@@ -1663,7 +1674,7 @@
               "Type": "Component",
               "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
             },
-            "Property": "PPC",
+            "Property": "PostProcessCon",
             "Value": {
               "_type": "component",
               "component_id": "ec09cc5f-bcb2-419f-9e37-09fd656756b1",

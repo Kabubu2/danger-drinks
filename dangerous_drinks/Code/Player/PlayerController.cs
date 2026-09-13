@@ -39,7 +39,7 @@ public sealed class DD_PlayerController : Component
 
 	private void SendChoice(GameObject player, GameObject item)
 	{
-		gameManager.PlayerInteract(player, item);
+		//gameManager.PlayerInteract(player, item);
 	}
 	private GameObject ClickZone()
 	{
