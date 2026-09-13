@@ -8,4 +8,6 @@ public sealed class PlayerRelay : Component
 	public SkinnedModelRenderer Renderer { get; set; }
 	[Property]
 	public GameObject EyeSlot { get; set; }
+	[Property]
+	public DD_PlayerController playerController { get; set; }
 }

@@ -1646,6 +1646,14 @@
               "Type": "Component",
               "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
             },
+            "Property": "CurrentGameState",
+            "Value": "None"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
+            },
             "Property": "PlayerReference",
             "Value": {
               "_type": "gameobject",

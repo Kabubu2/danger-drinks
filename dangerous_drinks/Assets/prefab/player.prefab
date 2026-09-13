@@ -30,6 +30,12 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
+        "playerController": {
+          "_type": "component",
+          "component_id": "a84a371a-f8b8-44c3-beeb-56e7a3769888",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "DD_PlayerController"
+        },
         "PlayerCore": {
           "_type": "gameobject",
           "go": "a9cd0ac0-0f0a-40f0-ab86-daba43acafed"
@@ -62,7 +68,7 @@
       {
         "__type": "DD_PlayerController",
         "__guid": "a84a371a-f8b8-44c3-beeb-56e7a3769888",
-        "__enabled": true,
+        "__enabled": false,
         "Flags": 0,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,

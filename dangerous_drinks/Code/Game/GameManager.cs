@@ -149,7 +149,7 @@ public sealed class GameManager : Component
 		PostProcessCon.Trigger(true);
 		AttachPlayerCamera(0);
 
-		if(StateTimer > 3) //Forced Delay
+		if(StateTimer > 1) //Forced Delay
 		{
 			CurrentGameState = GameState.GameStart;
 			StateTimer = 0;
@@ -161,7 +161,7 @@ public sealed class GameManager : Component
 		foreach (GameObject player in PlayerAsset) player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
 		PostProcessCon.Trigger(false);
 		
-		if(StateTimer > 3) //Forced Delay
+		if(StateTimer > 1) //Forced Delay
 		{
 			CurrentGameState = GameState.PreRound;
 			StateTimer = 0;
@@ -170,7 +170,7 @@ public sealed class GameManager : Component
 	}
 	private void OnPreRound()
 	{
-		if(StateTimer > 3) //Forced Delay
+		if(StateTimer > 1) //Forced Delay
 		{
 			CurrentGameState = GameState.RoundStart;
 			StateTimer = 0;
@@ -181,7 +181,7 @@ public sealed class GameManager : Component
 	{
 		var bottleLogic = GetComponent<BottleLogic>();
 		bottleLogic.SpawnBottles();
-		if(StateTimer > 3) //Forced Delay
+		if(StateTimer > 1) //Forced Delay
 		{
 			CurrentGameState = GameState.PreTurn;
 			StateTimer = 0;
@@ -191,7 +191,7 @@ public sealed class GameManager : Component
 	private void OnPreTurn()
 	{
 		CycleTurn();
-		if(StateTimer > 3) //Forced Delay
+		if(StateTimer > 1) //Forced Delay
 		{
 			CurrentGameState = GameState.TurnStart;
 			StateTimer = 0;
@@ -215,7 +215,7 @@ public sealed class GameManager : Component
 	}
 	private void OnPostTurn()
 	{
-		if(StateTimer > 3) //Forced Delay
+		if(StateTimer > 1) //Forced Delay
 		{
 			Course(CheckBottles());
 			StateTimer = 0;
@@ -319,7 +319,10 @@ public sealed class GameManager : Component
 
 	private void AttachPlayerCamera(int Player)
 	{
-		var playerRelay = PlayerAsset[Player].GetComponent<PlayerRelay>();
+		var _player = PlayerAsset[Player];
+		var playerRelay = _player.GetComponent<PlayerRelay>();
+		if(playerRelay.playerController != null)
+		playerRelay.playerController.Enabled = true;
 		var camera = Scene.Camera;
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
@@ -342,7 +345,7 @@ public sealed class GameManager : Component
 				playerData.DudsDrank++;
 				DrankPoison = false;
 			}
-			_bottle.empty = true;
+			bottle.Destroy();
 		}
 		
 	}
