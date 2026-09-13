@@ -352,7 +352,7 @@ public sealed class GameManager : Component
 			}
 			bottle.Destroy();
 		}
-		CurrentGameState = GameState.RoundEnd;
+		CurrentGameState = GameState.TurnEnd;
 	}
 
 	private PlayerData PlayerFind(GameObject player)
