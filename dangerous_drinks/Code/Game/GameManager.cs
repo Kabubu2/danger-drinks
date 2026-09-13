@@ -202,6 +202,11 @@ public sealed class GameManager : Component
 	{
 		//Enable Mouse Input
 		Mouse.Visibility = MouseVisibility.Visible;
+		if(StateTimer > 1) //Forced Delay
+		{
+			CurrentGameState = GameState.TurnHold;
+			StateTimer = 0;
+		}
 	}
 	private void OnTurnHold()
 	{
@@ -280,7 +285,7 @@ public sealed class GameManager : Component
  	public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
 	private PlayerData[] Players = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
 	private GameObject[] PlayerAsset = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
-	private int CurrentPlayer{get; set;} = 2;
+	public int CurrentPlayer{get; set;} = 2;
 	private int CycleTurn()
 	{
 		switch (CurrentPlayer)
@@ -332,7 +337,7 @@ public sealed class GameManager : Component
 	{
 		PlayerData playerData = PlayerFind(player);
 		Bottle _bottle = bottle.GetComponent<Bottle>();
-		if( CanAct( player ) && _bottle.IsValid && !_bottle.empty )
+		if( CanAct( player ) && _bottle.IsValid )
 		{
 			if ( isPoison )
 			{
