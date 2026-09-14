@@ -72,8 +72,9 @@ public sealed class BottleLogic : Component
 			}
 			else
 			{
-				var a = bottleFolder.Children.Count() > 0 && bottleFolder.Children != null;
-				return a;
+				int bottleCount = bottleFolder.Children.Count;
+				bool bottlesFound = bottleCount > 0;
+				return bottlesFound;
 			}
 	}
 	public string[] DebugInfo()

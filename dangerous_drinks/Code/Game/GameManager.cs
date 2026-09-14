@@ -132,8 +132,9 @@ public sealed class GameManager : Component
 		CourseState targetState = CourseState.DrankNormal;
 		if(DrankPoison) targetState = CourseState.DrankPoison;
 		if(!bottleLogic.HasPoison()) targetState = CourseState.NoPoisons;
-		if(bottleLogic.hasBottles()) targetState = CourseState.NoBottles;
+		if(!bottleLogic.hasBottles()) targetState = CourseState.NoBottles;
 		DrankPoison = false;
+		Log.Info(targetState);
 		return targetState;
 	}
 	/// ----------------------------------------
@@ -190,9 +191,9 @@ public sealed class GameManager : Component
 	}
 	private void OnPreTurn()
 	{
-		CycleTurn();
 		if(StateTimer > 1) //Forced Delay
 		{
+			CurrentPlayer = CycleTurn();
 			CurrentGameState = GameState.TurnStart;
 			StateTimer = 0;
 		}
@@ -217,6 +218,11 @@ public sealed class GameManager : Component
 	{
 		//Disable Mouse Input
 		Mouse.Visibility = MouseVisibility.Hidden;
+		if(StateTimer > 1) //Forced Delay
+		{
+			CurrentGameState = GameState.PostTurn;
+			StateTimer = 0;
+		}
 	}
 	private void OnPostTurn()
 	{
@@ -285,6 +291,7 @@ public sealed class GameManager : Component
  	public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
 	private PlayerData[] Players = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
 	private GameObject[] PlayerAsset = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
+	[Property]
 	public int CurrentPlayer{get; set;} = 2;
 	private int CycleTurn()
 	{
@@ -293,7 +300,7 @@ public sealed class GameManager : Component
 			case 0:
 			return 1;
 			case 1:
-			return 2;
+			return 0;
 			case 2:
 			return 0;
 			default:
@@ -396,9 +403,6 @@ public sealed class GameManager : Component
 		return isDead(out player);
 	}
 
-	/// ----------------------------------------
-	/// DEBUG SYSTEMS
-	/// ----------------------------------------
 	
 
 }
