@@ -1858,12 +1858,19 @@
             "component_type": "BottleLogic"
           },
           "Debug": [],
+          "gameManager": {
+            "_type": "component",
+            "component_id": "247e95f6-41cd-4ab4-b33f-9e946baea7ae",
+            "go": "4cb3f10e-0d69-46ff-bf72-2a510277b448",
+            "component_type": "GameManager"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "Turn": null
         }
       ],
       "Children": []

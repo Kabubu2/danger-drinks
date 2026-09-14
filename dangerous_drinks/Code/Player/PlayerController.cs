@@ -24,7 +24,7 @@ public sealed class DD_PlayerController : Component
 			if(Input.Pressed("Attack1")) 
 			{
 				var a = ClickZone("selectable");
-				if (a != null)
+				if (a.IsValid)
 				{
 					SendChoice(this.GameObject, a);
 				}
@@ -40,8 +40,8 @@ public sealed class DD_PlayerController : Component
 	private void SendChoice(GameObject player, GameObject item)
 	{
 		//gameManager.PlayerDrink(player, item);
-		var poison = item.GetComponent<Bottle>().poisoned;
-		gameManager.PlayerDrink(poison, player, item);
+		var poison = item.GetComponent<Bottle>();
+		if(item.IsValid && poison.IsValid && player.IsValid)gameManager.PlayerDrink(poison.poisoned, player, item);
 	}
 	private GameObject ClickZone()
 	{
