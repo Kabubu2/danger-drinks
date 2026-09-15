@@ -1,23 +1,70 @@
 using System;
 using Sandbox;
 
+public enum PlayerState {start, idle, select, drink, poisoned, dud}
 public sealed class AnimManager : Component
 {
-	
 	///
 	/// ANIMATION CONTROLLERS AND VARIABLES
 	/// 
 	[Property]
-	public PlayerRelay PlayerRenderer {get; set;}
+	private PlayerRelay PlayerRenderer {get; set;}
+	[Property]
+	private DD_PlayerController playerController{get; set;}
+
+	public bool IsTurn {get; set;}
+	public PlayerState playerState {get; set;}
+	public GameObject bottleSelected {get; set;}
+	protected override void OnFixedUpdate()
+	{
+		if(IsTurn)
+		{
+			switch (playerState)
+				{
+					case PlayerState.start:
+					anim_Sit();
+					break;
+					case PlayerState.idle:
+					break;
+					case PlayerState.select:
+					anim_Select(bottleSelected);
+					break;
+					case PlayerState.drink:
+					anim_Drink();
+					break;
+					case PlayerState.dud:
+					anim_DrinkNormal();
+					break;
+					case PlayerState.poisoned:
+					anim_DrinkHurt();
+					break;
+			}
+		}
+		else
+		{
+			var a = PlayerRenderer.Renderer.Parameters;
+			a.Set("dud", false);
+			a.Set("drink", false);
+			a.Set("poison", false);
+			a.Set("select", false);
+		}
+	}
 
 	public void anim_Drink()	
 	{
 		PlayerRenderer.Renderer.Parameters.Set("drink", true);
 	}
-
 	public void anim_Sit()	
 	{
 		PlayerRenderer.Renderer.Parameters.Set("begin", true);
+	}
+	public void anim_DrinkHurt()	
+	{
+		PlayerRenderer.Renderer.Parameters.Set("poison", true);
+	}
+	public void anim_DrinkNormal()	
+	{
+		PlayerRenderer.Renderer.Parameters.Set("dud", true);
 	}
 
 	public float animVar_Stretch(float distance)
