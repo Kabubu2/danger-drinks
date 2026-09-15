@@ -145,7 +145,7 @@ public sealed class GameManager : Component
 	{
 		
 		//Disable Mouse Input
-		AssignPlayerID();
+		AssignPlayerID(Connection.Local);
 		PostProcessCon.Trigger(true);
 		AttachPlayerCamera(0);
 
@@ -156,9 +156,14 @@ public sealed class GameManager : Component
 		}
 		
 	}
+
+
 	private void OnGameStart()
 	{
-		foreach (GameObject player in PlayerAsset) player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
+		
+		foreach (GameObject player in PlayerAsset) 
+		
+		player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
 		PostProcessCon.Trigger(false);
 		
 		if(StateTimer > 1) //Forced Delay
@@ -175,7 +180,7 @@ public sealed class GameManager : Component
 			CurrentGameState = GameState.RoundStart;
 			StateTimer = 0;
 		}
-		
+
 	}
 	private void OnRoundStart()
 	{
@@ -295,13 +300,16 @@ public sealed class GameManager : Component
 			return 0;
 		}
 	}
+	
 
-	private void InstancePlayerAsset(int PlayerInt) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
+	private void InstancePlayerAsset(int PlayerInt, Connection channel) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
+		
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
 		PlayerAsset[PlayerInt].Parent = PlayerSpawnPoints[PlayerInt];
 		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
 		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
+		PlayerAsset[PlayerInt].NetworkSpawn(channel);
 		Players[PlayerInt] = new PlayerData(); 
 		Players[PlayerInt].TeamState = Team.Player;
 		Players[PlayerInt].Lives = 3;
@@ -310,12 +318,18 @@ public sealed class GameManager : Component
 		Players[PlayerInt].PoisonsDrank = 0;
 		Players[PlayerInt].PlayerInst = PlayerAsset[PlayerInt];
 		
+		
 	}
-	private void AssignPlayerID() //CHECKS EACH AVAILABLE SLOT FOR PLAYERS TO FILL. MUST ADD FALLBACK FOR FULL LOBBY.
+	private void AssignPlayerID(Connection channel) //CHECKS EACH AVAILABLE SLOT FOR PLAYERS TO FILL. MUST ADD FALLBACK FOR FULL LOBBY.
 	{
-		if(PlayerAsset[0] == null) InstancePlayerAsset(0);
-		if(PlayerAsset[1] == null) InstancePlayerAsset(1);
+		
+		if(PlayerAsset[0] == null) InstancePlayerAsset(0, channel);
+	
+		
+		if(PlayerAsset[1] == null) InstancePlayerAsset(1, channel);
 	}
+
+
 
 	private void AttachPlayerCamera(int Player)
 	{
