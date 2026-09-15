@@ -52,6 +52,10 @@
         "__guid": "751d7fe8-998c-4a8f-a02a-dc984341ddc0",
         "__enabled": true,
         "Flags": 0,
+        "held": {
+          "_type": "gameobject",
+          "go": "d68340c8-a7ee-4653-915c-8e96f0ff9990"
+        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -1244,7 +1248,54 @@
                                             "NetworkTransmit": true,
                                             "OwnerTransfer": 1,
                                             "Components": [],
-                                            "Children": []
+                                            "Children": [
+                                              {
+                                                "__guid": "d68340c8-a7ee-4653-915c-8e96f0ff9990",
+                                                "__version": 2,
+                                                "Flags": 0,
+                                                "Name": "bottle_a",
+                                                "Position": "1.60914826,-3.69986248,-4.57236481",
+                                                "Rotation": "0.00687620044,-0.177306995,-0.359851003,0.915981293",
+                                                "Scale": "1,1,1",
+                                                "Tags": "",
+                                                "Enabled": false,
+                                                "NetworkMode": 2,
+                                                "NetworkFlags": 0,
+                                                "NetworkOrphaned": 0,
+                                                "NetworkTransmit": true,
+                                                "OwnerTransfer": 1,
+                                                "Components": [
+                                                  {
+                                                    "__type": "Sandbox.ModelRenderer",
+                                                    "__guid": "71407a72-a952-46f6-be1c-63a569376f10",
+                                                    "__enabled": true,
+                                                    "Flags": 0,
+                                                    "BodyGroups": 18446744073709551615,
+                                                    "CreateAttachments": false,
+                                                    "LodOverride": null,
+                                                    "MaterialGroup": null,
+                                                    "MaterialOverride": null,
+                                                    "Materials": null,
+                                                    "Model": "models/bottle_a.vmdl",
+                                                    "OnComponentDestroy": null,
+                                                    "OnComponentDisabled": null,
+                                                    "OnComponentEnabled": null,
+                                                    "OnComponentFixedUpdate": null,
+                                                    "OnComponentStart": null,
+                                                    "OnComponentUpdate": null,
+                                                    "RenderOptions": {
+                                                      "GameLayer": true,
+                                                      "OverlayLayer": false,
+                                                      "BloomLayer": false,
+                                                      "AfterUILayer": false
+                                                    },
+                                                    "RenderType": "On",
+                                                    "Tint": "1,1,1,1"
+                                                  }
+                                                ],
+                                                "Children": []
+                                              }
+                                            ]
                                           },
                                           {
                                             "__guid": "20ac34cf-b615-4efa-8dd3-eef72853b6d7",

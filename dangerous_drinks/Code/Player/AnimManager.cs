@@ -50,6 +50,13 @@ public sealed class AnimManager : Component
 		}
 	}
 
+	[Property]
+	public GameObject held{ get; set; }
+
+	public void BottleState(bool value)
+	{
+		held.Enabled = value;
+	}
 	public void anim_Drink()	
 	{
 		PlayerRenderer.Renderer.Parameters.Set("drink", true);
