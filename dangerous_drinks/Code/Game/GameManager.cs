@@ -17,7 +17,7 @@ public sealed class GameManager : Component
 	public GameObject WaitPoint;
 	[Property]
 	public PostProcessController PostProcessCon{ get; set; }
-
+	public GameObject bottleSelected{get; set;}
 
 	protected override void OnUpdate()
 	{
@@ -81,13 +81,14 @@ public sealed class GameManager : Component
 	}
 
 	[Property]
-	private GameState CurrentGameState{ get; set; } //The current state of the game.
+	public GameState CurrentGameState{ get; set; } //The current state of the game.
 
 	/// ----------------------------------------
 	/// COURSE LOGIC
 	/// ----------------------------------------
 
-	private bool DrankPoison;
+	/// 
+	public bool DrankPoison{get; set;}
 	private void Course(CourseState course)
 	{
 		switch (course)
@@ -150,7 +151,7 @@ public sealed class GameManager : Component
 		PostProcessCon.Trigger(true);
 		AttachPlayerCamera(0);
 
-		if(StateTimer > 1) //Forced Delay
+		if(StateTimer > 2) //Forced Delay
 		{
 			CurrentGameState = GameState.GameStart;
 			StateTimer = 0;
@@ -159,7 +160,7 @@ public sealed class GameManager : Component
 	}
 	private void OnGameStart()
 	{
-		foreach (GameObject player in PlayerAsset) player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
+		//foreach (GameObject player in PlayerAsset) player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
 		PostProcessCon.Trigger(false);
 		
 		if(StateTimer > 1) //Forced Delay
@@ -226,7 +227,7 @@ public sealed class GameManager : Component
 	}
 	private void OnPostTurn()
 	{
-		if(StateTimer > 1) //Forced Delay
+		if(StateTimer > 3) //Forced Delay
 		{
 			Course(CheckBottles());
 			StateTimer = 0;
@@ -289,8 +290,8 @@ public sealed class GameManager : Component
 	public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
 	[Property]
  	public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
-	private PlayerData[] Players = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
-	private GameObject[] PlayerAsset = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
+	public PlayerData[] Players = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
+	public GameObject[] PlayerAsset = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
 	[Property]
 	public int CurrentPlayer{get; set;} = 2;
 	private int CycleTurn()
@@ -340,25 +341,33 @@ public sealed class GameManager : Component
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
 	}
-	public void PlayerDrink(bool isPoison, GameObject player, GameObject bottle) //WHEN A PLAYER DRINKS
+	public void SelectDrink(bool isPoison, GameObject player, GameObject bottle)
 	{
 		PlayerData playerData = PlayerFind(player);
 		Bottle _bottle = bottle.GetComponent<Bottle>();
 		if( CanAct( player ) && _bottle.IsValid )
 		{
-			if ( isPoison )
-			{
-				playerData.Lives--;
-				playerData.PoisonsDrank++;
-				DrankPoison = true;
-			}
-			else
-			{
-				playerData.DudsDrank++;
-				DrankPoison = false;
-			}
-			bottle.Destroy();
+			if(bottle != bottleSelected) bottleSelected = bottle;
+			else PlayerDrink(isPoison, player, bottle);
 		}
+		
+	}
+	public void PlayerDrink(bool isPoison, GameObject player, GameObject bottle) //WHEN A PLAYER DRINKS
+	{
+		PlayerData playerData = PlayerFind(player);
+		if ( isPoison )
+		{
+			playerData.Lives--;
+			playerData.PoisonsDrank++;
+			DrankPoison = true;
+		}
+		else
+		{
+			playerData.DudsDrank++;
+			DrankPoison = false;
+		}
+		bottleSelected = null;
+		bottle.Destroy();
 		CurrentGameState = GameState.TurnEnd;
 	}
 
@@ -402,9 +411,6 @@ public sealed class GameManager : Component
 		int player; //Throwaway
 		return isDead(out player);
 	}
-
-	
-
 }
 
 /// ----------------------------------------

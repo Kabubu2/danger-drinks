@@ -18,6 +18,19 @@
 								_class = "AnimAddLayer"
 								anim_name = "morph_pleasant"
 							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 30
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 0
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
+							},
 						]
 						activity_name = ""
 						activity_weight = 1
@@ -71,6 +84,19 @@
 								peak_frame = 35
 								tail_frame = 39
 								end_frame = 40
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 15
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 0
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
 							},
 						]
 						activity_name = ""
@@ -199,6 +225,19 @@
 							{
 								_class = "AnimAddLayer"
 								anim_name = "morph_rest"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 11
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 1
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
 							},
 						]
 						activity_name = ""
