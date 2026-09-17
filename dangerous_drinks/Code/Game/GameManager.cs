@@ -1,11 +1,15 @@
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using Sandbox;
+using Sandbox.Network;
+using Sandbox.UI;
 
 public enum GameState {None, PreGame, GameStart, PreRound, RoundStart, PreTurn, TurnStart, TurnHold, TurnEnd, PostTurn, RoundEnd, PostRound, GameEnd, PostGame}
 public enum CourseState {None, NoBottles, NoPoisons, DrankPoison, DrankNormal}
-public sealed class GameManager : Component
+public sealed class GameManager : Component, Component.INetworkListener
 {
 	/// ----------------------------------------
 	/// GAME LOGIC AND VARIABLES
@@ -18,12 +22,22 @@ public sealed class GameManager : Component
 	[Property]
 	public PostProcessController PostProcessCon{ get; set; }
 
-
+	private bool isHost;
 	protected override void OnUpdate()
 	{
+		if(IsProxy) 
+		{
+			return;
+		}
 		if(Input.Pressed("Use"))CurrentGameState = GameState.PreGame; //Temporary Start Method
+
+		isHost = !IsProxy;
+		
+
 		Logic();
 	}
+
+	
 
 	private void Logic()
 	{
@@ -80,8 +94,10 @@ public sealed class GameManager : Component
 		}
 	}
 
+	
+
 	[Property]
-	private GameState CurrentGameState{ get; set; } //The current state of the game.
+	[Sync] private GameState CurrentGameState{ get; set; } //The current state of the game.
 
 	/// ----------------------------------------
 	/// COURSE LOGIC
@@ -141,11 +157,15 @@ public sealed class GameManager : Component
 	/// ----------------------------------------
 	
 	private TimeSince StateTimer;
+
+	
 	private void OnPreGame()
 	{
 		
+	
+
 		//Disable Mouse Input
-		AssignPlayerID(Connection.Local);
+		//AssignPlayerID(Connection.Local);
 		PostProcessCon.Trigger(true);
 		AttachPlayerCamera(0);
 
@@ -163,9 +183,12 @@ public sealed class GameManager : Component
 		
 		foreach (GameObject player in PlayerAsset) 
 		
+		if (player.IsValid)
+{
 		player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
 		PostProcessCon.Trigger(false);
-		
+}
+
 		if(StateTimer > 1) //Forced Delay
 		{
 			CurrentGameState = GameState.PreRound;
@@ -301,15 +324,27 @@ public sealed class GameManager : Component
 		}
 	}
 	
+	void INetworkListener.OnActive( Connection connection )
+	{
+		Log.Info( $"{connection.DisplayName} has become active" );
+		if (isHost == false)  InstancePlayerAsset(0, connection);
+		else if (isHost == true)  InstancePlayerAsset(1, connection);
+		
+		
+		if ( Players.Count() <= 2 ) return;
 
-	private void InstancePlayerAsset(int PlayerInt, Connection channel) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
+		CurrentGameState = GameState.PreGame;
+		
+		
+	}
+		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
 		
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
 		PlayerAsset[PlayerInt].Parent = PlayerSpawnPoints[PlayerInt];
 		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
 		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
-		PlayerAsset[PlayerInt].NetworkSpawn(channel);
+		PlayerAsset[PlayerInt].NetworkSpawn(connection);
 		Players[PlayerInt] = new PlayerData(); 
 		Players[PlayerInt].TeamState = Team.Player;
 		Players[PlayerInt].Lives = 3;
@@ -320,14 +355,15 @@ public sealed class GameManager : Component
 		
 		
 	}
-	private void AssignPlayerID(Connection channel) //CHECKS EACH AVAILABLE SLOT FOR PLAYERS TO FILL. MUST ADD FALLBACK FOR FULL LOBBY.
-	{
-		
-		if(PlayerAsset[0] == null) InstancePlayerAsset(0, channel);
+
 	
+	/*private void AssignPlayerID(Connection connection) //CHECKS EACH AVAILABLE SLOT FOR PLAYERS TO FILL. MUST ADD FALLBACK FOR FULL LOBBY.
+	{
+		if (isHost == true)  InstancePlayerAsset(0, connection);
+		if (isHost == false)  InstancePlayerAsset(1, connection);
 		
-		if(PlayerAsset[1] == null) InstancePlayerAsset(1, channel);
-	}
+
+	}*/
 
 
 
