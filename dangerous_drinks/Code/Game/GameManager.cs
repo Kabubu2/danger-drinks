@@ -22,24 +22,21 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property]
 	public PostProcessController PostProcessCon{ get; set; }
 
-	private bool isHost;
+	private bool isHost {get; set;}
 	protected override void OnUpdate()
 	{
-		if(IsProxy) 
-		{
-			return;
-		}
-
-		if(Input.Pressed("Use"))CurrentGameState = GameState.PreGame; //Temporary Start Method
-
-		isHost = !IsProxy;
 		
-
+		if(!Start)StartGame();
 		Logic();
 	}
-
+	private bool Start {get; set;} = false;
+	private void StartGame()
+	{
+		isHost = Networking.IsHost;
+		Start = true;
+	}
 	
-[Broadcast]
+	[Rpc.Host]
 	private void Logic()
 	{
 		switch (CurrentGameState)
@@ -159,17 +156,14 @@ public sealed class GameManager : Component, Component.INetworkListener
 	
 	private TimeSince StateTimer;
 
-	[Rpc.Broadcast]
 	private void OnPreGame()
 	{
 		
-	
-
 		//Disable Mouse Input
 		//AssignPlayerID(Connection.Local);
 		PostProcessCon.Trigger(true);
-		if (isHost == true)  AttachPlayerCamera(0);
-		else if (isHost == false)  AttachPlayerCamera(1);
+		if (isHost)  AttachPlayerCamera(0);
+		else AttachPlayerCamera(1);
 		
 
 		if(StateTimer > 1) //Forced Delay
@@ -180,17 +174,16 @@ public sealed class GameManager : Component, Component.INetworkListener
 		
 	}
 
-	[Rpc.Broadcast]
 	private void OnGameStart()
 	{
 		
 		foreach (GameObject player in PlayerAsset) 
 		
 		if (player.IsValid)
-{
+		{
 		player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
 		PostProcessCon.Trigger(false);
-}
+		}
 		
 		if(StateTimer > 1) //Forced Delay
 		{
@@ -199,7 +192,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
-	[Rpc.Broadcast]
 	private void OnPreRound()
 	{
 		if(StateTimer > 1) //Forced Delay
@@ -209,7 +201,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 
 	}
-	[Rpc.Broadcast]
 	private void OnRoundStart()
 	{
 		var bottleLogic = GetComponent<BottleLogic>();
@@ -221,7 +212,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
-	[Rpc.Broadcast]
 	private void OnPreTurn()
 	{
 		CycleTurn();
@@ -232,7 +222,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
-	[Rpc.Broadcast]
 	private void OnTurnStart()
 	{
 		//Enable Mouse Input
@@ -257,7 +246,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		//Will go through each of the ending mechanics.
 	}
-	[Rpc.Broadcast]
 	private void OnRoundEnd()
 	{
 		var bottleLogic = GetComponent<BottleLogic>();
@@ -269,7 +257,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
-	[Rpc.Broadcast]
 	private void OnPostRound()
 	{
 		int deadman;
@@ -292,7 +279,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
-	[Rpc.Broadcast]
 	private void OnGameEnd()
 	{
 		CurrentGameState = GameState.PostGame;
@@ -316,8 +302,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 	public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
 	[Property]
  	public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
-	private PlayerData[] Players = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
-	private GameObject[] PlayerAsset = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
+	[Sync]private PlayerData[] Players {get; set;} = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
+	[Sync]private GameObject[] PlayerAsset {get; set;} = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
 	private int CurrentPlayer{get; set;} = 2;
 	private int CycleTurn()
 	{
@@ -337,20 +323,22 @@ public sealed class GameManager : Component, Component.INetworkListener
 	void INetworkListener.OnActive( Connection connection )
 	{
 		Log.Info( $"{connection.DisplayName} has become active" );
-		if (isHost == false)  InstancePlayerAsset(0, connection);
-		else if (isHost == true)  InstancePlayerAsset(1, connection);
+		if (isHost && Players[0] == null) InstancePlayerAsset(0, connection);
+		else if (!isHost && Players[1] == null) InstancePlayerAsset(1, connection);
 		
-		
-		if ( Players.Count() <= 2 ) return;
+		if ( Players.Count() != 2 ) return;
+		for (int i = 0; i < Players.Count(); i++)
+		{
+			if(Players[i] == null || Players[i].PlayerInst == null) return;
+		}
 
 		CurrentGameState = GameState.PreGame;
 		
 		
 	}
-	[Rpc.Broadcast]
+	//[Rpc.Owner]
 		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
-		
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
 		PlayerAsset[PlayerInt].Parent = PlayerSpawnPoints[PlayerInt];
 		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
@@ -364,6 +352,15 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Players[PlayerInt].PoisonsDrank = 0;
 		Players[PlayerInt].PlayerInst = PlayerAsset[PlayerInt];
 		
+		if(Players[PlayerInt] != null && Players[PlayerInt].PlayerInst != null)
+		{
+			if((isHost && PlayerInt == 0) ||(!isHost && PlayerInt == 1))
+			{
+				var a = Players[PlayerInt].PlayerInst.GetComponent<PlayerRelay>();
+				a.playerController.Enabled = true;
+				AttachPlayerCamera(PlayerInt);
+			} 
+		}
 		
 	}
 
@@ -376,8 +373,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	}*/
 
-
-	[Rpc.Broadcast]
 	private void AttachPlayerCamera(int Player)
 	{
 		var _player = PlayerAsset[Player];
@@ -390,7 +385,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.LocalRotation = Rotation.Identity;
 	}
 
-	[Rpc.Broadcast]
+
 	public void PlayerDrink(bool isPoison, GameObject player, GameObject bottle) //WHEN A PLAYER DRINKS
 	{
 		PlayerData playerData = PlayerFind(player);
