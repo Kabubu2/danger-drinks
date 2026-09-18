@@ -29,6 +29,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		{
 			return;
 		}
+
 		if(Input.Pressed("Use"))CurrentGameState = GameState.PreGame; //Temporary Start Method
 
 		isHost = !IsProxy;
@@ -38,7 +39,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	}
 
 	
-
+[Broadcast]
 	private void Logic()
 	{
 		switch (CurrentGameState)
@@ -95,7 +96,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	}
 
 	
-
+	
 	[Property]
 	[Sync] private GameState CurrentGameState{ get; set; } //The current state of the game.
 
@@ -158,7 +159,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	
 	private TimeSince StateTimer;
 
-	
+	[Rpc.Broadcast]
 	private void OnPreGame()
 	{
 		
@@ -167,7 +168,9 @@ public sealed class GameManager : Component, Component.INetworkListener
 		//Disable Mouse Input
 		//AssignPlayerID(Connection.Local);
 		PostProcessCon.Trigger(true);
-		AttachPlayerCamera(0);
+		if (isHost == true)  AttachPlayerCamera(0);
+		else if (isHost == false)  AttachPlayerCamera(1);
+		
 
 		if(StateTimer > 1) //Forced Delay
 		{
@@ -177,7 +180,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		
 	}
 
-
+	[Rpc.Broadcast]
 	private void OnGameStart()
 	{
 		
@@ -188,7 +191,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
 		PostProcessCon.Trigger(false);
 }
-
+		
 		if(StateTimer > 1) //Forced Delay
 		{
 			CurrentGameState = GameState.PreRound;
@@ -196,6 +199,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
+	[Rpc.Broadcast]
 	private void OnPreRound()
 	{
 		if(StateTimer > 1) //Forced Delay
@@ -205,6 +209,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 
 	}
+	[Rpc.Broadcast]
 	private void OnRoundStart()
 	{
 		var bottleLogic = GetComponent<BottleLogic>();
@@ -216,6 +221,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
+	[Rpc.Broadcast]
 	private void OnPreTurn()
 	{
 		CycleTurn();
@@ -226,6 +232,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
+	[Rpc.Broadcast]
 	private void OnTurnStart()
 	{
 		//Enable Mouse Input
@@ -250,6 +257,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		//Will go through each of the ending mechanics.
 	}
+	[Rpc.Broadcast]
 	private void OnRoundEnd()
 	{
 		var bottleLogic = GetComponent<BottleLogic>();
@@ -261,6 +269,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
+	[Rpc.Broadcast]
 	private void OnPostRound()
 	{
 		int deadman;
@@ -283,6 +292,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
+	[Rpc.Broadcast]
 	private void OnGameEnd()
 	{
 		CurrentGameState = GameState.PostGame;
@@ -337,6 +347,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		
 		
 	}
+	[Rpc.Broadcast]
 		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
 		
@@ -366,7 +377,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	}*/
 
 
-
+	[Rpc.Broadcast]
 	private void AttachPlayerCamera(int Player)
 	{
 		var _player = PlayerAsset[Player];
@@ -378,6 +389,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
 	}
+
+	[Rpc.Broadcast]
 	public void PlayerDrink(bool isPoison, GameObject player, GameObject bottle) //WHEN A PLAYER DRINKS
 	{
 		PlayerData playerData = PlayerFind(player);
@@ -399,7 +412,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		
 	}
-
+	
 	private PlayerData PlayerFind(GameObject player)
 	{
 		PlayerData playerData = null;
@@ -412,7 +425,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		return playerData;
 	}
-
+	
 	public bool CanAct(GameObject player)
 	{
 		for (int i = 0; i < Players.Length; i++)
@@ -421,7 +434,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 		return false;
 	}
-
+	
 	private bool isDead(out int player)
 	{
 		for (int i = 0; i < Players.Count(); i++)
