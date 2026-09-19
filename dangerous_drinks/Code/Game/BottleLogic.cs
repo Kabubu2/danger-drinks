@@ -13,14 +13,18 @@ public sealed class BottleLogic : Component
 	[Property]
 	private Vector3 offset = new Vector3 (5,0,0);
 	
+
 	public void SpawnBottles()
 	{
+		
 		if(!hasBottles()) 
 		{
 			Bottles();
 			AssignPoison();
+			
 		}
 	}
+	
 	public bool HasPoison() //Does the container have poison?
 	{
 			if(hasBottles())
@@ -31,6 +35,7 @@ public sealed class BottleLogic : Component
 					var a = _folder[i].GetComponent<Bottle>();
 					if( a.IsValid && a.poisoned ) return true;
 					else continue;
+					
 				}
 			}
 		return false;
@@ -60,6 +65,7 @@ public sealed class BottleLogic : Component
 				bottle.Parent = bottleFolder;
 				bottle.WorldPosition = relativeOffset;
 				bottle.Name = new string("Bottle " + i);
+				bottle.NetworkSpawn();
 			}
 
 	}

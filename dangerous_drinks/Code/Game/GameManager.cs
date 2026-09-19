@@ -22,6 +22,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property]
 	public PostProcessController PostProcessCon{ get; set; }
 
+	
 	private bool isHost {get; set;}
 	protected override void OnUpdate()
 	{
@@ -36,7 +37,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Start = true;
 	}
 	
-	[Rpc.Host]
+	[Rpc.Broadcast]
 	private void Logic()
 	{
 		switch (CurrentGameState)
@@ -163,7 +164,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		//AssignPlayerID(Connection.Local);
 		PostProcessCon.Trigger(true);
 		if (isHost)  AttachPlayerCamera(0);
-		else AttachPlayerCamera(1);
+		else AttachPlayerCamera(0);
 		
 
 		if(StateTimer > 1) //Forced Delay
@@ -203,6 +204,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	}
 	private void OnRoundStart()
 	{
+		if (Networking.IsClient) return;
 		var bottleLogic = GetComponent<BottleLogic>();
 		bottleLogic.SpawnBottles();
 		if(StateTimer > 1) //Forced Delay
@@ -299,12 +301,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 	/// ----------------------------------------
 	
 	[Property]
-	public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
+	[Sync]public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
 	[Property]
- 	public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
+ 	[Sync]public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
 	[Sync]private PlayerData[] Players {get; set;} = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
 	[Sync]private GameObject[] PlayerAsset {get; set;} = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
-	private int CurrentPlayer{get; set;} = 2;
+	[Sync]private int CurrentPlayer{get; set;} = 2;
 	private int CycleTurn()
 	{
 		switch (CurrentPlayer)
@@ -323,8 +325,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 	void INetworkListener.OnActive( Connection connection )
 	{
 		Log.Info( $"{connection.DisplayName} has become active" );
-		if (isHost && Players[0] == null) InstancePlayerAsset(0, connection);
-		else if (!isHost && Players[1] == null) InstancePlayerAsset(1, connection);
+		if (isHost && Players[1] == null) InstancePlayerAsset(1, connection);
+		else if (!isHost && Players[0] == null) InstancePlayerAsset(0, connection);
 		
 		if ( Players.Count() != 2 ) return;
 		for (int i = 0; i < Players.Count(); i++)
@@ -336,7 +338,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		
 		
 	}
-	//[Rpc.Owner]
+	[Rpc.Broadcast]
 		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
@@ -344,15 +346,17 @@ public sealed class GameManager : Component, Component.INetworkListener
 		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
 		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
 		PlayerAsset[PlayerInt].NetworkSpawn(connection);
-		Players[PlayerInt] = new PlayerData(); 
-		Players[PlayerInt].TeamState = Team.Player;
-		Players[PlayerInt].Lives = 3;
-		Players[PlayerInt].LivesMax = 3;
-		Players[PlayerInt].DudsDrank = 0;
-		Players[PlayerInt].PoisonsDrank = 0;
-		Players[PlayerInt].PlayerInst = PlayerAsset[PlayerInt];
-		
-		if(Players[PlayerInt] != null && Players[PlayerInt].PlayerInst != null)
+		Players[PlayerInt] = new PlayerData
+		{
+			TeamState = Team.Player,
+			Lives = 3,
+			LivesMax = 3,
+			DudsDrank = 0,
+			PoisonsDrank = 0,
+			PlayerInst = PlayerAsset[PlayerInt]
+		};
+
+		if (Players[PlayerInt] != null && Players[PlayerInt].PlayerInst != null)
 		{
 			if((isHost && PlayerInt == 0) ||(!isHost && PlayerInt == 1))
 			{
@@ -372,10 +376,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 		
 
 	}*/
-
+	[Rpc.Broadcast]
 	private void AttachPlayerCamera(int Player)
 	{
-		var _player = PlayerAsset[Player];
+		if(Networking.IsHost){
+		var _player = PlayerAsset[0];
 		var playerRelay = _player.GetComponent<PlayerRelay>();
 		if(playerRelay.playerController != null)
 		playerRelay.playerController.Enabled = true;
@@ -383,6 +388,18 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
+		}
+		if(Networking.IsClient){
+		if (PlayerAsset == null || PlayerAsset.Length <= 1 || PlayerAsset[1] == null) return;
+    	var _player = PlayerAsset[1];
+		var playerRelay = _player.GetComponent<PlayerRelay>();
+		if(playerRelay.playerController != null)
+		playerRelay.playerController.Enabled = true;
+		var camera = Scene.Camera;
+		camera.GameObject.Parent = playerRelay.EyeSlot;
+		camera.GameObject.LocalPosition = Vector3.Zero;
+		camera.GameObject.LocalRotation = Rotation.Identity;
+		}
 	}
 
 
@@ -449,9 +466,9 @@ public sealed class GameManager : Component, Component.INetworkListener
 		return isDead(out player);
 	}
 
-	/// ----------------------------------------
-	/// DEBUG SYSTEMS
-	/// ----------------------------------------
+	// ----------------------------------------
+	// DEBUG SYSTEMS
+	// ----------------------------------------
 	
 
 }
