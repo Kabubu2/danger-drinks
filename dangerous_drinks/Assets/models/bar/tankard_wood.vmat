@@ -1,0 +1,13 @@
+
+Layer0
+{
+	shader "shaders/complex.shader_c"
+
+	TextureColor "models/bar/dressing/tankardlp_tankard_wood_basecolor.png"
+	TextureAmbientOcclusion "models/bar/dressing/tankardlp_tankard_wood_ao.png"
+	TextureNormal "models/bar/dressing/tankardlp_tankard_wood_normal.png"
+	TextureRoughness "models/bar/dressing/tankardlp_tankard_wood_roughness.png"
+	F_METALNESS_TEXTURE 1
+	TextureMetalness "models/bar/dressing/tankardlp_tankard_wood_metallic.png"
+
+}

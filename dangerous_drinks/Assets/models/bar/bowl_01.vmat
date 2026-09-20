@@ -1,0 +1,11 @@
+
+Layer0
+{
+	shader "shaders/complex.shader_c"
+
+	TextureColor "models/bar/dressing/bowl_01_color.png"
+	TextureAmbientOcclusion "models/bar/dressing/bowl_01_ao.png"
+	TextureNormal "models/bar/dressing/bowl_01_normal.png"
+	TextureRoughness "models/bar/dressing/bowl_01_rough.png"
+
+}

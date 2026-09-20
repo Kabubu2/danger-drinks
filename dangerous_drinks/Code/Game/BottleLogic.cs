@@ -17,6 +17,7 @@ public sealed class BottleLogic : Component
 	{
 		if(!hasBottles()) 
 		{
+			
 			Bottles();
 			AssignPoison();
 		}
