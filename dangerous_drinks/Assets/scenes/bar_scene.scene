@@ -1491,7 +1491,36 @@
       "__version": 2,
       "__Prefab": "prefab/game logic.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "6d4a347c-ce97-4e1a-a376-264616b03e00"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "21c89d08-599f-4406-808b-8deddf5a9cde"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.NetworkHelper",
+              "__guid": "6d4a347c-ce97-4e1a-a376-264616b03e00",
+              "__enabled": true,
+              "Flags": 0,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "PlayerPrefab": null,
+              "SpawnPoints": [],
+              "StartServer": true
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1585,7 +1614,24 @@
             }
           }
         ],
-        "MovedObjects": []
+        "MovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
+            },
+            "NewParent": {
+              "Type": "GameObject",
+              "IdValue": "21c89d08-599f-4406-808b-8deddf5a9cde"
+            },
+            "NewContainerProperty": "Components",
+            "IsNewContainerArray": true,
+            "NewPreviousElement": {
+              "Type": "Component",
+              "IdValue": "6d4a347c-ce97-4e1a-a376-264616b03e00"
+            }
+          }
+        ]
       },
       "__PrefabIdToInstanceId": {
         "21c89d08-599f-4406-808b-8deddf5a9cde": "4cb3f10e-0d69-46ff-bf72-2a510277b448",
@@ -1603,7 +1649,7 @@
       "Scale": "1,1,1",
       "Tags": "",
       "Enabled": true,
-      "NetworkMode": 2,
+      "NetworkMode": 1,
       "NetworkFlags": 0,
       "NetworkOrphaned": 0,
       "NetworkTransmit": true,
