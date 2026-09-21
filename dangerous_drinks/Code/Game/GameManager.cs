@@ -2,10 +2,12 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Sandbox;
+using Sandbox.Network;
+using Sandbox.UI;
 
 public enum GameState {None, PreGame, GameStart, PreRound, RoundStart, PreTurn, TurnStart, TurnHold, TurnEnd, PostTurn, RoundEnd, PostRound, GameEnd, PostGame}
 public enum CourseState {None, NoBottles, NoPoisons, DrankPoison, DrankNormal}
-public sealed class GameManager : Component
+public sealed class GameManager : Component, Component.INetworkListener
 {
 	/// ----------------------------------------
 	/// GAME LOGIC AND VARIABLES
@@ -17,12 +19,19 @@ public sealed class GameManager : Component
 	public GameObject WaitPoint;
 	[Property]
 	public PostProcessController PostProcessCon{ get; set; }
+	public GameObject bottleSelected{get; set;}
 
-
+	private bool isHost {get; set;}
 	protected override void OnUpdate()
 	{
-		if(Input.Pressed("Use"))CurrentGameState = GameState.PreGame; //Temporary Start Method
+		if(!Start)StartGame();
 		Logic();
+	}
+	private bool Start {get; set;} = false;
+	private void StartGame()
+	{
+		isHost = Networking.IsHost;
+		Start = true;
 	}
 
 	private void Logic()
@@ -81,13 +90,13 @@ public sealed class GameManager : Component
 	}
 
 	[Property]
-	private GameState CurrentGameState{ get; set; } //The current state of the game.
+	[Sync] public GameState CurrentGameState{ get; set; } //The current state of the game.
 
 	/// ----------------------------------------
 	/// COURSE LOGIC
 	/// ----------------------------------------
 
-	private bool DrankPoison;
+	public bool DrankPoison;
 	private void Course(CourseState course)
 	{
 		switch (course)
@@ -134,7 +143,6 @@ public sealed class GameManager : Component
 		if(!bottleLogic.HasPoison()) targetState = CourseState.NoPoisons;
 		if(!bottleLogic.hasBottles()) targetState = CourseState.NoBottles;
 		DrankPoison = false;
-		Log.Info(targetState);
 		return targetState;
 	}
 	/// ----------------------------------------
@@ -146,11 +154,13 @@ public sealed class GameManager : Component
 	{
 		
 		//Disable Mouse Input
-		AssignPlayerID();
+		//AssignPlayerID(Connection.Local);
 		PostProcessCon.Trigger(true);
-		AttachPlayerCamera(0);
+		if (isHost)  AttachPlayerCamera(0);
+		else AttachPlayerCamera(0);
+		
 
-		if(StateTimer > 1) //Forced Delay
+		if(StateTimer > 2) //Forced Delay
 		{
 			CurrentGameState = GameState.GameStart;
 			StateTimer = 0;
@@ -159,8 +169,14 @@ public sealed class GameManager : Component
 	}
 	private void OnGameStart()
 	{
-		foreach (GameObject player in PlayerAsset) player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
+		
+		foreach (GameObject player in PlayerAsset) 
+		
+		if (player.IsValid)
+		{
+		player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
 		PostProcessCon.Trigger(false);
+		}
 		
 		if(StateTimer > 1) //Forced Delay
 		{
@@ -180,6 +196,7 @@ public sealed class GameManager : Component
 	}
 	private void OnRoundStart()
 	{
+		if (Networking.IsClient) return;
 		var bottleLogic = GetComponent<BottleLogic>();
 		bottleLogic.SpawnBottles();
 		if(StateTimer > 1) //Forced Delay
@@ -226,7 +243,7 @@ public sealed class GameManager : Component
 	}
 	private void OnPostTurn()
 	{
-		if(StateTimer > 1) //Forced Delay
+		if(StateTimer > 3) //Forced Delay
 		{
 			Course(CheckBottles());
 			StateTimer = 0;
@@ -286,13 +303,12 @@ public sealed class GameManager : Component
 	/// ----------------------------------------
 	
 	[Property]
-	public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
+	[Sync]public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
 	[Property]
- 	public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
-	private PlayerData[] Players = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
-	private GameObject[] PlayerAsset = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
-	[Property]
-	public int CurrentPlayer{get; set;} = 2;
+ 	[Sync]public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
+	[Sync]private PlayerData[] Players {get; set;} = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
+	[Sync]public GameObject[] PlayerAsset {get; set;} = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
+	[Sync]public int CurrentPlayer{get; set;} = 2;
 	private int CycleTurn()
 	{
 		switch (CurrentPlayer)
@@ -307,31 +323,60 @@ public sealed class GameManager : Component
 			return 0;
 		}
 	}
+	
+	void INetworkListener.OnActive( Connection connection )
+	{
+		Log.Info( $"{connection.DisplayName} has become active" );
+		if (isHost && Players[1] == null) InstancePlayerAsset(1, connection);
+		else if (!isHost && Players[0] == null) InstancePlayerAsset(0, connection);
+		
+		if ( Players.Count() != 2 ) return;
+		for (int i = 0; i < Players.Count(); i++)
+		{
+			if(Players[i] == null || Players[i].PlayerInst == null) return;
+		}
 
-	private void InstancePlayerAsset(int PlayerInt) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
+		CurrentGameState = GameState.PreGame;
+		
+		
+	}
+	[Rpc.Broadcast]
+		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
 		PlayerAsset[PlayerInt].Parent = PlayerSpawnPoints[PlayerInt];
 		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
 		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
-		Players[PlayerInt] = new PlayerData(); 
-		Players[PlayerInt].TeamState = Team.Player;
-		Players[PlayerInt].Lives = 3;
-		Players[PlayerInt].LivesMax = 3;
-		Players[PlayerInt].DudsDrank = 0;
-		Players[PlayerInt].PoisonsDrank = 0;
-		Players[PlayerInt].PlayerInst = PlayerAsset[PlayerInt];
+		PlayerAsset[PlayerInt].NetworkSpawn(connection);
+		Players[PlayerInt] = new PlayerData
+		{
+			TeamState = Team.Player,
+			Lives = 3,
+			LivesMax = 3,
+			DudsDrank = 0,
+			PoisonsDrank = 0,
+			PlayerInst = PlayerAsset[PlayerInt]
+		};
+
+		if (Players[PlayerInt] != null && Players[PlayerInt].PlayerInst != null)
+		{
+			if((isHost && PlayerInt == 0) ||(!isHost && PlayerInt == 1))
+			{
+				var a = Players[PlayerInt].PlayerInst.GetComponent<PlayerRelay>();
+				a.playerController.Enabled = true;
+				AttachPlayerCamera(PlayerInt);
+			} 
+		}
 		
 	}
-	private void AssignPlayerID() //CHECKS EACH AVAILABLE SLOT FOR PLAYERS TO FILL. MUST ADD FALLBACK FOR FULL LOBBY.
-	{
-		if(PlayerAsset[0] == null) InstancePlayerAsset(0);
-		if(PlayerAsset[1] == null) InstancePlayerAsset(1);
-	}
 
+	
+
+	[Rpc.Broadcast]
 	private void AttachPlayerCamera(int Player)
 	{
-		var _player = PlayerAsset[Player];
+		if(Networking.IsHost){
+		var _player = PlayerAsset[0];
 		var playerRelay = _player.GetComponent<PlayerRelay>();
 		if(playerRelay.playerController != null)
 		playerRelay.playerController.Enabled = true;
@@ -339,26 +384,48 @@ public sealed class GameManager : Component
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
+		}
+		
+		if(Networking.IsClient){
+		if (PlayerAsset == null || PlayerAsset.Length <= 1 || PlayerAsset[1] == null) return;
+    	var _player = PlayerAsset[1];
+		var playerRelay = _player.GetComponent<PlayerRelay>();
+		if(playerRelay.playerController != null)
+		playerRelay.playerController.Enabled = true;
+		var camera = Scene.Camera;
+		camera.GameObject.Parent = playerRelay.EyeSlot;
+		camera.GameObject.LocalPosition = Vector3.Zero;
+		camera.GameObject.LocalRotation = Rotation.Identity;
+		}
 	}
-	public void PlayerDrink(bool isPoison, GameObject player, GameObject bottle) //WHEN A PLAYER DRINKS
+
+	public void SelectDrink(bool isPoison, GameObject player, GameObject bottle)
 	{
 		PlayerData playerData = PlayerFind(player);
 		Bottle _bottle = bottle.GetComponent<Bottle>();
 		if( CanAct( player ) && _bottle.IsValid )
 		{
-			if ( isPoison )
-			{
-				playerData.Lives--;
-				playerData.PoisonsDrank++;
-				DrankPoison = true;
-			}
-			else
-			{
-				playerData.DudsDrank++;
-				DrankPoison = false;
-			}
-			bottle.Destroy();
+			if(bottle != bottleSelected) bottleSelected = bottle;
+			else PlayerDrink(isPoison, player, bottle);
 		}
+		
+	}
+	public void PlayerDrink(bool isPoison, GameObject player, GameObject bottle) //WHEN A PLAYER DRINKS
+	{
+		PlayerData playerData = PlayerFind(player);
+		if ( isPoison )
+		{
+			playerData.Lives--;
+			playerData.PoisonsDrank++;
+			DrankPoison = true;
+		}
+		else
+		{
+			playerData.DudsDrank++;
+			DrankPoison = false;
+		}
+		bottleSelected = null;
+		bottle.Destroy();
 		CurrentGameState = GameState.TurnEnd;
 	}
 
@@ -402,9 +469,6 @@ public sealed class GameManager : Component
 		int player; //Throwaway
 		return isDead(out player);
 	}
-
-	
-
 }
 
 /// ----------------------------------------

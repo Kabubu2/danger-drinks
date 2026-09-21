@@ -9,7 +9,7 @@
     "Scale": "1,1,1",
     "Tags": "",
     "Enabled": true,
-    "NetworkMode": 2,
+    "NetworkMode": 1,
     "NetworkFlags": 0,
     "NetworkOrphaned": 0,
     "NetworkTransmit": true,
@@ -52,18 +52,30 @@
         "__guid": "751d7fe8-998c-4a8f-a02a-dc984341ddc0",
         "__enabled": true,
         "Flags": 0,
+        "bottleSelected": null,
+        "held": {
+          "_type": "gameobject",
+          "go": "d68340c8-a7ee-4653-915c-8e96f0ff9990"
+        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
+        "playerController": {
+          "_type": "component",
+          "component_id": "a84a371a-f8b8-44c3-beeb-56e7a3769888",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "DD_PlayerController"
+        },
         "PlayerRenderer": {
           "_type": "component",
           "component_id": "f7f3fd46-850d-4ca2-a012-7782f8045f77",
           "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
           "component_type": "PlayerRelay"
-        }
+        },
+        "playerState": "start"
       },
       {
         "__type": "DD_PlayerController",
@@ -680,7 +692,54 @@
                                             "NetworkTransmit": true,
                                             "OwnerTransfer": 1,
                                             "Components": [],
-                                            "Children": []
+                                            "Children": [
+                                              {
+                                                "__guid": "d68340c8-a7ee-4653-915c-8e96f0ff9990",
+                                                "__version": 2,
+                                                "Flags": 0,
+                                                "Name": "bottle_a",
+                                                "Position": "2.10251331,-0.576216519,-2.3645103",
+                                                "Rotation": "0.00687620044,-0.177306995,-0.359851003,0.915981293",
+                                                "Scale": "1,1,1",
+                                                "Tags": "",
+                                                "Enabled": false,
+                                                "NetworkMode": 2,
+                                                "NetworkFlags": 0,
+                                                "NetworkOrphaned": 0,
+                                                "NetworkTransmit": true,
+                                                "OwnerTransfer": 1,
+                                                "Components": [
+                                                  {
+                                                    "__type": "Sandbox.ModelRenderer",
+                                                    "__guid": "71407a72-a952-46f6-be1c-63a569376f10",
+                                                    "__enabled": true,
+                                                    "Flags": 0,
+                                                    "BodyGroups": 18446744073709551615,
+                                                    "CreateAttachments": false,
+                                                    "LodOverride": null,
+                                                    "MaterialGroup": null,
+                                                    "MaterialOverride": null,
+                                                    "Materials": null,
+                                                    "Model": "models/bottle_a.vmdl",
+                                                    "OnComponentDestroy": null,
+                                                    "OnComponentDisabled": null,
+                                                    "OnComponentEnabled": null,
+                                                    "OnComponentFixedUpdate": null,
+                                                    "OnComponentStart": null,
+                                                    "OnComponentUpdate": null,
+                                                    "RenderOptions": {
+                                                      "GameLayer": true,
+                                                      "OverlayLayer": false,
+                                                      "BloomLayer": false,
+                                                      "AfterUILayer": false
+                                                    },
+                                                    "RenderType": "On",
+                                                    "Tint": "1,1,1,1"
+                                                  }
+                                                ],
+                                                "Children": []
+                                              }
+                                            ]
                                           },
                                           {
                                             "__guid": "93887708-599c-457f-b61d-b0f584bc611f",

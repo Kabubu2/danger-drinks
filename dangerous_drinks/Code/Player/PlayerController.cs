@@ -3,7 +3,7 @@ using Sandbox;
 
 public sealed class DD_PlayerController : Component
 {
-	private GameManager gameManager;
+	public GameManager gameManager {get; set;}
 	private void CheckUp()
 	{
 		if ( !gameManager.IsValid )
@@ -40,8 +40,13 @@ public sealed class DD_PlayerController : Component
 	private void SendChoice(GameObject player, GameObject item)
 	{
 		//gameManager.PlayerDrink(player, item);
-		var poison = item.GetComponent<Bottle>();
-		if(item.IsValid && poison.IsValid && player.IsValid)gameManager.PlayerDrink(poison.poisoned, player, item);
+		if(player.IsValid && item.IsValid)
+		{
+			if(item.GetComponent<Bottle>() != null)
+			{
+				gameManager.SelectDrink(item.GetComponent<Bottle>().poisoned, player, item);
+			}
+		}
 	}
 	private GameObject ClickZone()
 	{

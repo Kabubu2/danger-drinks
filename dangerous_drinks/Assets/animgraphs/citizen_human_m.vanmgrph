@@ -93,6 +93,34 @@
 			{
 				key = 
 				{
+					m_id = 345761469
+				}
+				value = 
+				{
+					_class = "CChoreoAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 6128.0, -144.0 ]
+					m_nNodeID = 
+					{
+						m_id = 345761469
+					}
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 624825047
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 477210368
 				}
 				value = 
@@ -284,12 +312,12 @@
 											m_comparisonOp = 0
 											m_paramID = 
 											{
-												m_id = 1071451106
+												m_id = 693898172
 											}
 											m_comparisonValue = 
 											{
 												m_nType = 1
-												m_data = false
+												m_data = true
 											}
 										},
 									]
@@ -360,9 +388,9 @@
 							{
 								m_id = 1272549988
 							}
-							m_position = [ 112.0, -80.0 ]
+							m_position = [ 144.0, -128.0 ]
 							m_bIsStartState = false
-							m_bIsEndtState = false
+							m_bIsEndtState = true
 							m_bIsPassthrough = false
 							m_bIsRootMotionExclusive = false
 							m_bAlwaysEvaluate = false
@@ -388,9 +416,9 @@
 							{
 								m_id = 1502979634
 							}
-							m_position = [ 112.0, 16.0 ]
+							m_position = [ 144.0, 64.0 ]
 							m_bIsStartState = false
-							m_bIsEndtState = false
+							m_bIsEndtState = true
 							m_bIsPassthrough = false
 							m_bIsRootMotionExclusive = false
 							m_bAlwaysEvaluate = false
@@ -398,6 +426,37 @@
 					]
 					m_bBlockWaningTags = false
 					m_bLockStateWhenWaning = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 624825047
+				}
+				value = 
+				{
+					_class = "CDirectPlaybackAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 5936.0, -144.0 ]
+					m_nNodeID = 
+					{
+						m_id = 624825047
+					}
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1790129200
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_bFinishEarly = true
+					m_bResetOnFinish = false
+					m_bStopSequenceOnFinish = false
 				}
 			},
 			{
@@ -902,7 +961,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 4544.0, -288.0 ]
+					m_vecPosition = [ 4336.0, -304.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1124467323
@@ -917,124 +976,13 @@
 			{
 				key = 
 				{
-					m_id = 1333736602
-				}
-				value = 
-				{
-					_class = "CStateMachineAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ 4736.0, -320.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1333736602
-					}
-					m_sNote = ""
-					m_states = 
-					[
-						{
-							_class = "CAnimState"
-							m_transitions = 
-							[
-								{
-									_class = "CAnimStateTransition"
-									m_conditions = 
-									[
-										{
-											_class = "CFinishedCondition"
-											m_comparisonOp = 0
-											m_option = "FinishedConditionOption_OnFinished"
-											m_bIsFinished = true
-										},
-									]
-									m_blendDuration = 0.2
-									m_destState = 
-									{
-										m_id = 1617457726
-									}
-									m_bReset = false
-									m_resetCycleOption = "Beginning"
-									m_flFixedCycleValue = 0.0
-									m_bBlendCycle = false
-									m_blendCurve = 
-									{
-										m_vControlPoint1 = [ 0.5, 0.0 ]
-										m_vControlPoint2 = [ 0.5, 1.0 ]
-									}
-									m_bForceFootPlant = false
-									m_bDisabled = false
-									m_bRandomTimeBetween = false
-									m_flRandomTimeStart = 0.0
-									m_flRandomTimeEnd = 0.0
-								},
-							]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
-							m_name = "Start"
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 1701609022
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-							m_stateID = 
-							{
-								m_id = 1179884668
-							}
-							m_position = [ -208.0, -112.0 ]
-							m_bIsStartState = true
-							m_bIsEndtState = false
-							m_bIsPassthrough = false
-							m_bIsRootMotionExclusive = false
-							m_bAlwaysEvaluate = false
-						},
-						{
-							_class = "CAnimState"
-							m_transitions = [  ]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
-							m_name = "Idle"
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 1124467323
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-							m_stateID = 
-							{
-								m_id = 1617457726
-							}
-							m_position = [ -48.0, -112.0 ]
-							m_bIsStartState = false
-							m_bIsEndtState = false
-							m_bIsPassthrough = false
-							m_bIsRootMotionExclusive = false
-							m_bAlwaysEvaluate = false
-						},
-					]
-					m_bBlockWaningTags = false
-					m_bLockStateWhenWaning = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 1421317235
 				}
 				value = 
 				{
 					_class = "CSingleFrameAnimNode"
 					m_sName = "Hold"
-					m_vecPosition = [ 5072.0, -32.0 ]
+					m_vecPosition = [ 5104.0, -16.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1421317235
@@ -1043,27 +991,6 @@
 					m_sequenceName = "drank_sit"
 					m_nFrameIndex = 0
 					m_tagSpans = [  ]
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1701609022
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 4544.0, -352.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1701609022
-					}
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "drank_sit"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
 				}
 			},
 			{
@@ -1117,7 +1044,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 5328.0, -144.0 ]
+					m_vecPosition = [ 5408.0, -144.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1790129200
@@ -1175,7 +1102,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 1333736602
+									m_id = 1124467323
 								}
 								m_outputID = 
 								{
@@ -1249,7 +1176,7 @@
 											m_comparisonValue = 
 											{
 												m_nType = 1
-												m_data = true
+												m_data = false
 											}
 										},
 									]
@@ -1324,7 +1251,7 @@
 									m_blendDuration = 0.2
 									m_destState = 
 									{
-										m_id = 986024566
+										m_id = 1875403749
 									}
 									m_bReset = true
 									m_resetCycleOption = "Beginning"
@@ -1360,7 +1287,7 @@
 							{
 								m_id = 510612051
 							}
-							m_position = [ -160.0, -160.0 ]
+							m_position = [ -160.0, -272.0 ]
 							m_bIsStartState = true
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1428,6 +1355,67 @@
 							m_bIsRootMotionExclusive = false
 							m_bAlwaysEvaluate = false
 						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnAlmostFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 986024566
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_bBlendCycle = false
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+									m_bRandomTimeBetween = false
+									m_flRandomTimeStart = 0.0
+									m_flRandomTimeEnd = 0.0
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Sitting"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 2111815781
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1875403749
+							}
+							m_position = [ -272.0, -176.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
 					]
 					m_bBlockWaningTags = false
 					m_bLockStateWhenWaning = false
@@ -1442,7 +1430,7 @@
 				{
 					_class = "CCommentAnimNode"
 					m_sName = "Base Idle"
-					m_vecPosition = [ 4528.0, -400.0 ]
+					m_vecPosition = [ 4208.0, -400.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1857454332
@@ -1871,13 +1859,34 @@
 			{
 				key = 
 				{
+					m_id = 2111815781
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 5104.0, 128.0 ]
+					m_nNodeID = 
+					{
+						m_id = 2111815781
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "drank_sit"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 2113332534
 				}
 				value = 
 				{
 					_class = "CRootAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 5568.0, -144.0 ]
+					m_vecPosition = [ 6592.0, -144.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2113332534
@@ -1887,7 +1896,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 1790129200
+							m_id = 345761469
 						}
 						m_outputID = 
 						{
@@ -2134,8 +2143,34 @@
 				}
 				m_previewButton = "ANIMPARAM_BUTTON_NONE"
 				m_bUseMostRecentValue = false
-				m_bAutoReset = false
+				m_bAutoReset = true
 				m_bDefaultValue = false
+			},
+			{
+				_class = "CBoolAnimParameter"
+				m_name = "dud"
+				m_id = 
+				{
+					m_id = 693898172
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = true
+				m_bDefaultValue = false
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "voice"
+				m_id = 
+				{
+					m_id = 2090880745
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_fDefaultValue = 0.0
+				m_fMinValue = 0.0
+				m_fMaxValue = 1.0
 			},
 		]
 	}

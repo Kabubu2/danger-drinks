@@ -1,0 +1,11 @@
+
+Layer0
+{
+	shader "shaders/complex.shader_c"
+
+	TextureColor "materials/bar/wood_planks1base_noseams_albedo.tif"
+	TextureAmbientOcclusion "materials/bar/wood_planks1base_noseams_ao.tif"
+	TextureNormal "materials/bar/wood_planks1base_noseams_normal.tif"
+	TextureRoughness "materials/bar/wood_planks1base_noseams_roughness.tif"
+
+}

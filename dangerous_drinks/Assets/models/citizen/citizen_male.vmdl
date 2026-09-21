@@ -12,6 +12,26 @@
 					{
 						_class = "AnimFile"
 						name = "drank_dud"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_pleasant"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 30
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 0
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -35,6 +55,50 @@
 					{
 						_class = "AnimFile"
 						name = "drank_poison"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_poisoned"
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 0
+								peak_frame = 0
+								tail_frame = 10
+								end_frame = 5
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_rest"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 22
+								peak_frame = 35
+								tail_frame = 39
+								end_frame = 40
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 15
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 0
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -58,6 +122,21 @@
 					{
 						_class = "AnimFile"
 						name = "drank_drink"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 28
+								peak_frame = 32
+								tail_frame = 39
+								end_frame = 40
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -81,6 +160,13 @@
 					{
 						_class = "AnimFile"
 						name = "drank_idle"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_rest"
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -104,6 +190,13 @@
 					{
 						_class = "AnimFile"
 						name = "drank_idle2select"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_rest"
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -127,6 +220,26 @@
 					{
 						_class = "AnimFile"
 						name = "drank_select2drink"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_rest"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 11
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 1
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -150,6 +263,13 @@
 					{
 						_class = "AnimFile"
 						name = "drank_selectidle"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_think"
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -173,6 +293,13 @@
 					{
 						_class = "AnimFile"
 						name = "drank_sit"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_smile"
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -192,6 +319,316 @@
 						framerate = -1.0
 						take = 8
 						reverse = false
+					},
+					{
+						_class = "MorphFrame"
+						name = "morph_poisoned"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						morph_weights = 
+						[
+							{
+								morph = "browDown_L"
+								weight = 1.0
+							},
+							{
+								morph = "browDown_R"
+								weight = 1.0
+							},
+							{
+								morph = "browOuterUp_L"
+								weight = 0.428
+							},
+							{
+								morph = "eyeSquint_L"
+								weight = 0.493
+							},
+							{
+								morph = "eyeSquint_R"
+								weight = 1.0
+							},
+							{
+								morph = "jawForward"
+								weight = 0.792
+							},
+							{
+								morph = "jawLeft"
+								weight = 0.331
+							},
+							{
+								morph = "jawOpen"
+								weight = 0.227
+							},
+							{
+								morph = "mouthClose"
+								weight = 0.136
+							},
+							{
+								morph = "mouthUpperUp_L"
+								weight = 1.0
+							},
+							{
+								morph = "mouthUpperUp_R"
+								weight = 1.0
+							},
+							{
+								morph = "noseSneer_L"
+								weight = 1.0
+							},
+							{
+								morph = "noseSneer_R"
+								weight = 1.0
+							},
+						]
+					},
+					{
+						_class = "MorphFrame"
+						name = "morph_pleasant"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						morph_weights = 
+						[
+							{
+								morph = "browInnerUp"
+								weight = 0.331
+							},
+							{
+								morph = "browOuterUp_L"
+								weight = 0.454
+							},
+							{
+								morph = "browOuterUp_R"
+								weight = 0.448
+							},
+							{
+								morph = "cheekPuff"
+								weight = 0.792
+							},
+							{
+								morph = "eyeSquint_L"
+								weight = 0.344
+							},
+							{
+								morph = "eyeSquint_R"
+								weight = 0.324
+							},
+							{
+								morph = "jawOpen"
+								weight = 0.097
+							},
+						]
+					},
+					{
+						_class = "MorphFrame"
+						name = "morph_rest"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						morph_weights = [  ]
+					},
+					{
+						_class = "MorphFrame"
+						name = "morph_smile"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						morph_weights = 
+						[
+							{
+								morph = "browInnerUp"
+								weight = 0.538
+							},
+							{
+								morph = "browOuterUp_L"
+								weight = 0.435
+							},
+							{
+								morph = "browOuterUp_R"
+								weight = 0.409
+							},
+							{
+								morph = "mouthRollLower"
+								weight = 0.474
+							},
+							{
+								morph = "mouthRollUpper"
+								weight = 0.077
+							},
+							{
+								morph = "mouthSmile_L"
+								weight = 0.461
+							},
+							{
+								morph = "mouthSmile_R"
+								weight = 0.454
+							},
+						]
+					},
+					{
+						_class = "MorphFrame"
+						name = "morph_think"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						morph_weights = 
+						[
+							{
+								morph = "browDown_L"
+								weight = 1.0
+							},
+							{
+								morph = "browDown_R"
+								weight = 1.0
+							},
+							{
+								morph = "eyeWide_L"
+								weight = 1.0
+							},
+							{
+								morph = "eyeWide_R"
+								weight = 1.0
+							},
+							{
+								morph = "jawForward"
+								weight = 0.188
+							},
+							{
+								morph = "jawOpen"
+								weight = 0.097
+							},
+							{
+								morph = "mouthFrown_L"
+								weight = 0.48
+							},
+							{
+								morph = "mouthFrown_R"
+								weight = 0.48
+							},
+							{
+								morph = "mouthPress_L"
+								weight = 0.422
+							},
+							{
+								morph = "mouthPress_R"
+								weight = 0.512
+							},
+							{
+								morph = "mouthRollLower"
+								weight = 0.214
+							},
+							{
+								morph = "mouthRollUpper"
+								weight = 0.383
+							},
+						]
+					},
+					{
+						_class = "MorphFrame"
+						name = "morph_drink"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						morph_weights = 
+						[
+							{
+								morph = "browDown_L"
+								weight = 1.0
+							},
+							{
+								morph = "browDown_R"
+								weight = 1.0
+							},
+							{
+								morph = "eyeBlink_L"
+								weight = 1.0
+							},
+							{
+								morph = "eyeBlink_R"
+								weight = 1.0
+							},
+							{
+								morph = "eyeSquint_L"
+								weight = 0.681
+							},
+							{
+								morph = "eyeSquint_R"
+								weight = 0.603
+							},
+							{
+								morph = "jawOpen"
+								weight = 0.525
+							},
+							{
+								morph = "mouthFunnel"
+								weight = 0.324
+							},
+							{
+								morph = "mouthShrugLower"
+								weight = 0.227
+							},
+						]
 					},
 				]
 				default_root_bone_name = "pelvis"

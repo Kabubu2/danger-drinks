@@ -1,0 +1,13 @@
+
+Layer0
+{
+	shader "shaders/complex.shader_c"
+
+	TextureColor "materials/bar/bathrug_albedo.tif"
+	TextureAmbientOcclusion "materials/bar/bathrug_blue_ao.tif"
+	TextureNormal "materials/bar/bathrug_blue_normal.tif"
+	TextureRoughness "materials/bar/bathrug_blue_roughness.tif"
+	F_TINT_MASK 1
+	TextureTintMask "materials/bar/bathrug_blue_mask.tif"
+
+}

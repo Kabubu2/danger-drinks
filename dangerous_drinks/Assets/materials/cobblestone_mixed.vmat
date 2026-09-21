@@ -1,25 +1,37 @@
-"Layer0"
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
 {
-	"shader"		"shaders/complex.shader"
-	"F_PARALLAX_OCCLUSION"		"1"
-	"g_flAmbientOcclusionDirectDiffuse"		"0.000000"
-	"g_flAmbientOcclusionDirectSpecular"		"0.000000"
-	"TextureAmbientOcclusion"		"textures/cobblestone_mixed/cobblestone_mixed_ao.tif"
-	"g_flModelTintAmount"		"1.000000"
-	"g_vColorTint"		"[1.000000 1.000000 1.000000 0.000000]"
-	"TextureColor"		"textures/cobblestone_mixed/cobblestone_mixed_color.tif"
-	"g_flFadeExponent"		"1.000000"
-	"g_bFogEnabled"		"1"
-	"g_flMetalness"		"0.000000"
-	"TextureNormal"		"textures/cobblestone_mixed/cobblestone_mixed_normal.tif"
-	"g_flHeightMapScale"		"0.030000"
-	"g_nLODThreshold"		"12"
-	"g_nMaxSamples"		"40"
-	"g_nMinSamples"		"8"
-	"TextureHeight"		"textures/cobblestone_mixed/cobblestone_mixed_height.tif"
-	"g_flRoughnessScaleFactor"		"1.000000"
-	"TextureRoughness"		"textures/cobblestone_mixed/cobblestone_mixed_roughness.tif"
-	"g_vTexCoordOffset"		"[0.000 0.000]"
-	"g_vTexCoordScale"		"[1.000 1.000]"
-	"g_vTexCoordScrollSpeed"		"[0.000 0.000]"
+	shader "shaders/complex.shader"
+
+	//---- Ambient Occlusion ----
+	g_flAmbientOcclusionDirectDiffuse "0.000"
+	g_flAmbientOcclusionDirectSpecular "0.000"
+	TextureAmbientOcclusion "textures/cobblestone_mixed/cobblestone_mixed_ao.tif"
+
+	//---- Color ----
+	g_flModelTintAmount "1.000"
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	TextureColor "textures/cobblestone_mixed/cobblestone_mixed_color.tif"
+
+	//---- Fade ----
+	g_flFadeExponent "1.000"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- Metalness ----
+	g_flMetalness "0.000"
+
+	//---- Normal ----
+	TextureNormal "textures/cobblestone_mixed/cobblestone_mixed_normal.tif"
+
+	//---- Roughness ----
+	g_flRoughnessScaleFactor "1.000"
+	TextureRoughness "textures/cobblestone_mixed/cobblestone_mixed_roughness.tif"
+
+	//---- Texture Coordinates ----
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	g_vTexCoordScrollSpeed "[0.000 0.000]"
 }

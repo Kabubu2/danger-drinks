@@ -1,0 +1,22 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "Bar",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "bar",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "Mounts": null,
+      "IsStandaloneOnly": false,
+      "Metadata": {
+        "SingleAssetSource": "maps/bar.vmap",
+        "ParentPackage": "gok.dangerous_drinks"
+      }
+    }
+  }
+}
