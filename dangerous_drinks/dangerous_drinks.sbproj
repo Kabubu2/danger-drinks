@@ -15,6 +15,11 @@
       "Keyboard": true,
       "VR": false,
       "Gamepad": false
-    }
+    },
+    "StartupScene": "scenes/bar_a.scene",
+    "MapStartupScene": "scenes/bar_a.scene",
+    "LaunchMode": "Normal",
+    "DedicatedServerStartupScene": "scenes/bar_a.scene",
+    "SystemScene": "scenes/bar_a.scene"
   }
 }
