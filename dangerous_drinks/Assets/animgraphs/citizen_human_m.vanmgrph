@@ -976,6 +976,27 @@
 			{
 				key = 
 				{
+					m_id = 1210034295
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 6329.630371, -202.331726 ]
+					m_nNodeID = 
+					{
+						m_id = 1210034295
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "DrinksAndDanger_Idle"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1421317235
 				}
 				value = 
@@ -1896,7 +1917,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 345761469
+							m_id = 1210034295
 						}
 						m_outputID = 
 						{

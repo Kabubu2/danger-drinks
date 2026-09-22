@@ -9,6 +9,7 @@
 <br/>
 <span>
 	<label class="line">Current Player: @Turn</label><br/>
+	<label class="line">Current State: @State</label><br/>
 </span>
 <br/>
 @foreach(string a in Debug)
@@ -24,6 +25,7 @@
 {
     [Property] public GameManager gameManager {get; set;}
     [Property] public BottleLogic bottleLogic {get; set;}
+    [Property, TextArea] public string State { get; set; }
     [Property, TextArea] public string Turn { get; set; }
     [Property, TextArea] public string[] Debug { get; set; }
 
@@ -34,11 +36,12 @@
 			Debug = bottleLogic.DebugInfo();
 		}
 		Turn = gameManager.CurrentPlayer.ToString();
+		State = gameManager.CurrentGameState.ToString();
 		
     }
     /// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine( Debug, Turn );
+	protected override int BuildHash() => System.HashCode.Combine( Debug, Turn, State );
 
 }

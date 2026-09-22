@@ -90,12 +90,9 @@ public sealed class BottleLogic : Component
 
 		debug[0] = "##ERR## Bottle Count";
 		debug[1] = "##ERR## Poison Bottles";
-		debug[2] = "##ERR## Round State";
 
 		var a = bottleFolder.Children.Count();
 		var b = 0;
-		string c = nameof(GameState);
-
 
 		if(bottleFolder.Children != null && bottleFolder.Children.Count > 0)
 		{
@@ -108,7 +105,6 @@ public sealed class BottleLogic : Component
 			}
 			debug[0] = a.ToString() + " Bottle Count";
 			debug[1] = b.ToString() + " Poison Bottles";
-			debug[2] = c + " GameState";
 		}
 		return debug;
 	}
