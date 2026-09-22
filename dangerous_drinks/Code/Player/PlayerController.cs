@@ -34,10 +34,10 @@ public sealed class DD_PlayerController : Component
 				var a = ClickZone("selectable");
 				if (a.IsValid)
 				{	
-					if (currentPlayer != 1) 
-					{
+					//if (currentPlayer != 1) 
+					//{
 					SendChoice(this.GameObject, a);
-					}
+					//}
 				}
 			}
 		}
