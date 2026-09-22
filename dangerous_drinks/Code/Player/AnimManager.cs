@@ -21,6 +21,7 @@ public sealed class AnimManager : Component
 	protected override void OnStart()
 	{
 		PlayerRenderer.Renderer.OnGenericEvent += OnAnimationEvent;
+
 	}
 	
 	[Rpc.Broadcast]
@@ -147,8 +148,10 @@ public sealed class AnimManager : Component
 	{
 		if(!fired_Sit)
 		{
+			
 			Log.Info("sit");
 			var a = PlayerRenderer.Renderer.Parameters;
+			a.Set("playerid", playerController.playerID);
 			if(!a.GetBool("begin"))a.Set("begin", true);
 			fired_Sit = true;
 		}
