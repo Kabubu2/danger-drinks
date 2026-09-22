@@ -32,11 +32,9 @@ public sealed class DD_PlayerController : Component
 			{
 				int currentPlayer = gameManager.CurrentPlayer;
 				var a = ClickZone("selectable");
-				if (a.IsValid)
+				if (a != null && currentPlayer < 2)
 				{	
-					
 					SendChoice(this.GameObject, a);
-					
 				}
 			}
 		}
