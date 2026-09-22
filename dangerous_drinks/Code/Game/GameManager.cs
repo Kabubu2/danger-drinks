@@ -356,6 +356,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		PlayerAsset[PlayerInt].LocalPosition = Vector3.Zero;
 		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
 		PlayerAsset[PlayerInt].NetworkSpawn(connection);
+		PlayerAsset[PlayerInt].GetComponent<DD_PlayerController>().playerID = PlayerInt;
 		Players[PlayerInt] = new PlayerData
 		{	
 			TeamState = Team.Player,
@@ -398,6 +399,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
+		PlayerAsset[1].GetComponent<DD_PlayerController>().Enabled = false;
 		}
 		
 		if(Networking.IsClient){
@@ -410,6 +412,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
+		PlayerAsset[0].GetComponent<DD_PlayerController>().Enabled = false;
 		}
 	}
 
