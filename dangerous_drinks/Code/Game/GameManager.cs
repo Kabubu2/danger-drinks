@@ -387,7 +387,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	
 
-	
+	[Rpc.Broadcast]
 	private void AttachPlayerCamera(int Player)
 	{
 		if(Networking.IsHost){
