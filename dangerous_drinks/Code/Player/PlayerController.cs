@@ -6,7 +6,7 @@ using Sandbox;
 public sealed class DD_PlayerController : Component
 {
 	public GameManager gameManager {get; set;}
-
+	public int playerID {get; set;} = 2;
 	
 	private void CheckUp()
 	{
@@ -52,7 +52,7 @@ public sealed class DD_PlayerController : Component
 	private void SendChoice(GameObject player, GameObject item)
 	{
 		//gameManager.PlayerDrink(player, item);
-		if(player.IsValid && item.IsValid)
+		if(player.IsValid && item.IsValid && gameManager.CurrentPlayer == playerID)
 		{
 			if(item.GetComponent<Bottle>() != null)
 			{
