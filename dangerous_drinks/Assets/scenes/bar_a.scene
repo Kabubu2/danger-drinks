@@ -3752,6 +3752,71 @@
       }
     },
     {
+      "__guid": "54ff7b3d-013f-4d09-a084-2eb6bbdcee75",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Debug Screen",
+      "Position": "-7.83703423,253.199127,-2.46025467",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "c8660e4c-ac2c-465e-ae16-a3a5eeda10bb",
+          "__enabled": true,
+          "Flags": 0,
+          "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": null,
+          "Timing": "AfterPostProcess",
+          "ZIndex": 100
+        },
+        {
+          "__type": "Sandbox.UidebugPanel",
+          "__guid": "2bb2ff38-20b4-4942-9193-5b72afa9378d",
+          "__enabled": true,
+          "Flags": 0,
+          "bottleLogic": {
+            "_type": "component",
+            "component_id": "dcb5929c-930d-4df3-b042-f867e419014f",
+            "go": "6b67284c-1821-447e-9c02-86d21eb291a3",
+            "component_type": "BottleLogic"
+          },
+          "Debug": [],
+          "gameManager": {
+            "_type": "component",
+            "component_id": "5b1967ee-57e3-40e5-b4ba-49194f2c1e85",
+            "go": "6b67284c-1821-447e-9c02-86d21eb291a3",
+            "component_type": "GameManager"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "State": null,
+          "Turn": null
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "f2bac429-c3fc-43e2-9335-e5bd1465194b",
       "__version": 2,
       "Flags": 0,
