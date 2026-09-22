@@ -3607,20 +3607,8 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "PlayerPrefab": {
-                "_type": "gameobject",
-                "prefab": "prefab/player.prefab"
-              },
-              "SpawnPoints": [
-                {
-                  "_type": "gameobject",
-                  "go": "c3a36f8e-ef63-4d48-901a-d05d9834a783"
-                },
-                {
-                  "_type": "gameobject",
-                  "go": "11896ad6-2ef8-4693-a66f-0b9499e86618"
-                }
-              ],
+              "PlayerPrefab": null,
+              "SpawnPoints": [],
               "StartServer": true
             }
           }
