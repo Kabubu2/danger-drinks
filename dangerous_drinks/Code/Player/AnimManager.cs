@@ -182,6 +182,7 @@ public sealed class AnimManager : Component
 			var target = anim_bottle_target.Children.FirstOrDefault( x => x.Name == "IK Target");
 			if (target != null)
 			{
+				
 				var a = PlayerRenderer.Renderer.Parameters;
 				a.Set("select", true);
 				Vector3 interpVec = Vector3.Lerp(PlayerRenderer.Renderer.Parameters.GetVector("ik.hand_left.position") ,target.WorldPosition, Time.Delta*5);
@@ -189,8 +190,8 @@ public sealed class AnimManager : Component
 				PlayerRenderer.Renderer.Parameters.Set("ik.hand_left.enabled", true);
 				PlayerRenderer.Renderer.Parameters.Set("ik.hand_left.position", interpVec);
 				PlayerRenderer.Renderer.Parameters.Set("ik.hand_left.rotation", target.WorldRotation);
-				PlayerRenderer.Renderer.Parameters.Set("ik.lean.position", interpVec);
-				PlayerRenderer.Renderer.Parameters.Set("ik.lean.blend", interpBlend);
+				//PlayerRenderer.Renderer.Parameters.Set("ik.lean.position", interpVec);
+				//PlayerRenderer.Renderer.Parameters.Set("ik.lean.blend", interpBlend);
 			}
 		}
 	}
