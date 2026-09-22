@@ -630,6 +630,374 @@
 							},
 						]
 					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Idle"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 9
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Drink"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 8
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Death"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 3
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Poison_1"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 5
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Poison_2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 6
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Poison_3"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 7
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Dud"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 4
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_IdleToSelect"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 10
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Presit_A"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 12
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Presit_B"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 13
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_SelectToDrink_A"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 14
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_SelectToDrink_B"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 15
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_SelectToDrink_C"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 16
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Select_Idle"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 17
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Select_Spectrum"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 18
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "DrinksAndDanger_Sit"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 19
+						reverse = false
+					},
 				]
 				default_root_bone_name = "pelvis"
 			},
