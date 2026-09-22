@@ -449,7 +449,10 @@
               "Flags": 0,
               "Blend": 1,
               "BlendMode": "Multiply",
-              "Material": "shaders/postprocess/fade.vmat",
+              "Material": {
+                "Id": "bedc0b7d-e06a-48ea-acad-0a355840967b",
+                "Path": "shaders/postprocess/fade.vmat"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -3309,7 +3312,10 @@
               "Health": 0,
               "IsStatic": false,
               "MaterialGroup": null,
-              "Model": "models/chair_wooden.vmdl",
+              "Model": {
+                "Id": "5a3dd8c5-7191-4a73-988d-be11871652f0",
+                "Path": "models/chair_wooden.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -3333,7 +3339,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/chair_wooden.vmdl",
+              "Model": {
+                "Id": "5a3dd8c5-7191-4a73-988d-be11871652f0",
+                "Path": "models/chair_wooden.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -3358,7 +3367,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/chair_wooden.vmdl",
+              "Model": {
+                "Id": "5a3dd8c5-7191-4a73-988d-be11871652f0",
+                "Path": "models/chair_wooden.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -3437,7 +3449,10 @@
               "Health": 0,
               "IsStatic": false,
               "MaterialGroup": null,
-              "Model": "models/chair_wooden.vmdl",
+              "Model": {
+                "Id": "5a3dd8c5-7191-4a73-988d-be11871652f0",
+                "Path": "models/chair_wooden.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -3461,7 +3476,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/chair_wooden.vmdl",
+              "Model": {
+                "Id": "5a3dd8c5-7191-4a73-988d-be11871652f0",
+                "Path": "models/chair_wooden.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -3486,7 +3504,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/chair_wooden.vmdl",
+              "Model": {
+                "Id": "5a3dd8c5-7191-4a73-988d-be11871652f0",
+                "Path": "models/chair_wooden.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -3581,7 +3602,10 @@
     {
       "__guid": "6b67284c-1821-447e-9c02-86d21eb291a3",
       "__version": 2,
-      "__Prefab": "prefab/game logic.prefab",
+      "__Prefab": {
+        "Id": "8e41916c-2b83-4646-8c6d-61631ac045b7",
+        "Path": "prefab/game logic.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [
           {

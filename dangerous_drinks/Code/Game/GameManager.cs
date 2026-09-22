@@ -387,12 +387,13 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	
 
-	[Rpc.Host]
+	[Rpc.Broadcast]
 	private void AttachPlayerCamera(int Player)
 	{
-		Log.Info("BANG!");
+		
 		if(Networking.IsHost)
 		{
+			Log.Info("BANG! H");
 		var _player = PlayerAsset[0];
 		var playerRelay = _player.GetComponent<PlayerRelay>();
 		if(playerRelay.playerController != null)
@@ -403,11 +404,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.LocalRotation = Rotation.Identity;
 
 		var b = PlayerAsset[1];
-		if(b.IsValid)PlayerAsset[1].GetComponent<DD_PlayerController>().Enabled = false;
+		if(b.IsValid && b.GetComponent<DD_PlayerController>() != null)b.GetComponent<DD_PlayerController>().Enabled = false;
 		}
 		
 		if(Networking.IsClient)
 		{
+			Log.Info("BANG! C");
 		if (PlayerAsset == null || PlayerAsset.Length <= 1 || PlayerAsset[1] == null) return;
     	var _player = PlayerAsset[1];
 		var playerRelay = _player.GetComponent<PlayerRelay>();
@@ -419,7 +421,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.LocalRotation = Rotation.Identity;
 
 		var b = PlayerAsset[0];
-		if(b.IsValid)PlayerAsset[0].GetComponent<DD_PlayerController>().Enabled = false;
+		if(b.IsValid && b.GetComponent<DD_PlayerController>() != null)b.GetComponent<DD_PlayerController>().Enabled = false;
 		}
 	}
 
