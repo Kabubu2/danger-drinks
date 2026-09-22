@@ -151,6 +151,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 	/// ROUND LOGIC
 	/// ----------------------------------------
 	
+
+
 	private TimeSince StateTimer;
 	private void OnPreGame()
 	{
@@ -160,6 +162,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		PostProcessCon.Trigger(true);
 		if (isHost)  AttachPlayerCamera(0);
 		else AttachPlayerCamera(0);
+		
 		
 
 		if(StateTimer > 2) //Forced Delay
@@ -212,7 +215,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 	{
 		if(StateTimer > 1) //Forced Delay
 		{
-			
 			CurrentPlayer = CycleTurn();
 			CurrentGameState = GameState.TurnStart;
 			StateTimer = 0;
@@ -222,7 +224,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	private void OnTurnStart()
 	{
 		//Enable Mouse Input
-		Input.Suppressed = false;
+		
 		Mouse.Visibility = MouseVisibility.Visible;
 		if(StateTimer > 1) //Forced Delay
 		{
@@ -238,7 +240,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	private void OnTurnEnd()
 	{
 		//Disable Mouse Input
-		Input.Suppressed = true;
+		
 		Mouse.Visibility = MouseVisibility.Hidden;
 		if(StateTimer > 1) //Forced Delay
 		{

@@ -6,6 +6,8 @@ using Sandbox;
 public sealed class DD_PlayerController : Component
 {
 	public GameManager gameManager {get; set;}
+
+	
 	private void CheckUp()
 	{
 		if ( !gameManager.IsValid )
@@ -18,7 +20,9 @@ public sealed class DD_PlayerController : Component
 	{
 		CheckUp();
 		SelectFilter();
+		
 	}
+	
 	
 	private void SelectFilter()
 	{
@@ -26,10 +30,14 @@ public sealed class DD_PlayerController : Component
 		{
 			if(Input.Pressed("Attack1")) 
 			{
+				int currentPlayer = gameManager.CurrentPlayer;
 				var a = ClickZone("selectable");
 				if (a.IsValid)
-				{
+				{	
+					if (currentPlayer != 1) 
+					{
 					SendChoice(this.GameObject, a);
+					}
 				}
 			}
 		}
