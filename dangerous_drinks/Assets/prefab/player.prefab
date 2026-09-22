@@ -75,7 +75,11 @@
           "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
           "component_type": "PlayerRelay"
         },
-        "playerState": "start"
+        "playerState": "start",
+        "spine2": {
+          "_type": "gameobject",
+          "go": "8f4af165-574d-4149-8a7c-85735bab21e9"
+        }
       },
       {
         "__type": "DD_PlayerController",
@@ -134,7 +138,10 @@
             "Health": 0,
             "IsStatic": false,
             "MaterialGroup": null,
-            "Model": "models/citizen/citizen_male.vmdl",
+            "Model": {
+              "Id": "cc57232b-2e0b-4b6c-9d4a-c23a1da2e6eb",
+              "Path": "models/citizen/citizen_male.vmdl"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -152,7 +159,10 @@
             "__guid": "3feb698d-fb2f-471d-8117-108035c13580",
             "__enabled": true,
             "Flags": 0,
-            "AnimationGraph": "animgraphs/citizen_human_m.vanmgrph",
+            "AnimationGraph": {
+              "Id": "940a35d0-322c-4b46-8efe-6045607848fd",
+              "Path": "animgraphs/citizen_human_m.vanmgrph"
+            },
             "BodyGroups": 5441,
             "BoneMergeTarget": null,
             "CreateAttachments": false,
@@ -161,7 +171,10 @@
             "MaterialGroup": null,
             "MaterialOverride": null,
             "Materials": null,
-            "Model": "models/citizen/citizen_male.vmdl",
+            "Model": {
+              "Id": "cc57232b-2e0b-4b6c-9d4a-c23a1da2e6eb",
+              "Path": "models/citizen/citizen_male.vmdl"
+            },
             "Morphs": {},
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -208,7 +221,10 @@
               "Yaw": false,
               "Roll": false
             },
-            "Model": "models/citizen/citizen_male.vmdl",
+            "Model": {
+              "Id": "cc57232b-2e0b-4b6c-9d4a-c23a1da2e6eb",
+              "Path": "models/citizen/citizen_male.vmdl"
+            },
             "MotionEnabled": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -720,7 +736,10 @@
                                                     "MaterialGroup": null,
                                                     "MaterialOverride": null,
                                                     "Materials": null,
-                                                    "Model": "models/bottle_a.vmdl",
+                                                    "Model": {
+                                                      "Id": "f138ac5f-65e9-4781-a835-f8d67ad13531",
+                                                      "Path": "models/bottle_a.vmdl"
+                                                    },
                                                     "OnComponentDestroy": null,
                                                     "OnComponentDisabled": null,
                                                     "OnComponentEnabled": null,

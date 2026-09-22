@@ -56,15 +56,21 @@ public sealed class BottleLogic : Component
 	private void Bottles()
 	{
 		int loopCount = new Random().Next(3, 6);
+		float s = -30, e = 40;
+		Vector3 start = bottleFolder.LocalTransform.PointToWorld(new Vector3(0,s,0));
+		Vector3 end = bottleFolder.LocalTransform.PointToWorld(new Vector3(0,e,0));
 			for (int i = 0; i <= loopCount; i++)
 			{
-				//Bottle Offset relative to origin.
-				Vector3 relativeOffset = ((bottleFolder.WorldPosition - ((offset * loopCount)/2)) + (offset * i));
+				
+				float t = (float)i / (loopCount - 1);
+				Vector3 position = Vector3.Lerp(start,end,t);
+				////Bottle Offset relative to origin.
+				//Vector3 relativeOffset = ((bottleFolder.WorldPosition - ((offset * loopCount)/2)) + (offset * i));
 
 				// Instantiate the prefab into the bottle folder.
 				GameObject bottle = bottlePrefab.Clone();
 				bottle.Parent = bottleFolder;
-				bottle.WorldPosition = relativeOffset;
+				bottle.WorldPosition = position;
 				bottle.Name = new string("Bottle " + i);
 				bottle.NetworkSpawn();
 			}

@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Numerics;
 using Sandbox;
 
 public enum PlayerState {start, idle, select, drink, poisoned, dud}
@@ -8,15 +9,15 @@ public sealed class AnimManager : Component
 	///
 	/// ANIMATION CONTROLLERS AND VARIABLES
 	/// 
-	[Property]
+	[Property, Sync]
 	private PlayerRelay PlayerRenderer {get; set;}
-	[Property]
+	[Property, Sync]
 	private DD_PlayerController playerController{get; set;}
 
 	public bool IsTurn {get; set;}
-	[Property]
+	[Property, Sync]
 	public PlayerState playerState {get; set;}
-	[Property]
+	[Property, Sync]
 	public GameObject bottleSelected {get; set;}
 	protected override void OnStart()
 	{
@@ -96,6 +97,7 @@ public sealed class AnimManager : Component
 			}
 		}
 	}
+	[Rpc.Broadcast]
 	private void AnimSwitcher()
 	{
 
@@ -185,14 +187,40 @@ public sealed class AnimManager : Component
 				
 				var a = PlayerRenderer.Renderer.Parameters;
 				a.Set("select", true);
-				Vector3 interpVec = Vector3.Lerp(PlayerRenderer.Renderer.Parameters.GetVector("ik.hand_left.position") ,target.WorldPosition, Time.Delta*5);
-				float interpBlend = MathX.Lerp(PlayerRenderer.Renderer.Parameters.GetFloat("ik.lean.blend"),animVar_Stretch(Vector3.DistanceBetween(PlayerRenderer.PlayerCore.WorldPosition, interpVec)), Time.Delta * 5);
-				PlayerRenderer.Renderer.Parameters.Set("ik.hand_left.enabled", true);
-				PlayerRenderer.Renderer.Parameters.Set("ik.hand_left.position", interpVec);
-				PlayerRenderer.Renderer.Parameters.Set("ik.hand_left.rotation", target.WorldRotation);
+				//Vector3 interpVec = Vector3.Lerp(PlayerRenderer.Renderer.Parameters.GetVector("ik.hand_left.position") ,target.WorldPosition, Time.Delta*5);
+				//float interpBlend = MathX.Lerp(PlayerRenderer.Renderer.Parameters.GetFloat("ik.lean.blend"),animVar_Stretch(Vector3.DistanceBetween(PlayerRenderer.PlayerCore.WorldPosition, interpVec)), Time.Delta * 5);
+				float targetSpec = MathX.Lerp(a.GetFloat("spectrum"),spectrumPoint(target.WorldPosition), Time.Delta * 5f);
+				if(a.GetFloat("spectrum") != targetSpec)
+				{
+					a.Set("spectrum", targetSpec);
+					Log.Info(spectrumPoint(target.WorldPosition));
+				}
+				//a.Set("ik.hand_left.enabled", true);
+				//a.Set("ik.hand_left.position", interpVec);
+				//a.Set("ik.hand_left.rotation", target.WorldRotation);
 				//PlayerRenderer.Renderer.Parameters.Set("ik.lean.position", interpVec);
 				//PlayerRenderer.Renderer.Parameters.Set("ik.lean.blend", interpBlend);
 			}
 		}
+	}
+	[Property]public GameObject spine2 { get; set; }
+	private float spectrumPoint(Vector3 localFromSpine)
+	{
+		var bottles = playerController.gameManager.BottlesContainer.Children;
+		var bottleCount = bottles.Count();
+		float[] bottleRange = new float[bottleCount];
+		for (int i = 0; i < bottleCount; i++)
+		{
+			bottleRange[i] = spine2.LocalTransform.PointToLocal(bottles[i].WorldPosition).y;
+		}
+		var min = bottleRange.Min();
+		var max = bottleRange.Max();
+		var a = spine2.LocalTransform.PointToLocal(localFromSpine);
+		//47 - 82 Y axis
+		//var spectrumBalance = (a.y - 47)/35;
+		//Log.Info(a.y);
+		var spectrumBalance = MathX.Remap(a.y, min,max,0,1);
+		spectrumBalance = MathF.Round(spectrumBalance, 2);
+		return spectrumBalance;
 	}
 }

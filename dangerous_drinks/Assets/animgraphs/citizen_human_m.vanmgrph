@@ -36,7 +36,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 3744.0, 48.0 ]
+					m_vecPosition = [ 3392.0, 48.0 ]
 					m_nNodeID = 
 					{
 						m_id = 224959040
@@ -44,6 +44,27 @@
 					m_sNote = ""
 					m_tagSpans = [  ]
 					m_sequenceName = "DrinksAndDanger_SelectToDrink_A"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 257804396
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Idle_Waiting"
+					m_vecPosition = [ 3376.0, -64.0 ]
+					m_nNodeID = 
+					{
+						m_id = 257804396
+					}
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "DrinksAndDanger_Select_Spectrum"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -78,7 +99,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 3744.0, 96.0 ]
+					m_vecPosition = [ 3392.0, 96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 327637101
@@ -121,54 +142,34 @@
 			{
 				key = 
 				{
-					m_id = 477210368
+					m_id = 416864665
 				}
 				value = 
 				{
-					_class = "CBoneMaskAnimNode"
+					_class = "CCycleControlAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 4736.0, -128.0 ]
+					m_vecPosition = [ 3712.0, -64.0 ]
 					m_nNodeID = 
 					{
-						m_id = 477210368
+						m_id = 416864665
 					}
 					m_sNote = ""
-					m_weightListName = "Only_LeftArm"
-					m_inputConnection1 = 
+					m_inputConnection = 
 					{
 						m_nodeID = 
 						{
-							m_id = 644136267
+							m_id = 257804396
 						}
 						m_outputID = 
 						{
 							m_id = 4294967295
 						}
 					}
-					m_inputConnection2 = 
+					m_valueSource = "Parameter"
+					m_param = 
 					{
-						m_nodeID = 
-						{
-							m_id = 1913739998
-						}
-						m_outputID = 
-						{
-							m_id = 176530900
-						}
+						m_id = 769709229
 					}
-					m_blendSpace = "BlendSpace_Parent"
-					m_bUseBlendScale = false
-					m_blendValueSource = "Parameter"
-					m_blendParameter = 
-					{
-						m_id = 4294967295
-					}
-					m_timingBehavior = "UseChild2"
-					m_flTimingBlend = 0.5
-					m_flRootMotionBlend = 0.0
-					m_footMotionTiming = "Child1"
-					m_bResetChild1 = true
-					m_bResetChild2 = true
 				}
 			},
 			{
@@ -288,7 +289,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 1891828449
+									m_id = 857083316
 								}
 								m_outputID = 
 								{
@@ -407,7 +408,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 4240.0, -128.0 ]
+					m_vecPosition = [ 4560.0, -128.0 ]
 					m_nNodeID = 
 					{
 						m_id = 644136267
@@ -486,7 +487,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 37010674
+									m_id = 985522445
 								}
 								m_outputID = 
 								{
@@ -816,368 +817,6 @@
 			{
 				key = 
 				{
-					m_id = 744759777
-				}
-				value = 
-				{
-					_class = "CGroupAnimNode"
-					m_sName = "\'Manual\' / code-side IK"
-					m_vecPosition = [ 4496.0, 96.0 ]
-					m_nNodeID = 
-					{
-						m_id = 744759777
-					}
-					m_sNote = ""
-					m_inputNodeID = 
-					{
-						m_id = 1590672954
-					}
-					m_outputNodeID = 
-					{
-						m_id = 1956108287
-					}
-					m_inputConnectionMap = 
-					[
-						{
-							key = 
-							{
-								m_id = 268268952
-							}
-							value = 
-							{
-								m_nodeID = 
-								{
-									m_id = 857083316
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-					]
-					m_nodeManager = 
-					{
-						_class = "CAnimNodeManager"
-						m_nodes = 
-						[
-							{
-								key = 
-								{
-									m_id = 124645655
-								}
-								value = 
-								{
-									_class = "CTwoBoneIKAnimNode"
-									m_sName = "Manual IK left hand"
-									m_vecPosition = [ -448.0, 96.0 ]
-									m_nNodeID = 
-									{
-										m_id = 124645655
-									}
-									m_sNote = ""
-									m_inputConnection = 
-									{
-										m_nodeID = 
-										{
-											m_id = 1590672954
-										}
-										m_outputID = 
-										{
-											m_id = 268268952
-										}
-									}
-									m_ikChainName = "left_arm_IK"
-									m_endEffectorType = "IkEndEffector_Bone"
-									m_endEffectorAttachmentName = ""
-									m_targetType = "IkTarget_Parameter_WorldSpace"
-									m_attachmentName = ""
-									m_targetBoneName = "hand_L_IK_target"
-									m_targetParam = 
-									{
-										m_id = 937870857
-									}
-									m_bMatchTargetOrientation = true
-									m_rotationParam = 
-									{
-										m_id = 227489733
-									}
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 832347544
-								}
-								value = 
-								{
-									_class = "CSelectorAnimNode"
-									m_sName = ""
-									m_vecPosition = [ 240.0, -64.0 ]
-									m_nNodeID = 
-									{
-										m_id = 832347544
-									}
-									m_sNote = ""
-									m_children = 
-									[
-										{
-											m_nodeID = 
-											{
-												m_id = 1432957441
-											}
-											m_outputID = 
-											{
-												m_id = 4294967295
-											}
-										},
-										{
-											m_nodeID = 
-											{
-												m_id = 1582858677
-											}
-											m_outputID = 
-											{
-												m_id = 4294967295
-											}
-										},
-									]
-									m_tags = 
-									[
-										{
-											m_id = 4294967295
-										},
-										{
-											m_id = 4294967295
-										},
-									]
-									m_selectionSource = "SelectionSource_Bool"
-									m_boolParamID = 
-									{
-										m_id = 2309985
-									}
-									m_enumParamID = 
-									{
-										m_id = 4294967295
-									}
-									m_intParamID = 
-									{
-										m_id = 4294967295
-									}
-									m_intParamMinValue = 0
-									m_intParamMaxValue = 2
-									m_blendDuration = 0.35
-									m_tagBehavior = "SelectorTagBehavior_OffWhenFinished"
-									m_bResetOnChange = false
-									m_bSyncCyclesOnChange = false
-									m_blendCurve = 
-									{
-										m_vControlPoint1 = [ 0.388889, 0.0 ]
-										m_vControlPoint2 = [ 0.148148, 1.0 ]
-									}
-									m_intParamNames = [  ]
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 1432957441
-								}
-								value = 
-								{
-									_class = "CSelectorAnimNode"
-									m_sName = ""
-									m_vecPosition = [ -208.0, -64.0 ]
-									m_nNodeID = 
-									{
-										m_id = 1432957441
-									}
-									m_sNote = ""
-									m_children = 
-									[
-										{
-											m_nodeID = 
-											{
-												m_id = 1590672954
-											}
-											m_outputID = 
-											{
-												m_id = 268268952
-											}
-										},
-										{
-											m_nodeID = 
-											{
-												m_id = 124645655
-											}
-											m_outputID = 
-											{
-												m_id = 4294967295
-											}
-										},
-									]
-									m_tags = 
-									[
-										{
-											m_id = 4294967295
-										},
-										{
-											m_id = 4294967295
-										},
-									]
-									m_selectionSource = "SelectionSource_Bool"
-									m_boolParamID = 
-									{
-										m_id = 1598349679
-									}
-									m_enumParamID = 
-									{
-										m_id = 4294967295
-									}
-									m_intParamID = 
-									{
-										m_id = 4294967295
-									}
-									m_intParamMinValue = 0
-									m_intParamMaxValue = 2
-									m_blendDuration = 0.35
-									m_tagBehavior = "SelectorTagBehavior_OffWhenFinished"
-									m_bResetOnChange = false
-									m_bSyncCyclesOnChange = false
-									m_blendCurve = 
-									{
-										m_vControlPoint1 = [ 0.388889, 0.0 ]
-										m_vControlPoint2 = [ 0.148148, 1.0 ]
-									}
-									m_intParamNames = [  ]
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 1582858677
-								}
-								value = 
-								{
-									_class = "CTwoBoneIKAnimNode"
-									m_sName = "Manual IK right hand"
-									m_vecPosition = [ 48.0, 96.0 ]
-									m_nNodeID = 
-									{
-										m_id = 1582858677
-									}
-									m_sNote = ""
-									m_inputConnection = 
-									{
-										m_nodeID = 
-										{
-											m_id = 1432957441
-										}
-										m_outputID = 
-										{
-											m_id = 4294967295
-										}
-									}
-									m_ikChainName = "right_arm_IK"
-									m_endEffectorType = "IkEndEffector_Bone"
-									m_endEffectorAttachmentName = ""
-									m_targetType = "IkTarget_Parameter_ModelSpace"
-									m_attachmentName = ""
-									m_targetBoneName = "hand_R_IK_target"
-									m_targetParam = 
-									{
-										m_id = 1651085716
-									}
-									m_bMatchTargetOrientation = true
-									m_rotationParam = 
-									{
-										m_id = 1600416393
-									}
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 1590672954
-								}
-								value = 
-								{
-									_class = "CGroupInputAnimNode"
-									m_sName = "Unnamed"
-									m_vecPosition = [ -672.0, -64.0 ]
-									m_nNodeID = 
-									{
-										m_id = 1590672954
-									}
-									m_sNote = ""
-									m_proxyItems = 
-									[
-										{
-											m_name = "Out"
-											m_outputID = 
-											{
-												m_id = 268268952
-											}
-											m_inputConnection = 
-											{
-												m_nodeID = 
-												{
-													m_id = 4294967295
-												}
-												m_outputID = 
-												{
-													m_id = 4294967295
-												}
-											}
-										},
-									]
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 1956108287
-								}
-								value = 
-								{
-									_class = "CGroupOutputAnimNode"
-									m_sName = "Unnamed"
-									m_vecPosition = [ 544.0, -64.0 ]
-									m_nNodeID = 
-									{
-										m_id = 1956108287
-									}
-									m_sNote = ""
-									m_proxyItems = 
-									[
-										{
-											m_name = "In"
-											m_outputID = 
-											{
-												m_id = 176530900
-											}
-											m_inputConnection = 
-											{
-												m_nodeID = 
-												{
-													m_id = 832347544
-												}
-												m_outputID = 
-												{
-													m_id = 4294967295
-												}
-											}
-										},
-									]
-								}
-							},
-						]
-					}
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 829023524
 				}
 				value = 
@@ -1276,7 +915,7 @@
 				{
 					_class = "CBlendAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 4080.0, 96.0 ]
+					m_vecPosition = [ 3728.0, 96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 857083316
@@ -1361,7 +1000,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 5056.0, 112.0 ]
+					m_vecPosition = [ 5056.0, 96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 919451686
@@ -1376,13 +1015,66 @@
 			{
 				key = 
 				{
+					m_id = 985522445
+				}
+				value = 
+				{
+					_class = "CBoneMaskAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 4288.0, -80.0 ]
+					m_nNodeID = 
+					{
+						m_id = 985522445
+					}
+					m_sNote = ""
+					m_weightListName = "Blend_UpperBody"
+					m_inputConnection1 = 
+					{
+						m_nodeID = 
+						{
+							m_id = 37010674
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_inputConnection2 = 
+					{
+						m_nodeID = 
+						{
+							m_id = 416864665
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_blendSpace = "BlendSpace_Parent"
+					m_bUseBlendScale = false
+					m_blendValueSource = "Parameter"
+					m_blendParameter = 
+					{
+						m_id = 4294967295
+					}
+					m_timingBehavior = "UseChild2"
+					m_flTimingBlend = 0.5
+					m_flRootMotionBlend = 0.0
+					m_footMotionTiming = "Child1"
+					m_bResetChild1 = true
+					m_bResetChild2 = true
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1011052910
 				}
 				value = 
 				{
 					_class = "CCommentAnimNode"
 					m_sName = "Drink Select"
-					m_vecPosition = [ 3952.0, -208.0 ]
+					m_vecPosition = [ 3920.0, -208.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1011052910
@@ -1402,7 +1094,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 3744.0, 144.0 ]
+					m_vecPosition = [ 3392.0, 144.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1018374630
@@ -1479,26 +1171,6 @@
 			{
 				key = 
 				{
-					m_id = 1421317235
-				}
-				value = 
-				{
-					_class = "CSingleFrameAnimNode"
-					m_sName = "Hold"
-					m_vecPosition = [ 5104.0, -16.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1421317235
-					}
-					m_sNote = ""
-					m_sequenceName = "drank_sit"
-					m_nFrameIndex = 0
-					m_tagSpans = [  ]
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 1551946336
 				}
 				value = 
@@ -1547,14 +1219,14 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 4016.0, -160.0 ]
+					m_vecPosition = [ 3952.0, -160.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1748773242
 					}
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "drank_idle2select"
+					m_sequenceName = "DrinksAndDanger_IdleToSelect"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -1568,7 +1240,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Idle_Waiting"
-					m_vecPosition = [ 4768.0, 144.0 ]
+					m_vecPosition = [ 4480.0, 144.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1775861076
@@ -1753,7 +1425,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 477210368
+									m_id = 644136267
 								}
 								m_outputID = 
 								{
@@ -1916,421 +1588,6 @@
 					m_commentText = ""
 					m_size = [ 384.0, 176.0 ]
 					m_color = [ 255, 127, 80, 255 ]
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1891828449
-				}
-				value = 
-				{
-					_class = "CBoneMaskAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ 4768.0, 32.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1891828449
-					}
-					m_sNote = ""
-					m_weightListName = "Only_LeftArm"
-					m_inputConnection1 = 
-					{
-						m_nodeID = 
-						{
-							m_id = 4294967295
-						}
-						m_outputID = 
-						{
-							m_id = 4294967295
-						}
-					}
-					m_inputConnection2 = 
-					{
-						m_nodeID = 
-						{
-							m_id = 744759777
-						}
-						m_outputID = 
-						{
-							m_id = 176530900
-						}
-					}
-					m_blendSpace = "BlendSpace_Parent"
-					m_bUseBlendScale = false
-					m_blendValueSource = "Parameter"
-					m_blendParameter = 
-					{
-						m_id = 4294967295
-					}
-					m_timingBehavior = "UseChild2"
-					m_flTimingBlend = 0.5
-					m_flRootMotionBlend = 0.0
-					m_footMotionTiming = "Child1"
-					m_bResetChild1 = true
-					m_bResetChild2 = true
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1913739998
-				}
-				value = 
-				{
-					_class = "CGroupAnimNode"
-					m_sName = "\'Manual\' / code-side IK"
-					m_vecPosition = [ 4464.0, -48.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1913739998
-					}
-					m_sNote = ""
-					m_inputNodeID = 
-					{
-						m_id = 1590672954
-					}
-					m_outputNodeID = 
-					{
-						m_id = 1956108287
-					}
-					m_inputConnectionMap = 
-					[
-						{
-							key = 
-							{
-								m_id = 268268952
-							}
-							value = 
-							{
-								m_nodeID = 
-								{
-									m_id = 644136267
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-					]
-					m_nodeManager = 
-					{
-						_class = "CAnimNodeManager"
-						m_nodes = 
-						[
-							{
-								key = 
-								{
-									m_id = 124645655
-								}
-								value = 
-								{
-									_class = "CTwoBoneIKAnimNode"
-									m_sName = "Manual IK left hand"
-									m_vecPosition = [ -448.0, 96.0 ]
-									m_nNodeID = 
-									{
-										m_id = 124645655
-									}
-									m_sNote = ""
-									m_inputConnection = 
-									{
-										m_nodeID = 
-										{
-											m_id = 1590672954
-										}
-										m_outputID = 
-										{
-											m_id = 268268952
-										}
-									}
-									m_ikChainName = "left_arm_IK"
-									m_endEffectorType = "IkEndEffector_Bone"
-									m_endEffectorAttachmentName = ""
-									m_targetType = "IkTarget_Parameter_WorldSpace"
-									m_attachmentName = ""
-									m_targetBoneName = "hand_L_IK_target"
-									m_targetParam = 
-									{
-										m_id = 937870857
-									}
-									m_bMatchTargetOrientation = true
-									m_rotationParam = 
-									{
-										m_id = 227489733
-									}
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 832347544
-								}
-								value = 
-								{
-									_class = "CSelectorAnimNode"
-									m_sName = ""
-									m_vecPosition = [ 240.0, -64.0 ]
-									m_nNodeID = 
-									{
-										m_id = 832347544
-									}
-									m_sNote = ""
-									m_children = 
-									[
-										{
-											m_nodeID = 
-											{
-												m_id = 1432957441
-											}
-											m_outputID = 
-											{
-												m_id = 4294967295
-											}
-										},
-										{
-											m_nodeID = 
-											{
-												m_id = 1582858677
-											}
-											m_outputID = 
-											{
-												m_id = 4294967295
-											}
-										},
-									]
-									m_tags = 
-									[
-										{
-											m_id = 4294967295
-										},
-										{
-											m_id = 4294967295
-										},
-									]
-									m_selectionSource = "SelectionSource_Bool"
-									m_boolParamID = 
-									{
-										m_id = 2309985
-									}
-									m_enumParamID = 
-									{
-										m_id = 4294967295
-									}
-									m_intParamID = 
-									{
-										m_id = 4294967295
-									}
-									m_intParamMinValue = 0
-									m_intParamMaxValue = 2
-									m_blendDuration = 0.35
-									m_tagBehavior = "SelectorTagBehavior_OffWhenFinished"
-									m_bResetOnChange = false
-									m_bSyncCyclesOnChange = false
-									m_blendCurve = 
-									{
-										m_vControlPoint1 = [ 0.388889, 0.0 ]
-										m_vControlPoint2 = [ 0.148148, 1.0 ]
-									}
-									m_intParamNames = [  ]
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 1432957441
-								}
-								value = 
-								{
-									_class = "CSelectorAnimNode"
-									m_sName = ""
-									m_vecPosition = [ -208.0, -64.0 ]
-									m_nNodeID = 
-									{
-										m_id = 1432957441
-									}
-									m_sNote = ""
-									m_children = 
-									[
-										{
-											m_nodeID = 
-											{
-												m_id = 1590672954
-											}
-											m_outputID = 
-											{
-												m_id = 268268952
-											}
-										},
-										{
-											m_nodeID = 
-											{
-												m_id = 124645655
-											}
-											m_outputID = 
-											{
-												m_id = 4294967295
-											}
-										},
-									]
-									m_tags = 
-									[
-										{
-											m_id = 4294967295
-										},
-										{
-											m_id = 4294967295
-										},
-									]
-									m_selectionSource = "SelectionSource_Bool"
-									m_boolParamID = 
-									{
-										m_id = 1598349679
-									}
-									m_enumParamID = 
-									{
-										m_id = 4294967295
-									}
-									m_intParamID = 
-									{
-										m_id = 4294967295
-									}
-									m_intParamMinValue = 0
-									m_intParamMaxValue = 2
-									m_blendDuration = 0.35
-									m_tagBehavior = "SelectorTagBehavior_OffWhenFinished"
-									m_bResetOnChange = false
-									m_bSyncCyclesOnChange = false
-									m_blendCurve = 
-									{
-										m_vControlPoint1 = [ 0.388889, 0.0 ]
-										m_vControlPoint2 = [ 0.148148, 1.0 ]
-									}
-									m_intParamNames = [  ]
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 1582858677
-								}
-								value = 
-								{
-									_class = "CTwoBoneIKAnimNode"
-									m_sName = "Manual IK right hand"
-									m_vecPosition = [ 48.0, 96.0 ]
-									m_nNodeID = 
-									{
-										m_id = 1582858677
-									}
-									m_sNote = ""
-									m_inputConnection = 
-									{
-										m_nodeID = 
-										{
-											m_id = 1432957441
-										}
-										m_outputID = 
-										{
-											m_id = 4294967295
-										}
-									}
-									m_ikChainName = "right_arm_IK"
-									m_endEffectorType = "IkEndEffector_Bone"
-									m_endEffectorAttachmentName = ""
-									m_targetType = "IkTarget_Parameter_ModelSpace"
-									m_attachmentName = ""
-									m_targetBoneName = "hand_R_IK_target"
-									m_targetParam = 
-									{
-										m_id = 1651085716
-									}
-									m_bMatchTargetOrientation = true
-									m_rotationParam = 
-									{
-										m_id = 1600416393
-									}
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 1590672954
-								}
-								value = 
-								{
-									_class = "CGroupInputAnimNode"
-									m_sName = "Unnamed"
-									m_vecPosition = [ -672.0, -64.0 ]
-									m_nNodeID = 
-									{
-										m_id = 1590672954
-									}
-									m_sNote = ""
-									m_proxyItems = 
-									[
-										{
-											m_name = "Out"
-											m_outputID = 
-											{
-												m_id = 268268952
-											}
-											m_inputConnection = 
-											{
-												m_nodeID = 
-												{
-													m_id = 4294967295
-												}
-												m_outputID = 
-												{
-													m_id = 4294967295
-												}
-											}
-										},
-									]
-								}
-							},
-							{
-								key = 
-								{
-									m_id = 1956108287
-								}
-								value = 
-								{
-									_class = "CGroupOutputAnimNode"
-									m_sName = "Unnamed"
-									m_vecPosition = [ 544.0, -64.0 ]
-									m_nNodeID = 
-									{
-										m_id = 1956108287
-									}
-									m_sNote = ""
-									m_proxyItems = 
-									[
-										{
-											m_name = "In"
-											m_outputID = 
-											{
-												m_id = 176530900
-											}
-											m_inputConnection = 
-											{
-												m_nodeID = 
-												{
-													m_id = 832347544
-												}
-												m_outputID = 
-												{
-													m_id = 4294967295
-												}
-											}
-										},
-									]
-								}
-							},
-						]
-					}
 				}
 			},
 			{
