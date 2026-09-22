@@ -1,5 +1,7 @@
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Sandbox;
+
 
 public sealed class DD_PlayerController : Component
 {
@@ -17,6 +19,7 @@ public sealed class DD_PlayerController : Component
 		CheckUp();
 		SelectFilter();
 	}
+	
 	private void SelectFilter()
 	{
 		if(gameManager.IsValid)
@@ -37,6 +40,7 @@ public sealed class DD_PlayerController : Component
 		gameManager = Scene.GetAll<GameManager>().FirstOrDefault();
 	}
 
+	[Rpc.Broadcast]
 	private void SendChoice(GameObject player, GameObject item)
 	{
 		//gameManager.PlayerDrink(player, item);
@@ -48,6 +52,7 @@ public sealed class DD_PlayerController : Component
 			}
 		}
 	}
+	
 	private GameObject ClickZone()
 	{
 		Log.Info("ClickZone");

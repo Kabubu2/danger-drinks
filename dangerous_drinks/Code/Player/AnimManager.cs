@@ -22,11 +22,15 @@ public sealed class AnimManager : Component
 	{
 		PlayerRenderer.Renderer.OnGenericEvent += OnAnimationEvent;
 	}
+	
+	[Rpc.Broadcast]
 	protected override void OnUpdate()
 	{
 		LogicAssociate();
 		AnimSwitcher();
 	}
+	
+	[Rpc.Broadcast]
 	private void OnAnimationEvent( SceneModel.GenericEvent evt )
 	{
 		Log.Info("AnimEvent!");
@@ -56,6 +60,8 @@ public sealed class AnimManager : Component
 		}
 		return false;
 	}
+	
+	[Rpc.Broadcast]
 	private void LogicAssociate()
 	{
 		
