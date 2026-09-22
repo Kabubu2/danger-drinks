@@ -537,9 +537,9 @@
                 "Maxs": "564.473633,843.593018,413.891022"
               },
               "Contrast": 1,
-              "DistanceTexture": "scenes/bar_a_scene_data/ddgi/indirect light volume_distance_d2481242-9121-4b6c-86d4-17f79a477ed7.vtex",
+              "DistanceTexture": null,
               "InsideGeometry": "Relocate",
-              "IrradianceTexture": "scenes/bar_a_scene_data/ddgi/indirect light volume_irradiance_d2481242-9121-4b6c-86d4-17f79a477ed7.vtex",
+              "IrradianceTexture": null,
               "NormalBias": 5,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -548,7 +548,7 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "ProbeDensity": 8,
-              "RelocationTexture": "scenes/bar_a_scene_data/ddgi/indirect light volume_relocation_d2481242-9121-4b6c-86d4-17f79a477ed7.vtex",
+              "RelocationTexture": null,
               "RenderExcludeTags": ""
             }
           ],
@@ -593,7 +593,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_088b1c19-577b-4fc6-b7cc-88de41afde46.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -645,7 +645,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_72c9cf42-fe58-4268-a07f-cb09cd2efc69.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -697,7 +697,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_b10f5bef-48da-4a7c-838f-b9fa32ca33e0.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -749,7 +749,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_7d3d69a3-3222-434c-94ed-013324c46c81.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -801,7 +801,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_6fd671f6-4396-4b1c-8ada-c87ed7a74359.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -853,7 +853,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_b490cd5b-7e03-4958-93e7-980a4e9c9360.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -905,7 +905,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_8bcac654-9de5-4ea9-9717-4ee3c40635e5.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -957,7 +957,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_d1b479bb-58b5-428a-a444-65ff4f266627.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1009,7 +1009,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_698e07dc-ad65-4c7f-9e66-b63c1dc3ef68.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1061,7 +1061,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_2301afc3-038b-4940-b999-ba694978ed9b.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1113,7 +1113,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_491342c0-d3a0-4e45-b008-6374bc6647f9.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1165,7 +1165,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_ad3309ef-026c-4b58-9703-a3a1edb8beb2.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1217,7 +1217,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_00769d2b-1351-4096-be68-285af53ee1f0.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1269,7 +1269,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_2add29a4-32fe-4f67-83b7-24145b670a3c.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1321,7 +1321,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_6aae9c6e-baa6-43f8-9b8a-a13b558e3756.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1373,7 +1373,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_f40eb106-cd5b-475d-acde-580d37ced203.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1425,7 +1425,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_28ba740e-deee-4463-bc2a-d208628fbfe2.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1477,7 +1477,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_8ac410bf-544c-40ce-b1c9-b2b2648cd7f2.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1529,7 +1529,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_0ee70278-e06c-4056-9142-7ddb222191f4.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1581,7 +1581,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_5ed3d0f9-d7d9-462a-8e97-937bc5725025.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1633,7 +1633,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_80f458f7-3aed-4248-be29-acf3c5309643.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1685,7 +1685,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_5d9d2f8d-0e74-4289-8d42-22ba7592f83b.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1737,7 +1737,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_a2a7c699-9179-4caa-a4d5-c235e9f1391c.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1789,7 +1789,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_921d9292-e708-4a41-a7bb-499e9620e007.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1841,7 +1841,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_fbd07fd4-02eb-4d31-93c1-18e6ac4b65c4.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1893,7 +1893,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_1abd304f-9044-47d1-9fc9-3f6048dd0344.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1945,7 +1945,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_bd093f84-1ee0-4591-aebf-766da8cc42c8.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -1997,7 +1997,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_8b973ead-d1df-41a1-b223-4552afb8f82f.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2049,7 +2049,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_c187c628-c314-45ba-8bb9-25ef2141bda1.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2101,7 +2101,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_b94bc242-14b5-4329-8732-6af03a1686ba.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2153,7 +2153,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_4dd66219-8652-48a1-843c-b875d13b6743.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2205,7 +2205,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_d989fb31-cb94-4386-9857-3c907aea3d29.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2257,7 +2257,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_fca939d3-ea9d-4c12-97cf-4113577f7068.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2309,7 +2309,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_e9f5367a-7d3e-4ac4-aebf-9f95e84419f9.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2361,7 +2361,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_82e76420-058b-44e0-98e7-efec06e51013.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2413,7 +2413,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_f00a368d-3cba-4be4-9d5c-57a26eaea012.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2465,7 +2465,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_4ec0d193-8b70-4544-b0ac-27a85d5f2329.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2517,7 +2517,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_b3e6d6d0-f43c-4491-875c-e6dde63b84d3.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
@@ -2569,7 +2569,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 1,
-                  "BakedTexture": "scenes/bar_a_scene_data/envmap/bake_8b61546a-2d60-41a0-b8aa-8489b4c6f7ff.vtex",
+                  "BakedTexture": null,
                   "Bounds": {
                     "Mins": "-96,-96,-64",
                     "Maxs": "96,96,166.669907"
