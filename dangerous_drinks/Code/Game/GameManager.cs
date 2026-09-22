@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Sandbox;
 using Sandbox.Network;
 using Sandbox.UI;
+using Sandbox.Utility;
 
 public enum GameState {None, PreGame, GameStart, PreRound, RoundStart, PreTurn, TurnStart, TurnHold, TurnEnd, PostTurn, RoundEnd, PostRound, GameEnd, PostGame}
 public enum CourseState {None, NoBottles, NoPoisons, DrankPoison, DrankNormal}
@@ -347,7 +348,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		
 		
 	}
-	[Rpc.Broadcast]
+	
 		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
@@ -356,15 +357,21 @@ public sealed class GameManager : Component, Component.INetworkListener
 		PlayerAsset[PlayerInt].LocalRotation = Rotation.Identity;
 		PlayerAsset[PlayerInt].NetworkSpawn(connection);
 		Players[PlayerInt] = new PlayerData
-		{
+		{	
 			TeamState = Team.Player,
 			Lives = 3,
 			LivesMax = 3,
 			DudsDrank = 0,
 			PoisonsDrank = 0,
 			PlayerInst = PlayerAsset[PlayerInt]
+		
 		};
-
+			Players[PlayerInt].UserID = new UserData
+			{
+				Steamid = connection.SteamId,
+				
+			};
+		
 		if (Players[PlayerInt] != null && Players[PlayerInt].PlayerInst != null)
 		{
 			if((isHost && PlayerInt == 0) ||(!isHost && PlayerInt == 1))
@@ -379,7 +386,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	
 
-	[Rpc.Broadcast]
+	
 	private void AttachPlayerCamera(int Player)
 	{
 		if(Networking.IsHost){
@@ -486,7 +493,9 @@ public enum Team { Player, Opponant, Neither }
 public class UserData
 {
 	//SteamID
+	public ulong Steamid { get; set; }
 	//PlayerName
+	public string Steamname { get; set; }
 	//Player Slot
 }
 public class PlayerData
