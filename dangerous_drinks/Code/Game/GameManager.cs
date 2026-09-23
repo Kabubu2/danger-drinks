@@ -314,7 +314,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Sync]public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
 	[Property]
  	[Sync]public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
-	[Sync]private PlayerData[] Players {get; set;} = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
+	[Sync]public PlayerData[] Players {get; set;} = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
 	[Sync]public GameObject[] PlayerAsset {get; set;} = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
 	[Sync]public int CurrentPlayer{get; set;} = 2;
 	private int CycleTurn()
@@ -343,11 +343,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		{
 			if(Players[i] == null || Players[i].PlayerInst == null) return;
 		}
-
-		CurrentGameState = GameState.PreGame;
-		
-		
-	}
+	} 
 	
 		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
@@ -364,14 +360,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 			LivesMax = 3,
 			DudsDrank = 0,
 			PoisonsDrank = 0,
-			PlayerInst = PlayerAsset[PlayerInt]
-		
+			PlayerInst = PlayerAsset[PlayerInt],
+			Steamid = connection.SteamId
 		};
-			Players[PlayerInt].UserID = new UserData
-			{
-				Steamid = connection.SteamId,
-				
-			};
+		
+		
 		
 		if (Players[PlayerInt] != null && Players[PlayerInt].PlayerInst != null)
 		{
@@ -502,17 +495,10 @@ public sealed class GameManager : Component, Component.INetworkListener
 /// ----------------------------------------
 
 public enum Team { Player, Opponant, Neither }
-public class UserData
-{
-	//SteamID
-	public ulong Steamid { get; set; }
-	//PlayerName
-	public string Steamname { get; set; }
-	//Player Slot
-}
+
 public class PlayerData
 {
-	public UserData UserID {get; set;}
+	public ulong Steamid { get; set; }
 	public Team TeamState { get; set; }
 	public int Lives{ get; set; }
 	public int LivesMax{ get; set; }
