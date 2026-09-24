@@ -20,6 +20,18 @@
         "__guid": "f7f3fd46-850d-4ca2-a012-7782f8045f77",
         "__enabled": true,
         "Flags": 0,
+        "animManager": {
+          "_type": "component",
+          "component_id": "751d7fe8-998c-4a8f-a02a-dc984341ddc0",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "AnimManager"
+        },
+        "animManagerBot": {
+          "_type": "component",
+          "component_id": "0065882e-087e-402e-adb3-0862f152c16e",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "AnimManagerBot"
+        },
         "EyeSlot": {
           "_type": "gameobject",
           "go": "d8ddf05b-d21d-4c43-b13f-1f2c6bd51281"
@@ -35,6 +47,12 @@
           "component_id": "a84a371a-f8b8-44c3-beeb-56e7a3769888",
           "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
           "component_type": "DD_PlayerController"
+        },
+        "playerControllerBot": {
+          "_type": "component",
+          "component_id": "98ed6246-b5d9-4297-84bf-fa3531879c90",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "DD_PlayerControllerBot"
         },
         "PlayerCore": {
           "_type": "gameobject",
@@ -68,6 +86,40 @@
           "component_id": "a84a371a-f8b8-44c3-beeb-56e7a3769888",
           "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
           "component_type": "DD_PlayerController"
+        },
+        "PlayerRenderer": {
+          "_type": "component",
+          "component_id": "f7f3fd46-850d-4ca2-a012-7782f8045f77",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "PlayerRelay"
+        },
+        "playerState": "start",
+        "spine2": {
+          "_type": "gameobject",
+          "go": "8f4af165-574d-4149-8a7c-85735bab21e9"
+        }
+      },
+      {
+        "__type": "AnimManagerBot",
+        "__guid": "0065882e-087e-402e-adb3-0862f152c16e",
+        "__enabled": true,
+        "Flags": 0,
+        "bottleSelected": null,
+        "held": {
+          "_type": "gameobject",
+          "go": "d68340c8-a7ee-4653-915c-8e96f0ff9990"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "playerController": {
+          "_type": "component",
+          "component_id": "98ed6246-b5d9-4297-84bf-fa3531879c90",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "DD_PlayerControllerBot"
         },
         "PlayerRenderer": {
           "_type": "component",

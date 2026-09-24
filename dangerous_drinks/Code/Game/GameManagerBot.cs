@@ -160,11 +160,7 @@ public sealed class GameManagerBot : Component
 		//Disable Mouse Input
 		Input.Suppressed = true;
 		PostProcessCon.Trigger(true);
-		AttachPlayerCamera(0);
-	
 		
-		
-
 		if(StateTimer > 2) //Forced Delay
 		{
 			CurrentGameState = GameState.GameStart;
@@ -179,7 +175,7 @@ public sealed class GameManagerBot : Component
 		
 		if (player.IsValid)
 		{
-		player.GetComponent<AnimManager>().anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
+		player.GetComponent<PlayerRelay>().animManagerBot.anim_Sit(); //Sends Animation Callout. Refactor for cleaner animation execution.
 		PostProcessCon.Trigger(false);
 		}
 		
@@ -350,47 +346,39 @@ public sealed class GameManagerBot : Component
 				var a = Players[PlayerInt].PlayerInst.GetComponent<PlayerRelay>();
 				a.playerController.Enabled = false;
 				a.playerControllerBot.Enabled = true;
-				AttachPlayerCamera(PlayerInt);
+				AttachPlayerCamera();
 			} 
 		}
 	}
 
 	[Rpc.Broadcast]
-	private void AttachPlayerCamera(int Player)
+	private void AttachPlayerCamera()
 	{
 		
-		if(Networking.IsHost)
-		{
-			Log.Info("BANG! H");
 		var _player = PlayerAsset[0];
 		var playerRelay = _player.GetComponent<PlayerRelay>();
-		if(playerRelay.playerController != null)
-		playerRelay.playerController.Enabled = true;
-		var camera = Scene.Camera;
-		camera.GameObject.Parent = playerRelay.EyeSlot;
-		camera.GameObject.LocalPosition = Vector3.Zero;
-		camera.GameObject.LocalRotation = Rotation.Identity;
-
-		var b = PlayerAsset[1];
-		if(b.IsValid && b.GetComponent<DD_PlayerController>() != null)b.GetComponent<DD_PlayerController>().Enabled = false;
+		if(playerRelay.IsValid())
+		{
+			var camera = Scene.Camera;
+			camera.GameObject.Parent = playerRelay.EyeSlot;
+			camera.GameObject.LocalPosition = Vector3.Zero;
+			camera.GameObject.LocalRotation = Rotation.Identity;
+			playerRelay.playerController.Enabled = false;
+			playerRelay.playerControllerBot.Enabled = true;
+			playerRelay.animManager.Enabled = false;
+			playerRelay.animManagerBot.Enabled = true;
+		}	
+		
+		var _opponant = PlayerAsset[1];
+		var opponantRelay = _opponant.GetComponent<PlayerRelay>();
+		if(opponantRelay.IsValid)
+		{
+			opponantRelay.playerController.Enabled = false;
+			opponantRelay.playerControllerBot.Enabled = false;
+			opponantRelay.animManager.Enabled = false;
+			opponantRelay.animManagerBot.Enabled = true;
 		}
 		
-		if(Networking.IsClient)
-		{
-			Log.Info("BANG! C");
-		if (PlayerAsset == null || PlayerAsset.Length <= 1 || PlayerAsset[1] == null) return;
-    	var _player = PlayerAsset[1];
-		var playerRelay = _player.GetComponent<PlayerRelay>();
-		if(playerRelay.playerController != null)
-		playerRelay.playerController.Enabled = true;
-		var camera = Scene.Camera;
-		camera.GameObject.Parent = playerRelay.EyeSlot;
-		camera.GameObject.LocalPosition = Vector3.Zero;
-		camera.GameObject.LocalRotation = Rotation.Identity;
-
-		var b = PlayerAsset[0];
-		if(b.IsValid && b.GetComponent<DD_PlayerController>() != null)b.GetComponent<DD_PlayerController>().Enabled = false;
-		}
 	}
 
 	public void SelectDrink(bool isPoison, GameObject player, GameObject bottle)

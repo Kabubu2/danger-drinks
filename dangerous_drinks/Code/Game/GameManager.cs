@@ -26,11 +26,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	protected override void OnUpdate()
 	{
 		if(!Start)StartGame();
-		
 		Logic();
-		
-		
-		
 	}
 
 	
@@ -39,9 +35,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	
 	private void StartGame()
 	{
-		isHost = Networking.IsHost;
 		Start = true;
-		
 	}
 
 	private void Logic()
@@ -169,7 +163,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	{
 		
 		//Disable Mouse Input
-		Input.Suppressed = true;
+		//Input.Suppressed = true;
 		PostProcessCon.Trigger(true);
 		if (isHost)  AttachPlayerCamera(0);
 		else AttachPlayerCamera(0);
@@ -239,19 +233,21 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Mouse.Visibility = MouseVisibility.Visible;
 		if(StateTimer > 1) //Forced Delay
 		{
+			//Input.Suppressed = false;
 			CurrentGameState = GameState.TurnHold;
 			StateTimer = 0;
 		}
 	}
 	private void OnTurnHold()
 	{
+		
 		//Don't do anything; To give room for player interaction.
 		//We can add a turn timer here.
 	}
 	private void OnTurnEnd()
 	{
 		//Disable Mouse Input
-		
+		//Input.Suppressed = true;
 		Mouse.Visibility = MouseVisibility.Hidden;
 		if(StateTimer > 1) //Forced Delay
 		{

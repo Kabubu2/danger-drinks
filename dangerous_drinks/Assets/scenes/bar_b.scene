@@ -3602,194 +3602,83 @@
     {
       "__guid": "6b67284c-1821-447e-9c02-86d21eb291a3",
       "__version": 2,
-      "__Prefab": {
-        "Id": "8e41916c-2b83-4646-8c6d-61631ac045b7",
-        "Path": "prefab/game logic.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [
-          {
-            "Id": {
-              "Type": "Component",
-              "IdValue": "ca9ff43b-9a4d-49ac-8107-38289af78213"
+      "Flags": 0,
+      "Name": "Game Logic",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 0,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "BottleLogic",
+          "__guid": "dcb5929c-930d-4df3-b042-f867e419014f",
+          "__enabled": true,
+          "Flags": 0,
+          "bottleFolder": {
+            "_type": "gameobject",
+            "go": "f2bac429-c3fc-43e2-9335-e5bd1465194b"
+          },
+          "bottlePrefab": {
+            "_type": "gameobject",
+            "prefab": "prefab/bottle.prefab"
+          },
+          "offset": "0,9,0",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "GameManagerBot",
+          "__guid": "ca9ff43b-9a4d-49ac-8107-38289af78213",
+          "__enabled": true,
+          "Flags": 0,
+          "BottlesContainer": {
+            "_type": "gameobject",
+            "go": "f2bac429-c3fc-43e2-9335-e5bd1465194b"
+          },
+          "CurrentGameState": "None",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PlayerReference": {
+            "_type": "gameobject",
+            "prefab": "prefab/player.prefab"
+          },
+          "PlayerSpawnPoints": [
+            {
+              "_type": "gameobject",
+              "go": "c3a36f8e-ef63-4d48-901a-d05d9834a783"
             },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "21c89d08-599f-4406-808b-8deddf5a9cde"
-            },
-            "PreviousElement": {
-              "Type": "Component",
-              "IdValue": "ab173092-9cb1-4416-b5a8-a38744430f30"
-            },
-            "ContainerProperty": "Components",
-            "IsContainerArray": true,
-            "Data": {
-              "__type": "GameManagerBot",
-              "__guid": "ca9ff43b-9a4d-49ac-8107-38289af78213",
-              "__enabled": true,
-              "Flags": 0,
-              "BottlesContainer": {
-                "_type": "gameobject",
-                "go": "f2bac429-c3fc-43e2-9335-e5bd1465194b"
-              },
-              "CurrentGameState": "None",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "PlayerReference": {
-                "_type": "gameobject",
-                "prefab": "prefab/player.prefab"
-              },
-              "PlayerSpawnPoints": [
-                {
-                  "_type": "gameobject",
-                  "go": "c3a36f8e-ef63-4d48-901a-d05d9834a783"
-                },
-                {
-                  "_type": "gameobject",
-                  "go": "11896ad6-2ef8-4693-a66f-0b9499e86618"
-                }
-              ],
-              "PostProcessCon": {
-                "_type": "component",
-                "component_id": "5850c487-320d-487a-a7dc-a9d7a72611cc",
-                "go": "cef2945b-5189-4cb3-871a-4dbc2396b2d0",
-                "component_type": "PostProcessController"
-              },
-              "WaitPoint": {
-                "_type": "gameobject",
-                "go": "137b590c-b3ed-4c58-98dd-188d43f4157f"
-              }
+            {
+              "_type": "gameobject",
+              "go": "11896ad6-2ef8-4693-a66f-0b9499e86618"
             }
+          ],
+          "PostProcessCon": {
+            "_type": "component",
+            "component_id": "5850c487-320d-487a-a7dc-a9d7a72611cc",
+            "go": "cef2945b-5189-4cb3-871a-4dbc2396b2d0",
+            "component_type": "PostProcessController"
+          },
+          "WaitPoint": {
+            "_type": "gameobject",
+            "go": "137b590c-b3ed-4c58-98dd-188d43f4157f"
           }
-        ],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "21c89d08-599f-4406-808b-8deddf5a9cde"
-            },
-            "Property": "Name",
-            "Value": "Game Logic"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "21c89d08-599f-4406-808b-8deddf5a9cde"
-            },
-            "Property": "NetworkMode",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
-            },
-            "Property": "__enabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
-            },
-            "Property": "BottlesContainer",
-            "Value": {
-              "_type": "gameobject",
-              "go": "f2bac429-c3fc-43e2-9335-e5bd1465194b"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
-            },
-            "Property": "CurrentGameState",
-            "Value": "None"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
-            },
-            "Property": "PlayerReference",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "prefab/player.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
-            },
-            "Property": "PlayerSpawnPoints",
-            "Value": [
-              {
-                "_type": "gameobject",
-                "go": "c3a36f8e-ef63-4d48-901a-d05d9834a783"
-              },
-              {
-                "_type": "gameobject",
-                "go": "11896ad6-2ef8-4693-a66f-0b9499e86618"
-              }
-            ]
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
-            },
-            "Property": "PostProcessCon",
-            "Value": {
-              "_type": "component",
-              "component_id": "5850c487-320d-487a-a7dc-a9d7a72611cc",
-              "go": "cef2945b-5189-4cb3-871a-4dbc2396b2d0",
-              "component_type": "PostProcessController"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "701df980-3eae-4961-951c-a584d1c8d0b5"
-            },
-            "Property": "WaitPoint",
-            "Value": {
-              "_type": "gameobject",
-              "go": "137b590c-b3ed-4c58-98dd-188d43f4157f"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "ab173092-9cb1-4416-b5a8-a38744430f30"
-            },
-            "Property": "bottleFolder",
-            "Value": {
-              "_type": "gameobject",
-              "go": "f2bac429-c3fc-43e2-9335-e5bd1465194b"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "ab173092-9cb1-4416-b5a8-a38744430f30"
-            },
-            "Property": "offset",
-            "Value": "0,9,0"
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "21c89d08-599f-4406-808b-8deddf5a9cde": "6b67284c-1821-447e-9c02-86d21eb291a3",
-        "701df980-3eae-4961-951c-a584d1c8d0b5": "5b1967ee-57e3-40e5-b4ba-49194f2c1e85",
-        "ab173092-9cb1-4416-b5a8-a38744430f30": "dcb5929c-930d-4df3-b042-f867e419014f"
-      }
+        }
+      ],
+      "Children": []
     },
     {
       "__guid": "54ff7b3d-013f-4d09-a084-2eb6bbdcee75",
@@ -3827,8 +3716,8 @@
           "ZIndex": 100
         },
         {
-          "__type": "Sandbox.UidebugPanel",
-          "__guid": "2bb2ff38-20b4-4942-9193-5b72afa9378d",
+          "__type": "Sandbox.UidebugPanelBot",
+          "__guid": "9161d335-4c2a-48c4-8bf3-59817034468e",
           "__enabled": true,
           "Flags": 0,
           "bottleLogic": {
@@ -3840,9 +3729,9 @@
           "Debug": [],
           "gameManager": {
             "_type": "component",
-            "component_id": "5b1967ee-57e3-40e5-b4ba-49194f2c1e85",
+            "component_id": "ca9ff43b-9a4d-49ac-8107-38289af78213",
             "go": "6b67284c-1821-447e-9c02-86d21eb291a3",
-            "component_type": "GameManager"
+            "component_type": "GameManagerBot"
           },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -3861,7 +3750,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Bottles",
-      "Position": "-102.406693,58.4420013,43.336525",
+      "Position": "-261.842163,58.4420128,189.179413",
       "Rotation": "-3.65001895E-08,-6.32202841E-08,-2.30755238E-15,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -3901,7 +3790,7 @@
           "Scale": "1,1,1",
           "Tags": "maincamera",
           "Enabled": true,
-          "NetworkMode": 2,
+          "NetworkMode": 0,
           "NetworkFlags": 0,
           "NetworkOrphaned": 0,
           "NetworkTransmit": true,

@@ -34,7 +34,7 @@
         "__guid": "d48a2bf8-f202-49c7-a325-3e17eceaf4b4",
         "__enabled": true,
         "Flags": 0,
-        "Center": "0,0,7",
+        "Center": "-0.00966835022,0,9.26583672",
         "ColliderFlags": 0,
         "Elasticity": null,
         "Friction": null,
@@ -50,7 +50,7 @@
         "OnTriggerEnter": null,
         "OnTriggerExit": null,
         "RollingResistance": null,
-        "Scale": "5,5,14",
+        "Scale": "7.46094513,5,18.9648075",
         "Static": false,
         "Surface": null,
         "SurfaceVelocity": "0,0,0"
@@ -82,7 +82,10 @@
             "Health": 0,
             "IsStatic": false,
             "MaterialGroup": null,
-            "Model": "models/bottle_a.vmdl",
+            "Model": {
+              "Id": "f138ac5f-65e9-4781-a835-f8d67ad13531",
+              "Path": "models/bottle_a.vmdl"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -106,7 +109,10 @@
             "MaterialGroup": null,
             "MaterialOverride": null,
             "Materials": null,
-            "Model": "models/bottle_a.vmdl",
+            "Model": {
+              "Id": "f138ac5f-65e9-4781-a835-f8d67ad13531",
+              "Path": "models/bottle_a.vmdl"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -131,7 +137,10 @@
             "Elasticity": null,
             "Friction": null,
             "IsTrigger": false,
-            "Model": "models/bottle_a.vmdl",
+            "Model": {
+              "Id": "f138ac5f-65e9-4781-a835-f8d67ad13531",
+              "Path": "models/bottle_a.vmdl"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,

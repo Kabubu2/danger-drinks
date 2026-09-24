@@ -7,7 +7,7 @@ public sealed class DD_PlayerControllerBot : Component
 {
 	public bool bot{get; set;} = false;
 	public GameManagerBot gameManager {get; set;}
-	public int playerID {get; set;} = 2;
+	public int playerID {get; set;} = 0;
 	
 	private void CheckUp()
 	{
@@ -33,8 +33,9 @@ public sealed class DD_PlayerControllerBot : Component
 			{
 				int currentPlayer = gameManager.CurrentPlayer;
 				var a = ClickZone("selectable");
-				if (a != null && currentPlayer < 2)
+				if (a != null && currentPlayer == 0)
 				{	
+					
 					SendChoice(this.GameObject, a);
 				}
 			}
@@ -46,11 +47,10 @@ public sealed class DD_PlayerControllerBot : Component
 		gameManager = Scene.GetAll<GameManagerBot>().FirstOrDefault();
 	}
 
-	[Rpc.Broadcast]
 	private void SendChoice(GameObject player, GameObject item)
 	{
 		//gameManager.PlayerDrink(player, item);
-		if(player.IsValid && item.IsValid && gameManager.CurrentPlayer == playerID)
+		if(player != null && item != null && gameManager.CurrentPlayer == 0)
 		{
 			if(item.GetComponent<Bottle>() != null)
 			{
@@ -69,8 +69,6 @@ public sealed class DD_PlayerControllerBot : Component
 		var trace = Scene.Trace.Ray( ray.Position, ray.Position + ray.Forward * 999999f).Run();
 
 		if(trace.GameObject.IsValid) return trace.GameObject;
-		Log.Info("Trace");
-			
 		return null;
 	}
 	private GameObject ClickZone(string tag)
@@ -81,7 +79,7 @@ public sealed class DD_PlayerControllerBot : Component
 
 		var ray = camera.ScreenPixelToRay(Mouse.Position);
 		var trace = Scene.Trace.Ray( ray.Position, ray.Position + ray.Forward * 999999f).Run();
-
+		if(trace.Hit)Log.Info(trace.GameObject.Tags);
 		if(trace.GameObject.Tags.Has(tag)) return trace.GameObject;
 			
 
