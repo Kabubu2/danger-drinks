@@ -9,7 +9,7 @@ using Sandbox.Utility;
 
 
 
-public sealed class Menu : Component, Component.INetworkListener
+public sealed class NetMenu : Component, Component.INetworkListener
 {
 protected override void OnUpdate()
 	{
@@ -69,21 +69,9 @@ void INetworkListener.OnActive( Connection connection)
                 connection.Kick("You have been Kicked");
             }
         }
-        public void BacktoMain()
+        public void Close()
         {
-            if ( !Networking.IsHost ) return;
-            foreach(var connection in Connection.All)
-            {
-                if(connection.IsHost)continue;
-                connection.Kick("Lobby has been closed");
-            }
-
-        if ( MainMenuScene != null )
-            {
-
-                Scene.Load(MainMenuScene);
-
-            }
+            Game.Close();
         }
     
     }
