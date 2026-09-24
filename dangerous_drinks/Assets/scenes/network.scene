@@ -1,0 +1,110 @@
+{
+  "__guid": "f8dbff6c-4cb8-49b3-bb79-9767263fd3d7",
+  "GameObjects": [
+    {
+      "__guid": "5679e9a2-bde0-4694-9e8e-5752910b31c1",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Network",
+      "Position": "149.994965,149.994995,-212.124985",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 1,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 1,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.NetworkHelper",
+          "__guid": "2ecf7470-4b14-45a5-acde-afa7b645d5b8",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PlayerPrefab": null,
+          "SpawnPoints": [],
+          "StartServer": true
+        },
+        {
+          "__type": "DDNetworkManager",
+          "__guid": "36f4a3bf-c7c0-473f-b89f-989b98de726a",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "DDNetworkManager+NetworkControl",
+          "__guid": "b4eb1eef-05ac-4ce0-83d8-e2bbf29bc11f",
+          "__enabled": true,
+          "Flags": 0,
+          "MainMenuScene": {
+            "Id": "2d7f4987-d01b-46d5-836b-015958e9385a",
+            "Path": "scenes/main-menu.scene"
+          },
+          "MainScene": {
+            "Id": "b0d74911-75f7-4e04-882d-1ba41e1acba9",
+            "Path": "scenes/bar_a.scene"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    }
+  ],
+  "SceneProperties": {
+    "NetworkInterpolation": true,
+    "PhysicsMode": "Physics3D",
+    "TimeScale": 1,
+    "WantsSystemScene": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": false,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": "",
+      "DeferGeneration": false,
+      "CustomBounds": false
+    },
+    "GameObjectSystems": {
+      "Sandbox.Clutter.ClutterGridSystem": {
+        "Storage": {
+          "$blob": "64db792e-5935-8fbc-8cfa-050cd49fa7fd",
+          "$refs": []
+        }
+      },
+      "Sandbox.SelectionSetsSystem": {
+        "Data": {
+          "SelectionSets": []
+        }
+      }
+    }
+  },
+  "ResourceVersion": 3,
+  "Title": null,
+  "Description": null,
+  "__references": [],
+  "__version": 3
+}

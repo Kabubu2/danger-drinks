@@ -1,8 +1,8 @@
 {
-  "Title": "Dangerous Drinks",
+  "Title": "Illixer",
   "Type": "game",
   "Org": "gok",
-  "Ident": "dangerous_drinks",
+  "Ident": "illixer",
   "Schema": 1,
   "IncludeSourceFiles": false,
   "Resources": null,
@@ -16,7 +16,9 @@
       "VR": false,
       "Gamepad": false
     },
-    "StartupScene": "scenes/bar_a.scene",
-    "LaunchMode": "Normal"
+    "StartupScene": "scenes/main-menu.scene",
+    "LaunchMode": "Normal",
+    "MinPlayers": 1,
+    "MaxPlayers": 2
   }
 }
