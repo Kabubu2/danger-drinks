@@ -830,7 +830,7 @@
 						disable_compression = false
 						disable_interpolation = false
 						enable_scale = false
-						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						source_filename = "models/citizen/DrinksAndDanger_Animations_3.fbx"
 						start_frame = -1
 						end_frame = -1
 						framerate = -1.0
@@ -853,7 +853,7 @@
 						disable_compression = false
 						disable_interpolation = false
 						enable_scale = false
-						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						source_filename = "models/citizen/DrinksAndDanger_Animations_3.fbx"
 						start_frame = -1
 						end_frame = -1
 						framerate = -1.0
@@ -991,11 +991,11 @@
 						disable_compression = false
 						disable_interpolation = false
 						enable_scale = false
-						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						source_filename = "models/citizen/DrinksAndDanger_Animations_3.fbx"
 						start_frame = -1
 						end_frame = -1
 						framerate = -1.0
-						take = 19
+						take = 2
 						reverse = false
 					},
 				]

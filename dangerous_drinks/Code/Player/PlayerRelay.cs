@@ -10,4 +10,5 @@ public sealed class PlayerRelay : Component
 	public GameObject EyeSlot { get; set; }
 	[Property]
 	public DD_PlayerController playerController { get; set; }
+	public DD_PlayerControllerBot playerControllerBot { get; set; }
 }

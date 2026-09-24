@@ -5,6 +5,7 @@ using Sandbox;
 
 public sealed class DD_PlayerController : Component
 {
+	public bool bot{get; set;} = false;
 	public GameManager gameManager {get; set;}
 	public int playerID {get; set;} = 2;
 	
