@@ -26,17 +26,27 @@ public sealed class GameManager : Component, Component.INetworkListener
 	protected override void OnUpdate()
 	{
 		if(!Start)StartGame();
+		
 		Logic();
+		
+		
+		
 	}
+
+	
+
 	private bool Start {get; set;} = false;
+	
 	private void StartGame()
 	{
 		isHost = Networking.IsHost;
 		Start = true;
+		
 	}
 
 	private void Logic()
 	{
+		
 		switch (CurrentGameState)
 		{
 			case GameState.PreGame:
@@ -331,8 +341,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 			return 0;
 		}
 	}
-	
+
+
 	void INetworkListener.OnActive( Connection connection )
+	
+	
 	{
 		Log.Info( $"{connection.DisplayName} has become active" );
 		if (isHost && Players[1] == null) InstancePlayerAsset(1, connection);
@@ -342,6 +355,10 @@ public sealed class GameManager : Component, Component.INetworkListener
 		for (int i = 0; i < Players.Count(); i++)
 		{
 			if(Players[i] == null || Players[i].PlayerInst == null) return;
+		}
+		if ( Players.Length == 2 )
+		{
+			CurrentGameState = GameState.PreGame;
 		}
 	} 
 	

@@ -832,24 +832,6 @@
                           "Tint": "1,1,1,1"
                         },
                         {
-                          "__type": "ButtonStartGame",
-                          "__guid": "c8c5856d-aac9-4585-842f-a5fb1577d2ff",
-                          "__enabled": true,
-                          "Flags": 0,
-                          "menu": {
-                            "_type": "component",
-                            "component_id": "3e5a8797-f3c8-4f30-8013-64d707bf99df",
-                            "go": "8da9162c-46d4-4a3b-8c4f-686307f1ded5",
-                            "component_type": "NetworkControl"
-                          },
-                          "OnComponentDestroy": null,
-                          "OnComponentDisabled": null,
-                          "OnComponentEnabled": null,
-                          "OnComponentFixedUpdate": null,
-                          "OnComponentStart": null,
-                          "OnComponentUpdate": null
-                        },
-                        {
                           "__type": "Sandbox.BoxCollider",
                           "__guid": "90dc5dc9-42e7-47ea-93f0-79768fe4db35",
                           "__enabled": true,
@@ -874,6 +856,22 @@
                           "Static": false,
                           "Surface": null,
                           "SurfaceVelocity": "0,0,0"
+                        },
+                        {
+                          "__type": "ButtonStartGame",
+                          "__guid": "d7e49818-1b6b-4357-8d33-42dba7a68900",
+                          "__enabled": true,
+                          "Flags": 0,
+                          "menu": {
+                            "_type": "gameobject",
+                            "go": "8da9162c-46d4-4a3b-8c4f-686307f1ded5"
+                          },
+                          "OnComponentDestroy": null,
+                          "OnComponentDisabled": null,
+                          "OnComponentEnabled": null,
+                          "OnComponentFixedUpdate": null,
+                          "OnComponentStart": null,
+                          "OnComponentUpdate": null
                         }
                       ],
                       "Children": [
@@ -3926,10 +3924,7 @@
               "__enabled": true,
               "Flags": 0,
               "__version": 1,
-              "BakedTexture": {
-                "Id": "780526c3-cfd9-43a1-8a73-f8f6266291ce",
-                "Path": "scenes/main-menu_scene_data/envmap/bake_b85c38a4-0575-4866-8d40-2ed41e2e3631.vtex"
-              },
+              "BakedTexture": null,
               "Bounds": {
                 "Mins": "-600,-600,-600",
                 "Maxs": "600,600,600"
@@ -4023,15 +4018,9 @@
                 "Maxs": "600,600,600"
               },
               "Contrast": 1,
-              "DistanceTexture": {
-                "Id": "e684dabb-aa40-479a-a662-acf42977ae8a",
-                "Path": "scenes/main-menu_scene_data/ddgi/indirect light volume_distance_231c695c-2203-407d-8ad0-3a47d11ee347.vtex"
-              },
+              "DistanceTexture": null,
               "InsideGeometry": "Relocate",
-              "IrradianceTexture": {
-                "Id": "c1a94607-c9ce-4d12-8b6f-9a9119565a0e",
-                "Path": "scenes/main-menu_scene_data/ddgi/indirect light volume_irradiance_231c695c-2203-407d-8ad0-3a47d11ee347.vtex"
-              },
+              "IrradianceTexture": null,
               "NormalBias": 5,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -4040,10 +4029,7 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "ProbeDensity": 8,
-              "RelocationTexture": {
-                "Id": "a96702d7-4eeb-4d7c-aebe-02f55de2e9fe",
-                "Path": "scenes/main-menu_scene_data/ddgi/indirect light volume_relocation_231c695c-2203-407d-8ad0-3a47d11ee347.vtex"
-              },
+              "RelocationTexture": null,
               "RenderExcludeTags": ""
             }
           ],
@@ -4200,7 +4186,7 @@
           ]
         },
         {
-          "__type": "NetworkControl",
+          "__type": "NetMenu+NetworkControl",
           "__guid": "3e5a8797-f3c8-4f30-8013-64d707bf99df",
           "__enabled": true,
           "Flags": 0,

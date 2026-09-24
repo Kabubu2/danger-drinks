@@ -24,7 +24,13 @@ public class NetworkControl : Component , Component.INetworkListener
         [Rpc.Broadcast]
         public void StartGame()
         {
-        if ( MainScene != null )Scene.Load(MainScene);
+            var mainScene = MainScene;
+        if ( MainScene != null )
+        {
+            var scene = new SceneLoadOptions();
+            scene.SetScene(MainScene);
+            Game.ChangeScene(scene);
+        }
         }
 
         public void KickClient()

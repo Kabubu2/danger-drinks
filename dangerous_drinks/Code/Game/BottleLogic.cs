@@ -52,7 +52,6 @@ public sealed class BottleLogic : Component
 			}
 		} 
 	}
-
 	private void Bottles()
 	{
 		int loopCount = new Random().Next(3, 6);

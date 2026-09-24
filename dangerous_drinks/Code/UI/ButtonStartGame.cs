@@ -1,11 +1,12 @@
 using Sandbox;
 using Sandbox.UI;
 
-public sealed class ButtonStartGame : Clickable
+public sealed class ButtonStartGame : Clickable 
 {
-	[Property]private NetworkControl menu{get; set;}
+	[Property]public GameObject menu{get; set;}
 	public override void OnClick()
 	{
-		menu.StartGame();
+		if(menu != null && menu.GetComponent<NetworkControl> != null)
+	menu.GetComponent<NetworkControl> ().StartGame();
 	}
 }

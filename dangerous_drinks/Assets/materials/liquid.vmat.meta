@@ -16,7 +16,7 @@
       "IsStandaloneOnly": false,
       "Metadata": {
         "SingleAssetSource": "materials/liquid.vmat",
-        "ParentPackage": "gok.dangerous_drinks"
+        "ParentPackage": "gok.illixer"
       }
     }
   }
