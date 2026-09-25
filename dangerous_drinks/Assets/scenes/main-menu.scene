@@ -4426,6 +4426,62 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "57319946-70b4-4a00-b37d-8d49686de4fd",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "World",
+      "Position": "-36.5943756,0,-108.472664",
+      "Rotation": "-0.707106769,3.09086197E-08,-0.707106769,-3.09086197E-08",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.WorldPanel",
+          "__guid": "fdf1e453-c6a1-4a45-8a90-bca2e844f7f6",
+          "__enabled": true,
+          "Flags": 0,
+          "HorizontalAlign": "Center",
+          "InteractionRange": 1000,
+          "LookAtCamera": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PanelSize": "1024,512",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": true
+          },
+          "RenderScale": 1,
+          "VerticalAlign": "Center"
+        },
+        {
+          "__type": "Sandbox.UI.Headsup",
+          "__guid": "968ed45b-d586-4de3-ace3-bfc6083d32c8",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Text": "Press Space or LMB to continue.."
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
