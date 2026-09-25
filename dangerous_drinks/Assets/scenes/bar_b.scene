@@ -3941,36 +3941,6 @@
           "Children": []
         }
       ]
-    },
-    {
-      "__guid": "6aa565c2-a934-4def-97d7-b3e90e11390d",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "0572f5d0-59ce-459b-8ae7-77ece4468aa5",
-        "Path": "prefab/poof.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "c86755d5-1a75-4f4d-b6e2-24c4b28083bc"
-            },
-            "Property": "Enabled",
-            "Value": false
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "c86755d5-1a75-4f4d-b6e2-24c4b28083bc": "6aa565c2-a934-4def-97d7-b3e90e11390d",
-        "e4c9913f-4998-46a0-808f-f66c38e6b307": "562867d3-e38a-4dc6-94e0-c9bc39057bd0",
-        "6d9b135c-e9f2-47e1-91fb-f1b166fd59b6": "835e1a2b-4a21-4377-8849-7ad186dbdef4",
-        "64caf25d-eaec-4373-bc02-cb1ea6238ff4": "c8ca3f6a-11a4-4cc8-99e4-083a883bbe70",
-        "7042548a-177e-4287-ae19-559ba08ca3d1": "561e717f-7485-8487-a7e6-210591d12cab"
-      }
     }
   ],
   "SceneProperties": {

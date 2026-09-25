@@ -77,7 +77,10 @@
         "__enabled": true,
         "Flags": 0,
         "bottleSelected": null,
-        "held": null,
+        "held": {
+          "_type": "gameobject",
+          "go": "77d1e06b-fe36-48e6-92bb-6a3e8266795e"
+        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -837,12 +840,12 @@
                                                   "79e63102-945b-49fd-9897-60c4048e5712": "b56c0d2e-d9fe-402b-9cce-af74ca2e1cdc",
                                                   "5095c133-7b5c-432f-93cd-0ebb30251aab": "6e977338-12b5-4f69-8b98-a6b26910cf5c",
                                                   "fe77669f-0ba0-40b3-aa5e-06eae8b3eb4b": "22307e30-3ca0-4e4d-ac4c-1e692de54e60",
-                                                  "59297101-e211-462e-96ea-9c18ceffa8d6": "59b82e0b-19d2-4bbb-a51e-b9bae4dc1b0d",
-                                                  "1254c9a8-854c-474b-b66e-930d5759348a": "a5329249-687f-4c7b-83f5-d121bedf87d3",
                                                   "4c50a48f-fc50-4649-b2f8-f5ffe48d2374": "e1bcadf2-e8bc-48ff-96ff-01a8ee42ed9a",
                                                   "d48a2bf8-f202-49c7-a325-3e17eceaf4b4": "307bb405-f374-4c4e-9d86-24c35dad6861",
                                                   "6d8d8197-01ea-4002-9e21-ff8722bdf63e": "44a10152-bf5b-4892-bfb7-f095466565f3",
-                                                  "0b143f4d-ed82-420c-84c6-429a187f39ee": "5a49f41a-22bb-4fd8-93c2-75b713cb6b1c"
+                                                  "0b143f4d-ed82-420c-84c6-429a187f39ee": "5a49f41a-22bb-4fd8-93c2-75b713cb6b1c",
+                                                  "59297101-e211-462e-96ea-9c18ceffa8d6": "59b82e0b-19d2-4bbb-a51e-b9bae4dc1b0d",
+                                                  "1254c9a8-854c-474b-b66e-930d5759348a": "a5329249-687f-4c7b-83f5-d121bedf87d3"
                                                 }
                                               }
                                             ]

@@ -1,0 +1,28 @@
+@using Sandbox
+@using Sandbox.UI
+@inherits PanelComponent
+
+<root>
+	<label class="text">@Text</label>
+</root>
+
+@code
+{
+	[Property]
+	public string Text { get; set; } = "Press Space or LMB to continue..";
+	private bool IsFading;
+	protected override void OnUpdate()
+	{
+		if(Input.Pressed("Attack1")||Input.Pressed(action: "Jump"))
+		{
+			IsFading = true;
+			StateHasChanged();
+		}
+
+    }
+	protected override int BuildHash()
+	{
+		return System.HashCode.Combine( Text );
+	}
+
+}

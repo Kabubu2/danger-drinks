@@ -3930,6 +3930,79 @@
           "Children": []
         }
       ]
+    },
+    {
+      "__guid": "d89a8435-8c54-4273-8762-413e9c114acd",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "UI",
+      "Position": "-367.236328,146.324081,102.968155",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [],
+      "Children": [
+        {
+          "__guid": "92227d86-d0b7-4876-a9cd-acdd85ccc7de",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Win Game",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": false,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "6451de13-9855-4501-b915-552eaa291bbe",
+              "__enabled": true,
+              "Flags": 0,
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "TargetCamera": null,
+              "Timing": "AfterPostProcess",
+              "ZIndex": 100
+            },
+            {
+              "__type": "Sandbox.UI.EndGameScreen",
+              "__guid": "c3f8723d-1511-4d7e-8f26-a00c4aed2249",
+              "__enabled": true,
+              "Flags": 0,
+              "gameManager": null,
+              "gameManagerBot": null,
+              "HasWon": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "opponant": null
+            }
+          ],
+          "Children": []
+        }
+      ]
     }
   ],
   "SceneProperties": {
