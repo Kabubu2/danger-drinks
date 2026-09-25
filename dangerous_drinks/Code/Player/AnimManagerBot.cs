@@ -26,6 +26,7 @@ public sealed class AnimManagerBot : Component
 		AnimSwitcher();
 	}
 
+	[Property] GameObject _particle{get; set;}
 	private void OnAnimationEvent( SceneModel.GenericEvent evt )
 	{
 		Log.Info("AnimEvent!");
@@ -40,7 +41,11 @@ public sealed class AnimManagerBot : Component
 		{
 			var b = held.Clone();
 			b.Parent = null;
+			
+			var a = _particle.Clone();
+			a.WorldPosition = held.Parent.WorldPosition;
 			b.WorldPosition = held.Parent.WorldPosition;
+			b.AddComponent<KillMe>().Connected = a;
 			b.WorldRotation = Quaternion.Identity;
 			held.Enabled = false;
 		}

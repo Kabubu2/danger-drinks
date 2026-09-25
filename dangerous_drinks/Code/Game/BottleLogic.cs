@@ -61,7 +61,7 @@ public sealed class BottleLogic : Component
 			for (int i = 0; i <= loopCount; i++)
 			{
 				
-				float t = (float)i / (loopCount - 1);
+				float t = (float)i / (loopCount);
 				Vector3 position = Vector3.Lerp(start,end,t);
 				////Bottle Offset relative to origin.
 				//Vector3 relativeOffset = ((bottleFolder.WorldPosition - ((offset * loopCount)/2)) + (offset * i));

@@ -23,7 +23,6 @@ public sealed class DD_PlayerControllerBot : Component
 		
 	}
 	
-	
 	private void SelectFilter()
 	{
 		if(gameManager.IsValid)

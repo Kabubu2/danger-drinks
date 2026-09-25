@@ -313,12 +313,12 @@ public sealed class GameManagerBot : Component
 
 	
 	[Property]
-	[Sync]public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
+	public GameObject PlayerReference{ get; set; } //REFERENCE OBJECT FOR PLAYER INSTANTIATION
 	[Property]
- 	[Sync]public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
-	[Sync]public PlayerData[] Players {get; set;} = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
-	[Sync]public GameObject[] PlayerAsset {get; set;} = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
-	[Sync]public int CurrentPlayer{get; set;} = 2;
+ 	public GameObject[] PlayerSpawnPoints { get; set; } //SPAWNPOINTS FOR PLAYER INSTANCES
+	public PlayerData[] Players {get; set;} = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
+	public GameObject[] PlayerAsset {get; set;} = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
+	public int CurrentPlayer{get; set;} = 2;
 	private int CycleTurn()
 	{
 		switch (CurrentPlayer)
@@ -368,7 +368,6 @@ public sealed class GameManagerBot : Component
 		}
 	}
 
-	[Rpc.Broadcast]
 	private void AttachPlayerCamera()
 	{
 		
@@ -420,8 +419,10 @@ public sealed class GameManagerBot : Component
 		}
 		
 	}
+	
 	public void PlayerDrink(bool isPoison, GameObject player, GameObject bottle) //WHEN A PLAYER DRINKS
 	{
+
 		PlayerData playerData = PlayerFind(player);
 		if ( isPoison )
 		{
