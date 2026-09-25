@@ -409,6 +409,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
+			playerRelay.playerController.Enabled = false;
+			playerRelay.playerControllerBot.Enabled = true;
+			playerRelay.animManager.Enabled = false;
+			playerRelay.animManagerBot.Enabled = true;
+			playerRelay.botController.Enabled = false;
 
 		var b = PlayerAsset[1];
 		if(b.IsValid && b.GetComponent<DD_PlayerController>() != null)b.GetComponent<DD_PlayerController>().Enabled = false;
@@ -426,6 +431,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
+			playerRelay.playerController.Enabled = false;
+			playerRelay.playerControllerBot.Enabled = true;
+			playerRelay.animManager.Enabled = false;
+			playerRelay.animManagerBot.Enabled = true;
+			playerRelay.botController.Enabled = false;
 
 		var b = PlayerAsset[0];
 		if(b.IsValid && b.GetComponent<DD_PlayerController>() != null)b.GetComponent<DD_PlayerController>().Enabled = false;
