@@ -24,7 +24,6 @@ public class NetworkControl : Component , Component.INetworkListener
         [Rpc.Broadcast]
         public void StartGame()
         {
-            var mainScene = MainScene;
         if ( MainScene != null )
         {
             var scene = new SceneLoadOptions();
@@ -52,10 +51,7 @@ public class NetworkControl : Component , Component.INetworkListener
                 connection.Kick("Lobby has been closed");
             }
 
-            if ( MainMenuScene != null )
-            {
-                Scene.Load(MainMenuScene);
-            }
+            
         }
     
     }

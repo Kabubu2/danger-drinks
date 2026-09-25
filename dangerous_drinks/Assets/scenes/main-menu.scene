@@ -862,9 +862,13 @@
                           "__guid": "d7e49818-1b6b-4357-8d33-42dba7a68900",
                           "__enabled": true,
                           "Flags": 0,
-                          "menu": {
-                            "_type": "gameobject",
-                            "go": "8da9162c-46d4-4a3b-8c4f-686307f1ded5"
+                          "MainScene": {
+                            "Id": "b0d74911-75f7-4e04-882d-1ba41e1acba9",
+                            "Path": "scenes/bar_a.scene"
+                          },
+                          "MainSceneBot": {
+                            "Id": "55a154e4-b484-41bb-a302-1c6de3c874e8",
+                            "Path": "scenes/bar_b.scene"
                           },
                           "OnComponentDestroy": null,
                           "OnComponentDisabled": null,
@@ -4331,7 +4335,7 @@
       "__guid": "19cf200e-4ff3-4cb9-9d2f-b52ee5578452",
       "__version": 2,
       "Flags": 0,
-      "Name": "Cube",
+      "Name": "exit_button",
       "Position": "64.5100784,-11.4271584,-17.5585938",
       "Rotation": "0,0,0,1",
       "Scale": "0.179706097,0.380805403,0.179706097",
