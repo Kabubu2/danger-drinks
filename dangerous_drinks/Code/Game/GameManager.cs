@@ -25,6 +25,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	private bool isHost {get; set;}
 	protected override void OnUpdate()
 	{
+		isHost = Networking.IsHost;
 		if(!Start)StartGame();
 		Logic();
 	}
@@ -338,7 +339,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 	}
 
-
+[Rpc.Broadcast]
 	void INetworkListener.OnActive( Connection connection )
 	
 	
@@ -357,7 +358,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			CurrentGameState = GameState.PreGame;
 		}
 	} 
-	
+[Rpc.Broadcast]	
 		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
