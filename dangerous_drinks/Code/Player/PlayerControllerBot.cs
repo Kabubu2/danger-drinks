@@ -14,7 +14,6 @@ public sealed class DD_PlayerControllerBot : Component
 		if ( !gameManager.IsValid )
 		{
 			gameManager = Scene.GetAll<GameManagerBot>().FirstOrDefault();
-			Log.Info("Game Manager being searched for...");
 		}
 	}
 	protected override void OnUpdate()
@@ -35,7 +34,7 @@ public sealed class DD_PlayerControllerBot : Component
 				var a = ClickZone("selectable");
 				if (a != null && currentPlayer == 0)
 				{	
-					
+					Log.Info("Player Select");
 					SendChoice(this.GameObject, a);
 				}
 			}
@@ -49,7 +48,7 @@ public sealed class DD_PlayerControllerBot : Component
 
 	private void SendChoice(GameObject player, GameObject item)
 	{
-		//gameManager.PlayerDrink(player, item);
+		Log.Info("Player Send Choice");
 		if(player != null && item != null && gameManager.CurrentPlayer == 0)
 		{
 			if(item.GetComponent<Bottle>() != null)
@@ -61,7 +60,7 @@ public sealed class DD_PlayerControllerBot : Component
 	
 	private GameObject ClickZone()
 	{
-		Log.Info("ClickZone");
+		Log.Info("Player Click");
 		var camera = Scene.Camera;
 		if(!camera.IsValid) return null;
 		
@@ -73,7 +72,7 @@ public sealed class DD_PlayerControllerBot : Component
 	}
 	private GameObject ClickZone(string tag)
 	{
-
+		Log.Info("Player Click");
 		var camera = Scene.Camera;
 		if(!camera.IsValid) return null;
 

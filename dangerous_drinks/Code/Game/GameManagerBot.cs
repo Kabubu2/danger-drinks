@@ -1,4 +1,5 @@
 using System;
+using Sandbox.UI;
 public sealed class GameManagerBot : Component
 {
 	/// ----------------------------------------
@@ -188,9 +189,14 @@ public sealed class GameManagerBot : Component
 	}
 	private void OnPreRound()
 	{
-		if(StateTimer > 1) //Forced Delay
+		if(StateTimer > 1 && !isDead()) //Forced Delay
 		{
 			CurrentGameState = GameState.RoundStart;
+			StateTimer = 0;
+		}
+		if(StateTimer > 1 && isDead()) //Forced Delay
+		{
+			CurrentGameState = GameState.GameEnd;
 			StateTimer = 0;
 		}
 		
@@ -288,11 +294,21 @@ public sealed class GameManagerBot : Component
 	}
 	private void OnGameEnd()
 	{
-		CurrentGameState = GameState.PostGame;
+		PostProcessCon.Trigger(true);
+		if(StateTimer > 3) //Forced Delay
+			{
+				Mouse.Visibility = MouseVisibility.Visible;
+				CurrentGameState = GameState.PostGame;
+				StateTimer = 0;
+			}
+		
 	}
 	private void OnPostGame()
 	{
-
+				UI_EndScreen.Enabled = true;
+				int deadMan = 2;
+				isDead(out deadMan);
+				UI_EndScreen.GetComponent<EndGameScreen>().HasWon = deadMan==0;
 	}
 
 	
@@ -346,6 +362,7 @@ public sealed class GameManagerBot : Component
 				var a = Players[PlayerInt].PlayerInst.GetComponent<PlayerRelay>();
 				a.playerController.Enabled = false;
 				a.playerControllerBot.Enabled = true;
+				a.botController.Enabled = false;
 				AttachPlayerCamera();
 			} 
 		}
@@ -367,6 +384,7 @@ public sealed class GameManagerBot : Component
 			playerRelay.playerControllerBot.Enabled = true;
 			playerRelay.animManager.Enabled = false;
 			playerRelay.animManagerBot.Enabled = true;
+			playerRelay.botController.Enabled = false;
 		}	
 		
 		var _opponant = PlayerAsset[1];
@@ -377,10 +395,20 @@ public sealed class GameManagerBot : Component
 			opponantRelay.playerControllerBot.Enabled = false;
 			opponantRelay.animManager.Enabled = false;
 			opponantRelay.animManagerBot.Enabled = true;
+			opponantRelay.botController.Enabled = true;
 		}
 		
 	}
+	public int Whois(GameObject player)
+	{
 
+			for (int i = 0; i < PlayerAsset.Count(); i++)
+			{
+				if(player == PlayerAsset[i]) return i;
+			}
+			return 2;
+		
+	}
 	public void SelectDrink(bool isPoison, GameObject player, GameObject bottle)
 	{
 		PlayerData playerData = PlayerFind(player);
@@ -450,5 +478,21 @@ public sealed class GameManagerBot : Component
 	{
 		int player; //Throwaway
 		return isDead(out player);
+	}
+	[Property] private GameObject UI_EndScreen{get; set;}
+	[Property] public SceneFile GameScene{get; set;}
+    [Property] public SceneFile MainMenuScene {get;set;}
+	public void BackToMenu()
+	{
+		var scene = new SceneLoadOptions();
+            scene.SetScene(MainMenuScene);
+            Game.ChangeScene(scene);
+	}
+
+	public void Rematch()
+	{
+		var scene = new SceneLoadOptions();
+            scene.SetScene(GameScene);
+            Game.ChangeScene(scene);
 	}
 }

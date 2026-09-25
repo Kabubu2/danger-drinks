@@ -16,4 +16,6 @@ public sealed class PlayerRelay : Component
 	public AnimManager animManager{ get; set; }
 	[Property]
 	public AnimManagerBot animManagerBot{ get; set; }
+	[Property]
+	public BotController botController{ get; set; }
 }

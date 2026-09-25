@@ -702,6 +702,50 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Poison_1"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 54
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 0
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "DropBottle"
+								}
+							},
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_poisoned"
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 0
+								peak_frame = 0
+								tail_frame = 10
+								end_frame = 5
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_rest"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 22
+								peak_frame = 66
+								tail_frame = 75
+								end_frame = 60
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -725,6 +769,50 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Poison_2"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 54
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 0
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "DropBottle"
+								}
+							},
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_poisoned"
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 0
+								peak_frame = 0
+								tail_frame = 10
+								end_frame = 5
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_rest"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 22
+								peak_frame = 66
+								tail_frame = 75
+								end_frame = 60
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -748,6 +836,50 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Poison_3"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 62
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 0
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "DropBottle"
+								}
+							},
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_poisoned"
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 0
+								peak_frame = 0
+								tail_frame = 10
+								end_frame = 5
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_rest"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 22
+								peak_frame = 66
+								tail_frame = 75
+								end_frame = 60
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -771,6 +903,38 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Dud"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 30
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 0
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "DropBottle"
+								}
+							},
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_pleasant"
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 0
+								peak_frame = 0
+								tail_frame = 5
+								end_frame = 18
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -794,6 +958,13 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_IdleToSelect"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_rest"
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -817,6 +988,21 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Presit_A"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_think"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 28
+								peak_frame = 36
+								tail_frame = 135
+								end_frame = 135
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -840,6 +1026,21 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Presit_B"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_think"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 34
+								peak_frame = 42
+								tail_frame = 135
+								end_frame = 135
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -863,6 +1064,34 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_SelectToDrink_A"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 64
+								peak_frame = 68
+								tail_frame = 89
+								end_frame = 89
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 11
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 1
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -876,7 +1105,7 @@
 						disable_compression = false
 						disable_interpolation = false
 						enable_scale = false
-						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						source_filename = "models/citizen/drinksanddanger_animations_4.fbx"
 						start_frame = -1
 						end_frame = -1
 						framerate = -1.0
@@ -886,6 +1115,34 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_SelectToDrink_B"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 64
+								peak_frame = 68
+								tail_frame = 89
+								end_frame = 89
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 11
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 1
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -899,16 +1156,44 @@
 						disable_compression = false
 						disable_interpolation = false
 						enable_scale = false
-						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						source_filename = "models/citizen/drinksanddanger_animations_4.fbx"
 						start_frame = -1
 						end_frame = -1
 						framerate = -1.0
-						take = 15
+						take = 1
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_SelectToDrink_C"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_drink"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 64
+								peak_frame = 68
+								tail_frame = 89
+								end_frame = 89
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_GENERIC_EVENT"
+								event_frame = 11
+								event_keys = 
+								{
+									TypeName = ""
+									Int = 1
+									Float = 0.0
+									Vector = [ 0.0, 0.0, 0.0 ]
+									StringData = "GrabBottle"
+								}
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -922,16 +1207,23 @@
 						disable_compression = false
 						disable_interpolation = false
 						enable_scale = false
-						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						source_filename = "models/citizen/drinksanddanger_animations_4.fbx"
 						start_frame = -1
 						end_frame = -1
 						framerate = -1.0
-						take = 16
+						take = 2
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Select_Idle"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_rest"
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -955,6 +1247,13 @@
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Select_Spectrum"
+						children = 
+						[
+							{
+								_class = "AnimAddLayer"
+								anim_name = "morph_rest"
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -968,16 +1267,31 @@
 						disable_compression = false
 						disable_interpolation = false
 						enable_scale = false
-						source_filename = "models/citizen/DrinksAndDanger_Animations_2.fbx"
+						source_filename = "models/citizen/drinksanddanger_animations_4.fbx"
 						start_frame = -1
 						end_frame = -1
 						framerate = -1.0
-						take = 18
+						take = 3
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "DrinksAndDanger_Sit"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "morph_think"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 0
+								peak_frame = 0
+								tail_frame = 20
+								end_frame = 40
+							},
+						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""

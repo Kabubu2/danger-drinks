@@ -501,6 +501,21 @@ public sealed class GameManager : Component, Component.INetworkListener
 		int player; //Throwaway
 		return isDead(out player);
 	}
+	[Property] public SceneFile GameScene{get; set;}
+    [Property] public SceneFile MainMenuScene {get;set;}
+	public void BackToMenu()
+	{
+		var scene = new SceneLoadOptions();
+            scene.SetScene(MainMenuScene);
+            Game.ChangeScene(scene);
+	}
+
+	public void Rematch()
+	{
+		var scene = new SceneLoadOptions();
+            scene.SetScene(GameScene);
+            Game.ChangeScene(scene);
+	}
 }
 
 /// ----------------------------------------

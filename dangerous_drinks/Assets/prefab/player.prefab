@@ -32,6 +32,12 @@
           "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
           "component_type": "AnimManagerBot"
         },
+        "botController": {
+          "_type": "component",
+          "component_id": "27fdbe64-cd7e-4cc9-b48d-42b3f57bbd80",
+          "go": "ee547a51-e0a2-4e9d-89e5-119de7b6a020",
+          "component_type": "BotController"
+        },
         "EyeSlot": {
           "_type": "gameobject",
           "go": "d8ddf05b-d21d-4c43-b13f-1f2c6bd51281"
@@ -71,10 +77,7 @@
         "__enabled": true,
         "Flags": 0,
         "bottleSelected": null,
-        "held": {
-          "_type": "gameobject",
-          "go": "d68340c8-a7ee-4653-915c-8e96f0ff9990"
-        },
+        "held": null,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -107,7 +110,7 @@
         "bottleSelected": null,
         "held": {
           "_type": "gameobject",
-          "go": "d68340c8-a7ee-4653-915c-8e96f0ff9990"
+          "go": "77d1e06b-fe36-48e6-92bb-6a3e8266795e"
         },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -150,6 +153,20 @@
         "__guid": "98ed6246-b5d9-4297-84bf-fa3531879c90",
         "__enabled": true,
         "Flags": 0,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "BotController",
+        "__guid": "27fdbe64-cd7e-4cc9-b48d-42b3f57bbd80",
+        "__enabled": true,
+        "Flags": 0,
+        "bottleFolder": null,
+        "gameManagerBot": null,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -774,53 +791,55 @@
                                             "Components": [],
                                             "Children": [
                                               {
-                                                "__guid": "d68340c8-a7ee-4653-915c-8e96f0ff9990",
+                                                "__guid": "77d1e06b-fe36-48e6-92bb-6a3e8266795e",
                                                 "__version": 2,
-                                                "Flags": 0,
-                                                "Name": "bottle_a",
-                                                "Position": "2.10251331,-0.576216519,-2.3645103",
-                                                "Rotation": "0.00687620044,-0.177306995,-0.359851003,0.915981293",
-                                                "Scale": "1,1,1",
-                                                "Tags": "",
-                                                "Enabled": false,
-                                                "NetworkMode": 2,
-                                                "NetworkFlags": 0,
-                                                "NetworkOrphaned": 0,
-                                                "NetworkTransmit": true,
-                                                "OwnerTransfer": 1,
-                                                "Components": [
-                                                  {
-                                                    "__type": "Sandbox.ModelRenderer",
-                                                    "__guid": "71407a72-a952-46f6-be1c-63a569376f10",
-                                                    "__enabled": true,
-                                                    "Flags": 0,
-                                                    "BodyGroups": 18446744073709551615,
-                                                    "CreateAttachments": false,
-                                                    "LodOverride": null,
-                                                    "MaterialGroup": null,
-                                                    "MaterialOverride": null,
-                                                    "Materials": null,
-                                                    "Model": {
-                                                      "Id": "f138ac5f-65e9-4781-a835-f8d67ad13531",
-                                                      "Path": "models/bottle_a.vmdl"
+                                                "__Prefab": {
+                                                  "Id": "93a12cc4-5076-49f6-8609-848fe1870262",
+                                                  "Path": "prefab/bottle.prefab"
+                                                },
+                                                "__PrefabInstancePatch": {
+                                                  "AddedObjects": [],
+                                                  "RemovedObjects": [],
+                                                  "PropertyOverrides": [
+                                                    {
+                                                      "Target": {
+                                                        "Type": "GameObject",
+                                                        "IdValue": "9b879729-f673-4492-862b-527ada5f9883"
+                                                      },
+                                                      "Property": "Rotation",
+                                                      "Value": "4.47034836E-08,0.991445005,-2.98023224E-08,-0.130525932"
                                                     },
-                                                    "OnComponentDestroy": null,
-                                                    "OnComponentDisabled": null,
-                                                    "OnComponentEnabled": null,
-                                                    "OnComponentFixedUpdate": null,
-                                                    "OnComponentStart": null,
-                                                    "OnComponentUpdate": null,
-                                                    "RenderOptions": {
-                                                      "GameLayer": true,
-                                                      "OverlayLayer": false,
-                                                      "BloomLayer": false,
-                                                      "AfterUILayer": false
+                                                    {
+                                                      "Target": {
+                                                        "Type": "GameObject",
+                                                        "IdValue": "9b879729-f673-4492-862b-527ada5f9883"
+                                                      },
+                                                      "Property": "Enabled",
+                                                      "Value": false
                                                     },
-                                                    "RenderType": "On",
-                                                    "Tint": "1,1,1,1"
-                                                  }
-                                                ],
-                                                "Children": []
+                                                    {
+                                                      "Target": {
+                                                        "Type": "Component",
+                                                        "IdValue": "d48a2bf8-f202-49c7-a325-3e17eceaf4b4"
+                                                      },
+                                                      "Property": "__enabled",
+                                                      "Value": false
+                                                    }
+                                                  ],
+                                                  "MovedObjects": []
+                                                },
+                                                "__PrefabIdToInstanceId": {
+                                                  "9b879729-f673-4492-862b-527ada5f9883": "77d1e06b-fe36-48e6-92bb-6a3e8266795e",
+                                                  "79e63102-945b-49fd-9897-60c4048e5712": "b56c0d2e-d9fe-402b-9cce-af74ca2e1cdc",
+                                                  "5095c133-7b5c-432f-93cd-0ebb30251aab": "6e977338-12b5-4f69-8b98-a6b26910cf5c",
+                                                  "fe77669f-0ba0-40b3-aa5e-06eae8b3eb4b": "22307e30-3ca0-4e4d-ac4c-1e692de54e60",
+                                                  "59297101-e211-462e-96ea-9c18ceffa8d6": "59b82e0b-19d2-4bbb-a51e-b9bae4dc1b0d",
+                                                  "4c50a48f-fc50-4649-b2f8-f5ffe48d2374": "e1bcadf2-e8bc-48ff-96ff-01a8ee42ed9a",
+                                                  "6d8d8197-01ea-4002-9e21-ff8722bdf63e": "44a10152-bf5b-4892-bfb7-f095466565f3",
+                                                  "0b143f4d-ed82-420c-84c6-429a187f39ee": "5a49f41a-22bb-4fd8-93c2-75b713cb6b1c",
+                                                  "d48a2bf8-f202-49c7-a325-3e17eceaf4b4": "307bb405-f374-4c4e-9d86-24c35dad6861",
+                                                  "1254c9a8-854c-474b-b66e-930d5759348a": "a5329249-687f-4c7b-83f5-d121bedf87d3"
+                                                }
                                               }
                                             ]
                                           },

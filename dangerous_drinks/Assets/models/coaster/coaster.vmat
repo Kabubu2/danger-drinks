@@ -1,0 +1,11 @@
+
+Layer0
+{
+	shader "shaders/complex.shader_c"
+
+	TextureColor "models/coaster/coaster_basecolor.png"
+	TextureAmbientOcclusion "materials/default/default_ao.tga"
+	TextureNormal "models/coaster/coaster_normal.png"
+	TextureRoughness "models/coaster/coaster_roughness.png"
+
+}

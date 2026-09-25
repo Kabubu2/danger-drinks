@@ -25,6 +25,7 @@ public sealed class AnimManagerBot : Component
 		LogicAssociate();
 		AnimSwitcher();
 	}
+
 	private void OnAnimationEvent( SceneModel.GenericEvent evt )
 	{
 		Log.Info("AnimEvent!");
@@ -33,6 +34,15 @@ public sealed class AnimManagerBot : Component
 			var a = evt.Int;
 			if(a == 0) held.Enabled = false;
 			else held.Enabled = true;
+		}
+		Log.Info("AnimEvent!");
+		if(evt.String == "DropBottle")
+		{
+			var b = held.Clone();
+			b.Parent = null;
+			b.WorldPosition = held.Parent.WorldPosition;
+			b.WorldRotation = Quaternion.Identity;
+			held.Enabled = false;
 		}
 		
 	// if ( eventName == "GrabBottle" )
@@ -119,6 +129,7 @@ public sealed class AnimManagerBot : Component
 			a.Set("drink", false);
 			a.Set("poison", false);
 			a.Set("select", false);
+			a.Set("lives", 3);
 		}
 	}
 
@@ -152,6 +163,7 @@ public sealed class AnimManagerBot : Component
 	public void anim_DrinkHurt()	
 	{
 		var a = PlayerRenderer.Renderer.Parameters;
+		a.Set("lives", playerController.gameManager.Players[playerController.gameManager.Whois(GameObject)].Lives);
 		if(!a.GetBool("poison"))a.Set("poison", true);
 	}
 	public void anim_DrinkNormal()	
@@ -159,6 +171,7 @@ public sealed class AnimManagerBot : Component
 		var a = PlayerRenderer.Renderer.Parameters;
 		if(!a.GetBool("dud"))a.Set("dud", true);
 	}
+
 
 	public float animVar_Stretch(float distance)
 	{
@@ -181,7 +194,7 @@ public sealed class AnimManagerBot : Component
 				if(a.GetFloat("spectrum") != targetSpec)
 				{
 					a.Set("spectrum", targetSpec);
-					Log.Info(spectrumPoint(target.WorldPosition));
+					//Log.Info(spectrumPoint(target.WorldPosition));
 				}
 			}
 		}
@@ -200,7 +213,7 @@ public sealed class AnimManagerBot : Component
 		var max = bottleRange.Max();
 		var a = spine2.LocalTransform.PointToLocal(localFromSpine);
 
-		var spectrumBalance = MathX.Remap(a.y, min,max,0,1);
+		var spectrumBalance = MathX.Remap(a.y, min,max,0,0.99f);
 		spectrumBalance = MathF.Round(spectrumBalance, 2);
 		return spectrumBalance;
 	}

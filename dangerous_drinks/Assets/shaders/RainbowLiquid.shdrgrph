@@ -1,0 +1,503 @@
+{
+  "IsSubgraph": false,
+  "Path": "shaders/rainbowliquid.shdrgrph",
+  "Model": null,
+  "Title": null,
+  "Description": "",
+  "Category": null,
+  "Icon": null,
+  "AddToNodeLibrary": false,
+  "BlendMode": "Opaque",
+  "ShadingModel": "Lit",
+  "Domain": "Surface",
+  "PreviewSettings": {
+    "RenderBackfaces": false,
+    "EnableShadows": true,
+    "ShowGround": false,
+    "ShowSkybox": true,
+    "BackgroundColor": "0,0,0,1",
+    "Tint": "1,1,1,1"
+  },
+  "Version": 1,
+  "nodes": [
+    {
+      "_class": "Result",
+      "DefaultOpacity": 1,
+      "DefaultRoughness": 1,
+      "DefaultMetalness": 0,
+      "DefaultAmbientOcclusion": 1,
+      "Identifier": "0",
+      "Position": "240,-252",
+      "HandleOffsets": {},
+      "Albedo": {
+        "Identifier": "8",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "VoronoiNoise",
+      "AngleOffset": 6.28319,
+      "CellDensity": 2.8888178,
+      "Worley": false,
+      "Identifier": "1",
+      "Position": "-672,48",
+      "HandleOffsets": {},
+      "Coords": {
+        "Identifier": "21",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "VoronoiNoise",
+      "AngleOffset": 4.995462,
+      "CellDensity": 7.816764,
+      "Worley": false,
+      "Identifier": "2",
+      "Position": "-672,-60",
+      "HandleOffsets": {},
+      "Coords": {
+        "Identifier": "26",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "3",
+      "Position": "-432,-12",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "2",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "1",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "4",
+      "Position": "-312,-96",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "5",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "3",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "VoronoiNoise",
+      "AngleOffset": 4.995462,
+      "CellDensity": 6.4884024,
+      "Worley": false,
+      "Identifier": "5",
+      "Position": "-672,-168",
+      "HandleOffsets": {},
+      "Coords": {
+        "Identifier": "35",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Time",
+      "Identifier": "6",
+      "Position": "-1944,-384",
+      "HandleOffsets": {}
+    },
+    {
+      "_class": "CombineVector",
+      "DefaultX": 0,
+      "DefaultY": 0,
+      "DefaultZ": 0,
+      "DefaultW": 0,
+      "Identifier": "7",
+      "Position": "-1368,-288",
+      "HandleOffsets": {},
+      "X": {
+        "Identifier": "12",
+        "Output": "Result"
+      },
+      "Y": {
+        "Identifier": "11",
+        "Output": "Result"
+      },
+      "Z": {
+        "Identifier": "13",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "8",
+      "Position": "72,-252",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "7",
+        "Output": "XYZ"
+      },
+      "B": {
+        "Identifier": "36",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1.444,
+      "Identifier": "9",
+      "Position": "-1620,-228",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "6",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 0.12,
+      "Identifier": "10",
+      "Position": "-1620,-312",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "6",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Sine",
+      "Identifier": "11",
+      "Position": "-1524,-312",
+      "HandleOffsets": {},
+      "Input": {
+        "Identifier": "10",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Sine",
+      "Identifier": "12",
+      "Position": "-1524,-384",
+      "HandleOffsets": {},
+      "Input": {
+        "Identifier": "6",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Sine",
+      "Identifier": "13",
+      "Position": "-1524,-216",
+      "HandleOffsets": {},
+      "Input": {
+        "Identifier": "9",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 0.0112,
+      "Identifier": "14",
+      "Position": "-1668,300",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "6",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Sine",
+      "Identifier": "15",
+      "Position": "-1572,300",
+      "HandleOffsets": {},
+      "Input": {
+        "Identifier": "14",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureCoord",
+      "UseSecondaryCoord": false,
+      "Tiling": "1,1",
+      "Identifier": "16",
+      "Position": "-1248,444",
+      "HandleOffsets": {}
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "17",
+      "Position": "-432,-12",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "2",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "1",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 11,
+      "Identifier": "18",
+      "Position": "-1404,300",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "15",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 35,
+      "Identifier": "19",
+      "Position": "-1404,384",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "15",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "CombineVector",
+      "DefaultX": 0,
+      "DefaultY": 0,
+      "DefaultZ": 0,
+      "DefaultW": 0,
+      "Identifier": "20",
+      "Position": "-1248,300",
+      "HandleOffsets": {},
+      "X": {
+        "Identifier": "18",
+        "Output": "Result"
+      },
+      "Y": {
+        "Identifier": "19",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Add",
+      "DefaultA": 0,
+      "DefaultB": 5,
+      "Identifier": "21",
+      "Position": "-984,480",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "20",
+        "Output": "XY"
+      },
+      "B": {
+        "Identifier": "16",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Sine",
+      "Identifier": "22",
+      "Position": "-1572,84",
+      "HandleOffsets": {},
+      "Input": {
+        "Identifier": "27",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "CombineVector",
+      "DefaultX": 0,
+      "DefaultY": 0,
+      "DefaultZ": 0,
+      "DefaultW": 0,
+      "Identifier": "23",
+      "Position": "-1248,84",
+      "HandleOffsets": {},
+      "X": {
+        "Identifier": "28",
+        "Output": "Result"
+      },
+      "Y": {
+        "Identifier": "25",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureCoord",
+      "UseSecondaryCoord": false,
+      "Tiling": "1,1",
+      "Identifier": "24",
+      "Position": "-1248,228",
+      "HandleOffsets": {}
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 12,
+      "Identifier": "25",
+      "Position": "-1404,168",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "22",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Add",
+      "DefaultA": 0,
+      "DefaultB": 5,
+      "Identifier": "26",
+      "Position": "-984,264",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "23",
+        "Output": "XY"
+      },
+      "B": {
+        "Identifier": "24",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 0.021,
+      "Identifier": "27",
+      "Position": "-1668,84",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "6",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 16,
+      "Identifier": "28",
+      "Position": "-1404,84",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "22",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Sine",
+      "Identifier": "29",
+      "Position": "-1572,-108",
+      "HandleOffsets": {},
+      "Input": {
+        "Identifier": "34",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "CombineVector",
+      "DefaultX": 0,
+      "DefaultY": 0,
+      "DefaultZ": 0,
+      "DefaultW": 0,
+      "Identifier": "30",
+      "Position": "-1248,-108",
+      "HandleOffsets": {},
+      "X": {
+        "Identifier": "31",
+        "Output": "Result"
+      },
+      "Y": {
+        "Identifier": "32",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 20,
+      "Identifier": "31",
+      "Position": "-1404,-108",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "29",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 40,
+      "Identifier": "32",
+      "Position": "-1404,-24",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "29",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureCoord",
+      "UseSecondaryCoord": false,
+      "Tiling": "1,1",
+      "Identifier": "33",
+      "Position": "-1248,36",
+      "HandleOffsets": {}
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 0.0311,
+      "Identifier": "34",
+      "Position": "-1668,-108",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "6",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Add",
+      "DefaultA": 0,
+      "DefaultB": 5,
+      "Identifier": "35",
+      "Position": "-984,72",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "30",
+        "Output": "XY"
+      },
+      "B": {
+        "Identifier": "33",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "RemapValue",
+      "In": 0.5,
+      "InMin": 0,
+      "InMax": 0.15018024,
+      "OutMin": 0.44182876,
+      "OutMax": 1,
+      "Clamp": true,
+      "Identifier": "36",
+      "Position": "-168,-60",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "4",
+        "Output": "Result"
+      }
+    }
+  ]
+}

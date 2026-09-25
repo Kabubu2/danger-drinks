@@ -1,0 +1,78 @@
+@using Sandbox
+@using Sandbox.UI
+@inherits PanelComponent
+
+<root class="end-screen @(HasWon ? "win" : "loss")">
+
+	<div class="background" />
+
+	<div class="content">
+
+		<div class="result">
+			@if ( HasWon )
+			{
+				<div class="result-text">You were lucky this time. You survived and @opponant did not.</div>
+			}
+			else
+			{
+				<div class="result-text">Unfortunately, you did not survive. @opponant has beaten you.</div>
+			}
+		</div>
+
+		<div class="buttons">
+
+			<button class="menu-button" onclick="@PlayAgain">
+				PLAY AGAIN
+			</button>
+
+			<button class="menu-button" onclick="@ReturnToLobby">
+				RETURN TO LOBBY
+			</button>
+
+		</div>
+
+	</div>
+
+</root>
+
+@code
+{
+	/// <summary>
+	/// True = You Win, False = You Lost.
+	/// /// </summary>
+	[Property]
+	GameManagerBot gameManagerBot{get; set;}
+	[Property]
+	GameManager gameManager{get; set;}
+
+	[Property]
+	public bool HasWon { get; set; }
+	[Property]
+	public string opponant{ get; set; } = "The Bot";
+	
+
+	public void ShowResult( bool won )
+	{
+		HasWon = won;
+		StateHasChanged();
+	}
+
+	private void PlayAgain()
+	{
+		Log.Info( "Play Again clicked" );
+		if(gameManagerBot != null) gameManagerBot.Rematch();
+		if(gameManager != null) gameManager.Rematch();
+	}
+
+	private void ReturnToLobby()
+	{
+		Log.Info( "Return to Lobby clicked" );
+		if(gameManagerBot != null) gameManagerBot.BackToMenu();
+		if(gameManager != null) gameManager.BackToMenu();
+		// Your lobby logic here.
+	}
+	protected override int BuildHash()
+	{
+		return System.HashCode.Combine( HasWon );
+	}
+}

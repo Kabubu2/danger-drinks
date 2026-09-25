@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+  </Configurations>
+  <Project Path="Code/dangerous_drinks.csproj" />
+  <Project Path="Editor/dangerous_drinks.editor.csproj" />
+  <Folder Name="/Tools/">
+    <Project Path="C:/Program Files/Steam/steamapps/common/sbox/addons/tools/Code/Base Editor Library.csproj" />
+    <Project Path="C:/Program Files/Steam/steamapps/common/sbox/editor/ActionGraph/Code/actiongraph.csproj" />
+    <Project Path="C:/Program Files/Steam/steamapps/common/sbox/editor/DooEditor/Code/dooeditor.csproj" />
+    <Project Path="C:/Program Files/Steam/steamapps/common/sbox/editor/Hammer/Code/hammer.csproj" />
+    <Project Path="C:/Program Files/Steam/steamapps/common/sbox/editor/MovieMaker/Code/moviemaker.csproj" />
+    <Project Path="C:/Program Files/Steam/steamapps/common/sbox/editor/ShaderGraph/Code/shadergraph.csproj" />
+  </Folder>
+</Solution>

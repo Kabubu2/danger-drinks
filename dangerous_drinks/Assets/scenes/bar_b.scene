@@ -3646,6 +3646,14 @@
             "go": "f2bac429-c3fc-43e2-9335-e5bd1465194b"
           },
           "CurrentGameState": "None",
+          "GameScene": {
+            "Id": "55a154e4-b484-41bb-a302-1c6de3c874e8",
+            "Path": "scenes/bar_b.scene"
+          },
+          "MainMenuScene": {
+            "Id": "2d7f4987-d01b-46d5-836b-015958e9385a",
+            "Path": "scenes/main-menu.scene"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -3671,6 +3679,10 @@
             "component_id": "5850c487-320d-487a-a7dc-a9d7a72611cc",
             "go": "cef2945b-5189-4cb3-871a-4dbc2396b2d0",
             "component_type": "PostProcessController"
+          },
+          "UI_EndScreen": {
+            "_type": "gameobject",
+            "go": "6e0412fa-2ecd-468d-82ce-58c6ddb10f60"
           },
           "WaitPoint": {
             "_type": "gameobject",
@@ -3842,6 +3854,84 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null
+            }
+          ],
+          "Children": []
+        }
+      ]
+    },
+    {
+      "__guid": "97cbaf22-539e-4fce-a6ea-f6bf19664cb0",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "UI",
+      "Position": "-367.236328,146.324081,102.968155",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [],
+      "Children": [
+        {
+          "__guid": "6e0412fa-2ecd-468d-82ce-58c6ddb10f60",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Win Game",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": false,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "aaf21128-340e-44bc-9e73-4ba191feaeb3",
+              "__enabled": true,
+              "Flags": 0,
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "TargetCamera": null,
+              "Timing": "AfterPostProcess",
+              "ZIndex": 100
+            },
+            {
+              "__type": "Sandbox.UI.EndGameScreen",
+              "__guid": "1e5d26e8-93a5-4047-a6d0-4a60129317f2",
+              "__enabled": true,
+              "Flags": 0,
+              "gameManager": null,
+              "gameManagerBot": {
+                "_type": "component",
+                "component_id": "ca9ff43b-9a4d-49ac-8107-38289af78213",
+                "go": "6b67284c-1821-447e-9c02-86d21eb291a3",
+                "component_type": "GameManagerBot"
+              },
+              "HasWon": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "opponant": null
             }
           ],
           "Children": []
