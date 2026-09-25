@@ -368,7 +368,7 @@ public sealed class GameManagerBot : Component
 		}
 	}
 
-	
+	[Rpc.Broadcast]
 	private void AttachPlayerCamera()
 	{
 		

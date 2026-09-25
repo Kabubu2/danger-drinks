@@ -18,8 +18,8 @@ public sealed class DD_PlayerControllerBot : Component
 	}
 	protected override void OnUpdate()
 	{
-		//CheckUp();
-		//SelectFilter();
+		CheckUp();
+		SelectFilter();
 		
 	}
 	
