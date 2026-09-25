@@ -13,7 +13,7 @@ public sealed class BottleLogic : Component
 	[Property]
 	private Vector3 offset = new Vector3 (5,0,0);
 	
-
+	[Property] GameObject Particles{get;set;}
 	public void SpawnBottles()
 	{
 		
@@ -67,10 +67,14 @@ public sealed class BottleLogic : Component
 				//Vector3 relativeOffset = ((bottleFolder.WorldPosition - ((offset * loopCount)/2)) + (offset * i));
 
 				// Instantiate the prefab into the bottle folder.
+				GameObject _particle = Particles.Clone();
 				GameObject bottle = bottlePrefab.Clone();
 				bottle.Parent = bottleFolder;
 				bottle.WorldPosition = position;
+				_particle.WorldPosition = position;
+				_particle.GetComponent<KillMeParticle>().Instant = true;
 				bottle.Name = new string("Bottle " + i);
+				_particle.NetworkSpawn();
 				bottle.NetworkSpawn();
 			}
 

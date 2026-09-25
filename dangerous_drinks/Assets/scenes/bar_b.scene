@@ -3634,7 +3634,11 @@
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "Particles": {
+            "_type": "gameobject",
+            "prefab": "prefab/poof.prefab"
+          }
         },
         {
           "__type": "GameManagerBot",
