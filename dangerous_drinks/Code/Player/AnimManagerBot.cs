@@ -42,10 +42,13 @@ public sealed class AnimManagerBot : Component
 			var b = held.Clone();
 			b.Parent = null;
 			
-			var a = _particle.Clone();
-			a.WorldPosition = held.Parent.WorldPosition;
+			if(evt.Int == 0)
+			{
+				var a = _particle.Clone();
+				a.WorldPosition = held.Parent.WorldPosition;
+				b.AddComponent<KillMe>().Connected = a;
+			}
 			b.WorldPosition = held.Parent.WorldPosition;
-			b.AddComponent<KillMe>().Connected = a;
 			b.WorldRotation = Quaternion.Identity;
 			held.Enabled = false;
 		}
