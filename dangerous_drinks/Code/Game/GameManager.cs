@@ -324,6 +324,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Sync]public PlayerData[] Players {get; set;} = new PlayerData[2];	//PLAYER LIST FOR EASY REFERENCE
 	[Sync]public GameObject[] PlayerAsset {get; set;} = new GameObject[2]; //PLAYER GAMEOBJECT LIST FOR EASY MANIPULATION
 	[Sync]public int CurrentPlayer{get; set;} = 2;
+	
 	private int CycleTurn()
 	{
 		switch (CurrentPlayer)
@@ -359,6 +360,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 	} 
 [Rpc.Broadcast]	
+
 		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
