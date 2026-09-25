@@ -4044,7 +4044,7 @@
         {
           "__type": "Sandbox.Rigidbody",
           "__guid": "57c143f9-cf2b-470b-872f-585650221cce",
-          "__enabled": true,
+          "__enabled": false,
           "Flags": 0,
           "AngularDamping": 0,
           "EnableImpactDamage": true,
@@ -4181,7 +4181,7 @@
         {
           "__type": "Sandbox.Rigidbody",
           "__guid": "2353e368-3a60-4999-b07b-7807dda04bf9",
-          "__enabled": true,
+          "__enabled": false,
           "Flags": 0,
           "AngularDamping": 0,
           "EnableImpactDamage": true,
@@ -4318,7 +4318,7 @@
         {
           "__type": "Sandbox.Rigidbody",
           "__guid": "ecbdc5f9-5649-4374-88dd-5efe8942db2e",
-          "__enabled": true,
+          "__enabled": false,
           "Flags": 0,
           "AngularDamping": 0,
           "EnableImpactDamage": true,
@@ -4455,7 +4455,7 @@
         {
           "__type": "Sandbox.Rigidbody",
           "__guid": "25cb6e62-8ea8-4a63-8b03-600d7ccdb9ed",
-          "__enabled": true,
+          "__enabled": false,
           "Flags": 0,
           "AngularDamping": 0,
           "EnableImpactDamage": true,
@@ -4592,7 +4592,7 @@
         {
           "__type": "Sandbox.Rigidbody",
           "__guid": "dad6a1f0-9202-4610-be3c-d3cd97a6dafd",
-          "__enabled": true,
+          "__enabled": false,
           "Flags": 0,
           "AngularDamping": 0,
           "EnableImpactDamage": true,
@@ -4729,7 +4729,7 @@
         {
           "__type": "Sandbox.Rigidbody",
           "__guid": "0e3be535-a08b-43d1-9c7f-ea066f500249",
-          "__enabled": true,
+          "__enabled": false,
           "Flags": 0,
           "AngularDamping": 0,
           "EnableImpactDamage": true,
