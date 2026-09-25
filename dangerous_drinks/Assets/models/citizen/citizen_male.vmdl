@@ -711,7 +711,7 @@
 								event_keys = 
 								{
 									TypeName = ""
-									Int = 0
+									Int = 1
 									Float = 0.0
 									Vector = [ 0.0, 0.0, 0.0 ]
 									StringData = "DropBottle"
@@ -778,7 +778,7 @@
 								event_keys = 
 								{
 									TypeName = ""
-									Int = 0
+									Int = 1
 									Float = 0.0
 									Vector = [ 0.0, 0.0, 0.0 ]
 									StringData = "DropBottle"
@@ -845,7 +845,7 @@
 								event_keys = 
 								{
 									TypeName = ""
-									Int = 0
+									Int = 1
 									Float = 0.0
 									Vector = [ 0.0, 0.0, 0.0 ]
 									StringData = "DropBottle"
