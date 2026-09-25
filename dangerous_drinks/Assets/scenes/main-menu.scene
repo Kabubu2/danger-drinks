@@ -4186,14 +4186,10 @@
           ]
         },
         {
-          "__type": "NetMenu+NetworkControl",
-          "__guid": "3e5a8797-f3c8-4f30-8013-64d707bf99df",
+          "__type": "MultiplayerMove",
+          "__guid": "b82b1215-c3e1-48de-a8e2-5712d09c3f00",
           "__enabled": true,
           "Flags": 0,
-          "MainMenuScene": {
-            "Id": "2d7f4987-d01b-46d5-836b-015958e9385a",
-            "Path": "scenes/main-menu.scene"
-          },
           "MainScene": {
             "Id": "b0d74911-75f7-4e04-882d-1ba41e1acba9",
             "Path": "scenes/bar_a.scene"
@@ -4206,10 +4202,14 @@
           "OnComponentUpdate": null
         },
         {
-          "__type": "ButtonStartGame+MultiplayerScene",
-          "__guid": "bf19ac70-64a3-4f78-ae11-e3ec52718b6f",
+          "__type": "NetMenu+NetworkControl",
+          "__guid": "3e5a8797-f3c8-4f30-8013-64d707bf99df",
           "__enabled": true,
           "Flags": 0,
+          "MainMenuScene": {
+            "Id": "2d7f4987-d01b-46d5-836b-015958e9385a",
+            "Path": "scenes/main-menu.scene"
+          },
           "MainScene": {
             "Id": "b0d74911-75f7-4e04-882d-1ba41e1acba9",
             "Path": "scenes/bar_a.scene"
