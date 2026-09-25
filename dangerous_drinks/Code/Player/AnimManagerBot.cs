@@ -22,8 +22,8 @@ public sealed class AnimManagerBot : Component
 	}
 	protected override void OnUpdate()
 	{
-		LogicAssociate();
-		AnimSwitcher();
+		//LogicAssociate();
+		//AnimSwitcher();
 	}
 
 	private void OnAnimationEvent( SceneModel.GenericEvent evt )

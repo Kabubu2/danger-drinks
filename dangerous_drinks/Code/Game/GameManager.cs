@@ -14,7 +14,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	/// GAME LOGIC AND VARIABLES
 	/// ----------------------------------------
 
-	[Property]
+	[Property] 
 	public GameObject BottlesContainer;
 	[Property]
 	public GameObject WaitPoint;
@@ -25,6 +25,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	private bool isHost {get; set;}
 	protected override void OnUpdate()
 	{
+		isHost = Networking.IsHost;
 		if(!Start)StartGame();
 		Logic();
 	}
@@ -338,10 +339,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 	}
 
-
+	[Rpc.Broadcast]
 	void INetworkListener.OnActive( Connection connection )
-	
-	
 	{
 		Log.Info( $"{connection.DisplayName} has become active" );
 		if (isHost && Players[1] == null) InstancePlayerAsset(1, connection);
@@ -357,7 +356,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			CurrentGameState = GameState.PreGame;
 		}
 	} 
-	
+	[Rpc.Broadcast(NetFlags.Reliable)]
 		private void InstancePlayerAsset(int PlayerInt, Connection connection) //SETS THE NECESSARY DETAILS FOR EACH PLAYER ALONG WITH THE SPAWNING OF A PLAYER.
 	{
 		PlayerAsset[PlayerInt] = PlayerReference.Clone();
@@ -408,7 +407,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
-
+			playerRelay.playerController.Enabled = false;
+			playerRelay.playerControllerBot.Enabled = true;
+			playerRelay.animManager.Enabled = false;
+			playerRelay.animManagerBot.Enabled = true;
+			playerRelay.botController.Enabled = false;
+		
 		var b = PlayerAsset[1];
 		if(b.IsValid && b.GetComponent<DD_PlayerController>() != null)b.GetComponent<DD_PlayerController>().Enabled = false;
 		}
@@ -425,6 +429,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 		camera.GameObject.Parent = playerRelay.EyeSlot;
 		camera.GameObject.LocalPosition = Vector3.Zero;
 		camera.GameObject.LocalRotation = Rotation.Identity;
+			playerRelay.playerController.Enabled = false;
+			playerRelay.playerControllerBot.Enabled = true;
+			playerRelay.animManager.Enabled = false;
+			playerRelay.animManagerBot.Enabled = true;
+			playerRelay.botController.Enabled = false;
 
 		var b = PlayerAsset[0];
 		if(b.IsValid && b.GetComponent<DD_PlayerController>() != null)b.GetComponent<DD_PlayerController>().Enabled = false;
